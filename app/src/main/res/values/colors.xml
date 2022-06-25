@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    --> eigene Farben -->
+    <color name="yellow">#FFD60A</color>
+    <color name="purple">#FF37F2</color>
+    <color name="pink">#FF375F</color>
+    <color name="green">#30D158</color>
+    <color name="blue">#0A84FF</color>
 </resources>
