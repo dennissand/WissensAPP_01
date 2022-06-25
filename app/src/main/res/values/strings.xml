@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Wissens App 01</string>
+    <string name="title_home">Home</string>
+    <string name="title_box">Box</string>
+    <string name="title_card">Card</string>
+    <string name="title_learn">Learn</string>
+</resources>
