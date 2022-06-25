@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "867581105364",
+    "project_id": "wissens-app-01",
+    "storage_bucket": "wissens-app-01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867581105364:android:df6418597295e52d3ad741",
+        "android_client_info": {
+          "package_name": "com.codingstuff.nestedrealtimedb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867581105364-qel2c1a9kjdlahah5iucv1mt4mr5bc7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP-2m5OJ82e3j2lh-2997Bzx3PXs-5V4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "867581105364-qel2c1a9kjdlahah5iucv1mt4mr5bc7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867581105364:android:1ed54ec53ad08ee13ad741",
+        "android_client_info": {
+          "package_name": "com.example.wissensapp_01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867581105364-qel2c1a9kjdlahah5iucv1mt4mr5bc7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP-2m5OJ82e3j2lh-2997Bzx3PXs-5V4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "867581105364-qel2c1a9kjdlahah5iucv1mt4mr5bc7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
