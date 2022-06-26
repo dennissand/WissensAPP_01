@@ -4,4 +4,14 @@
     <string name="title_box">Box</string>
     <string name="title_card">Card</string>
     <string name="title_learn">Learn</string>
+    <string name="log_out">Log Out</string>
+    <string name="type_your_email">Type your Email</string>
+    <string name="type_your_password">Type Your Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="not_registered_yet_sign_up">Not Registered Yet , Sign Up !</string>
+    <string name="type_your_email_1">Type your Email</string>
+    <string name="type_your_password_1">Type Your Password</string>
+    <string name="retype_your_password_2">Retype Your Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_registered_sign_in">Already Registered , Sign In !</string>
 </resources>
