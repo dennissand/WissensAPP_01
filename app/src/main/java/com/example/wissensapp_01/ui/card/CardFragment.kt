@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.wissensapp_01.databinding.FragmentCardHomeBinding
@@ -28,10 +27,6 @@ class CardFragment : Fragment() {
         _binding = FragmentCardHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textCard
-        cardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
         return root
     }
 
@@ -40,4 +35,3 @@ class CardFragment : Fragment() {
         _binding = null
     }
 }
-

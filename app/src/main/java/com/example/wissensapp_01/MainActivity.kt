@@ -3,7 +3,12 @@ package com.example.wissensapp_01
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.wissensapp_01.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
@@ -28,9 +33,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-/*        val navView: BottomNavigationView = binding.navView
+        val navView: BottomNavigationView = binding.navView
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        val navController = navHostFragment.navController
 
-       val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        /*val navController = findNavController(R.id.nav_host_fragment_activity_main)*/
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -40,9 +48,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_card_home,
                 R.id.navigation_learn_home
             )
+
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }*/
     }
 }

@@ -3,19 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home_home">
-
-    <fragment
-        android:id="@+id/navigation_home_home"
-        android:name="com.example.wissensapp_01.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home_home" />
-
-    <fragment
-        android:id="@+id/navigation_box_home"
-        android:name="com.example.wissensapp_01.ui.box.BoxFragment"
-        android:label="@string/title_box"
-        tools:layout="@layout/fragment_box_home" />
+    app:startDestination="@id/navigation_home_home">
 
     <fragment
         android:id="@+id/navigation_card_home"
@@ -28,5 +16,27 @@
         android:name="com.example.wissensapp_01.ui.learn.LearnFragment"
         android:label="@string/title_learn"
         tools:layout="@layout/fragment_learn_home" />
+
+    <fragment
+        android:id="@+id/navigation_box_home"
+        android:name="com.example.wissensapp_01.ui.box.BoxFragment"
+        android:label="fragment_box_home"
+        tools:layout="@layout/fragment_box_home" />
+    <fragment
+        android:id="@+id/navigation_home_home"
+        android:name="com.example.wissensapp_01.ui.home.HomeFragment"
+        android:label="fragment_home_home"
+        tools:layout="@layout/fragment_home_home" />
+
+    <activity
+        android:id="@+id/signInActivity"
+        android:name="com.example.wissensapp_01.SignInActivity"
+        android:label="activity_sign_in"
+        tools:layout="@layout/activity_sign_in" />
+    <activity
+        android:id="@+id/signUpActivity"
+        android:name="com.example.wissensapp_01.SignUpActivity"
+        android:label="activity_sign_up"
+        tools:layout="@layout/activity_sign_up" />
 
 </navigation>
