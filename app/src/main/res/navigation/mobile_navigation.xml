@@ -20,12 +20,12 @@
     <fragment
         android:id="@+id/navigation_box_home"
         android:name="com.example.wissensapp_01.ui.box.BoxFragment"
-        android:label="fragment_box_home"
+        android:label="@string/title_box"
         tools:layout="@layout/fragment_box_home" />
     <fragment
         android:id="@+id/navigation_home_home"
         android:name="com.example.wissensapp_01.ui.home.HomeFragment"
-        android:label="fragment_home_home"
+        android:label="@string/title_home"
         tools:layout="@layout/fragment_home_home" />
 
     <activity
