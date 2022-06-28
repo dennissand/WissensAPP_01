@@ -13,4 +13,5 @@
     <color name="pink">#FF375F</color>
     <color name="green">#30D158</color>
     <color name="blue">#0A84FF</color>
+    <color name="transparent">#00000000</color>
 </resources>
