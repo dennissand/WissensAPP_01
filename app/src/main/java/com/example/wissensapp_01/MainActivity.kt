@@ -1,6 +1,5 @@
 package com.example.wissensapp_01
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
@@ -10,18 +9,18 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.wissensapp_01.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var firebaseAuth: FirebaseAuth
+
     // Einbinden von Firebase Authentication//
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         /*supportActionBar?.hide()*/
+        // Bildschirm wird dann komplett "übernommen"//
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.setDecorFitsSystemWindows(false)
@@ -34,16 +33,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // Firebase wird abgerufen //
-        firebaseAuth = FirebaseAuth.getInstance()
-
-        // LogOut Funktion wenn man die Verlassen möchte //
-        binding.logOut.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            firebaseAuth.signOut()
-            startActivity(intent)
-        }
 
         val navView: BottomNavigationView = binding.navView
         val navHostFragment =

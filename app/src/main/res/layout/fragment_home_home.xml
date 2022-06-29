@@ -10,6 +10,20 @@
     android:transitionName="@string/title_home"
     >
 
+    <Button
+        android:id="@+id/logOut"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="@color/yellow"
+        android:text="@string/log_out"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 
 
