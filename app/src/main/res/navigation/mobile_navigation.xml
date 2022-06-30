@@ -33,8 +33,8 @@
         android:label="activity_sign_up"
         tools:layout="@layout/activity_sign_up" />
 
-    <navigation android:id="@+id/navigation"
-        app:startDestination="@id/editCardFragment">
+    <navigation android:id="@+id/nested_card"
+        app:startDestination="@id/navigation_card_home">
         <fragment
             android:id="@+id/editCardFragment"
             android:name="com.example.wissensapp_01.ui.card.EditCardFragment"

@@ -5,7 +5,6 @@
         android:id="@+id/navigation_home_home"
         android:icon="@drawable/home_01"
         android:title="@string/title_home"
-        android:iconTint="@color/yellow"
         />
 
     <item
@@ -14,7 +13,7 @@
         android:title="@string/title_box" />
 
     <item
-        android:id="@+id/navigation_card_home"
+        android:id="@+id/nested_card"
         android:icon="@drawable/card_01"
         android:title="@string/title_card" />
 
