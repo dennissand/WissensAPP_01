@@ -66,11 +66,19 @@ class AddCardFragment : Fragment() {
         val cardId = UUID.randomUUID().toString()
         val a = binding.eTA.text.toString()
         val b = binding.eTB.text.toString()
-        val boxName = binding.eTBoxName.toString()
+        val boxName = binding.eTBoxName.text.toString()
         val boxContent = "English"
         val boxColor = "purple"
         val cardLearned = false
-        return Card(cardId, a, b, boxName, boxContent, boxColor, cardLearned)
+        return Card(
+            cardId = cardId,
+            a = a,
+            b = b,
+            boxName = boxName,
+            boxContent = boxContent,
+            boxColor = boxColor,
+            cardLearned = cardLearned
+        )
     }
 
     private fun saveCard(card: Card) = CoroutineScope(Dispatchers.IO).launch {
@@ -83,6 +91,9 @@ class AddCardFragment : Fragment() {
                     Toast.LENGTH_LONG
                 )
                     .show()
+                binding.eTA.setText("")
+                binding.eTB.setText("")
+                binding.eTBoxName.setText("")
             }
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
