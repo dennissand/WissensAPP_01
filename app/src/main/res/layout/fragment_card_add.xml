@@ -35,29 +35,6 @@
         app:layout_constraintEnd_toEndOf="@+id/eT_boxName"
         app:layout_constraintStart_toStartOf="@+id/eT_boxName" />
 
-    <Button
-        android:id="@+id/btn_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Add"
-        app:layout_constraintBottom_toTopOf="@+id/btn_delet"
-        app:layout_constraintEnd_toEndOf="@+id/eT_boxName"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="@+id/eT_boxName" />
-
-
-
-    <Button
-        android:id="@+id/btn_delet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="220dp"
-        android:text="Delet"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <EditText
         android:id="@+id/eT_boxName"
         android:layout_width="wrap_content"
@@ -72,13 +49,40 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
+        android:id="@+id/btn_save"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="430dp"
+        android:background="@drawable/round_button_pink"
+        app:backgroundTint="@null"
+        android:text="Add"
+        app:layout_constraintEnd_toEndOf="@+id/eT_boxName"
+        app:layout_constraintStart_toStartOf="@+id/eT_boxName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginBottom="140dp"
+        android:src="@drawable/card_01"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/btn_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/round_button_pink"
         android:text="Edit"
-        app:layout_constraintEnd_toEndOf="@+id/btn_delet"
-        app:layout_constraintStart_toStartOf="@+id/btn_delet"
-        app:layout_constraintTop_toBottomOf="@+id/btn_delet" />
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="@+id/btn_save"
+        app:layout_constraintStart_toStartOf="@+id/btn_save"
+        app:layout_constraintTop_toBottomOf="@+id/btn_save" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

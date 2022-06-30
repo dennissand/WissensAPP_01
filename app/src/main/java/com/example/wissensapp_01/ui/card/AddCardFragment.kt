@@ -56,10 +56,6 @@ class AddCardFragment : Fragment() {
             val card = getOldCard()
             saveCard(card)
         }
-
-        binding.btnEdit.setOnClickListener {
-            getAllCards()
-        }
     }
 
     private fun getOldCard(): Card {

@@ -40,7 +40,7 @@ class CardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.fABAddCard.setOnClickListener {
+        binding.btnAdd.setOnClickListener {
             findNavController().navigate(R.id.addCardFragment)
         }
     }
