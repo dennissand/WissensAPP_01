@@ -6,12 +6,6 @@
     app:startDestination="@id/navigation_home_home">
 
     <fragment
-        android:id="@+id/navigation_card_home"
-        android:name="com.example.wissensapp_01.ui.card.CardFragment"
-        android:label="@string/title_card"
-        tools:layout="@layout/fragment_card_home" />
-
-    <fragment
         android:id="@+id/navigation_learn_home"
         android:name="com.example.wissensapp_01.ui.learn.LearnFragment"
         android:label="@string/title_learn"
@@ -39,4 +33,29 @@
         android:label="activity_sign_up"
         tools:layout="@layout/activity_sign_up" />
 
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/editCardFragment">
+        <fragment
+            android:id="@+id/editCardFragment"
+            android:name="com.example.wissensapp_01.ui.card.EditCardFragment"
+            android:label="EditCardFragment"
+            tools:layout="@layout/fragment_card_edit" />
+        <fragment
+            android:id="@+id/addCardFragment"
+            android:name="com.example.wissensapp_01.ui.card.AddCardFragment"
+            android:label="AddCardFragment"
+            tools:layout="@layout/fragment_card_add" />
+        <fragment
+            android:id="@+id/navigation_card_home"
+            android:name="com.example.wissensapp_01.ui.card.CardFragment"
+            android:label="@string/title_card"
+            tools:layout="@layout/fragment_card_home" >
+            <action
+                android:id="@+id/action_navigation_card_home_to_addCardFragment"
+                app:destination="@id/addCardFragment" />
+            <action
+                android:id="@+id/action_navigation_card_home_to_editCardFragment"
+                app:destination="@id/editCardFragment" />
+        </fragment>
+    </navigation>
 </navigation>

@@ -3,6 +3,7 @@ package com.example.wissensapp_01
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
 
         /*supportActionBar?.hide()*/
         // Bildschirm wird dann komplett "übernommen"//

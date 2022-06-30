@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/_card_"
+    tools:context=".ui.card.CardFragment">
+
+    <EditText
+        android:id="@+id/eT_A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="A"
+        app:layout_constraintBottom_toTopOf="@+id/eT_B"
+        app:layout_constraintEnd_toEndOf="@+id/eT_B"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/eT_B" />
+
+    <EditText
+        android:id="@+id/eT_B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="B"
+        app:layout_constraintBottom_toTopOf="@+id/eT_boxName"
+        app:layout_constraintEnd_toEndOf="@+id/eT_boxName"
+        app:layout_constraintStart_toStartOf="@+id/eT_boxName" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Add"
+        app:layout_constraintBottom_toTopOf="@+id/btn_delet"
+        app:layout_constraintEnd_toEndOf="@+id/eT_boxName"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/eT_boxName" />
+
+
+
+    <Button
+        android:id="@+id/btn_delet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:text="Delet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/eT_boxName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:minHeight="48dp"
+        android:ems="10"
+        android:hint="Box Name"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Edit"
+        app:layout_constraintEnd_toEndOf="@+id/btn_delet"
+        app:layout_constraintStart_toStartOf="@+id/btn_delet"
+        app:layout_constraintTop_toBottomOf="@+id/btn_delet" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
