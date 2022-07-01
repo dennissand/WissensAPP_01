@@ -4,8 +4,10 @@ import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.wissensapp_01.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -55,5 +57,18 @@ class MainActivity : AppCompatActivity() {
         )
         // setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        navView.setOnItemSelectedListener { item ->
+
+            NavigationUI.onNavDestinationSelected(item, navController)
+
+            val graph = navController.graph.findNode(item.itemId) as? NavGraph?
+
+            graph?.startDestinationId?.let {
+                navController.popBackStack(it, false)
+            }
+
+            return@setOnItemSelectedListener true
+        }
     }
 }
