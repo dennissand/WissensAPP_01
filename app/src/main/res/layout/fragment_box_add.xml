@@ -6,5 +6,40 @@
     android:layout_height="match_parent"
     android:background="@drawable/_box_">
 
+    <Button
+        android:id="@+id/btn_save_box"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/ic_baseline_circle_75_green"
+        android:text="Save"
+        app:backgroundTint="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_new_box"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/ic_baseline_circle_75_green"
+        android:text="New"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rw_Box"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
