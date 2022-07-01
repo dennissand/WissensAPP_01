@@ -67,6 +67,7 @@
         android:layout_marginStart="112dp"
         android:layout_marginBottom="140dp"
         android:src="@drawable/card_01"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

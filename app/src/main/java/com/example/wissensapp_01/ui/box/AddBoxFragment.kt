@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.wissensapp_01.databinding.FragmentBoxHomeBinding
+import com.example.wissensapp_01.databinding.FragmentBoxAddBinding
 
-class BoxFragment : Fragment() {
+class AddBoxFragment : Fragment() {
 
-    private var _binding: FragmentBoxHomeBinding? = null
+    private var _binding: FragmentBoxAddBinding? = null
 
     private val binding get() = _binding!!
 
@@ -22,7 +22,7 @@ class BoxFragment : Fragment() {
         val boxViewModel =
             ViewModelProvider(this).get(BoxViewModel::class.java)
 
-        _binding = FragmentBoxHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentBoxAddBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         return root

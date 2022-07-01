@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
         // Firebase wird abgerufen //
         firebaseAuth = FirebaseAuth.getInstance()
 
-        // LogOut Funktion wenn man die Verlassen möchte //
+        // LogOut Funktion wenn man den Log verlassen möchte //
         binding.logOut.setOnClickListener {
             val intent = Intent(requireContext(), SignUpActivity::class.java)
             firebaseAuth.signOut()
