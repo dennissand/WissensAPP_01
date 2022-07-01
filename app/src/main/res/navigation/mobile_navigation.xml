@@ -12,11 +12,6 @@
         tools:layout="@layout/fragment_learn_home" />
 
     <fragment
-        android:id="@+id/navigation_box_home"
-        android:name="com.example.wissensapp_01.ui.box.BoxFragment"
-        android:label="@string/title_box"
-        tools:layout="@layout/fragment_box_home" />
-    <fragment
         android:id="@+id/navigation_home_home"
         android:name="com.example.wissensapp_01.ui.home.HomeFragment"
         android:label="@string/title_home"
@@ -39,12 +34,20 @@
             android:id="@+id/editCardFragment"
             android:name="com.example.wissensapp_01.ui.card.EditCardFragment"
             android:label="EditCardFragment"
-            tools:layout="@layout/fragment_card_edit" />
+            tools:layout="@layout/fragment_card_edit" >
+            <action
+                android:id="@+id/action_editCardFragment_to_navigation_card_home"
+                app:destination="@id/navigation_card_home" />
+        </fragment>
         <fragment
             android:id="@+id/addCardFragment"
             android:name="com.example.wissensapp_01.ui.card.AddCardFragment"
             android:label="AddCardFragment"
-            tools:layout="@layout/fragment_card_add" />
+            tools:layout="@layout/fragment_card_add" >
+            <action
+                android:id="@+id/action_addCardFragment_to_navigation_card_home"
+                app:destination="@id/navigation_card_home" />
+        </fragment>
         <fragment
             android:id="@+id/navigation_card_home"
             android:name="com.example.wissensapp_01.ui.card.CardFragment"
@@ -57,5 +60,39 @@
                 android:id="@+id/action_navigation_card_home_to_editCardFragment"
                 app:destination="@id/editCardFragment" />
         </fragment>
+    </navigation>
+    <navigation android:id="@+id/nested_box"
+        app:startDestination="@id/navigation_box_home">
+        <fragment
+            android:id="@+id/editBoxFragment"
+            android:name="com.example.wissensapp_01.ui.box.EditBoxFragment"
+            android:label="EditBoxFragment"
+            tools:layout="@layout/fragment_box_edit">
+            <action
+                android:id="@+id/action_editBoxFragment_to_navigation_box_home"
+                app:destination="@id/navigation_box_home" />
+        </fragment>
+        <fragment
+            android:id="@+id/addBoxFragment"
+            android:name="com.example.wissensapp_01.ui.box.AddBoxFragment"
+            android:label="AddBoxFragment"
+            tools:layout="@layout/fragment_box_add">
+            <action
+                android:id="@+id/action_addBoxFragment_to_navigation_box_home"
+                app:destination="@id/navigation_box_home" />
+        </fragment>
+        <fragment
+            android:id="@+id/navigation_box_home"
+            android:name="com.example.wissensapp_01.ui.box.BoxFragment"
+            android:label="@string/title_box"
+            tools:layout="@layout/fragment_box_home" >
+            <action
+                android:id="@+id/action_navigation_box_home_to_editBoxFragment"
+                app:destination="@id/editBoxFragment" />
+            <action
+                android:id="@+id/action_navigation_box_home_to_addBoxFragment"
+                app:destination="@id/addBoxFragment" />
+        </fragment>
+
     </navigation>
 </navigation>

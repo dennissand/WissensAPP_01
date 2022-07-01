@@ -8,7 +8,7 @@
         />
 
     <item
-        android:id="@+id/navigation_box_home"
+        android:id="@+id/nested_box"
         android:icon="@drawable/box_01"
         android:title="@string/title_box" />
 

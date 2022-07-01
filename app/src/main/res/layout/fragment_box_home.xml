@@ -8,6 +8,36 @@
     android:background="@drawable/_box_"
     tools:context=".ui.box.BoxFragment">
 
+    <ImageView
+        android:id="@+id/iV_box"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:background="@drawable/round_button_green"
+        android:padding="30dp"
+        android:src="@drawable/box_01"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <Button
+        android:id="@+id/btn_box_add"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="124dp"
+        android:background="@drawable/round_button_green"
+        android:text="+"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="TextContrastCheck" />
+
 
 
 
