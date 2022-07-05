@@ -19,7 +19,6 @@
         android:hint="A"
         app:layout_constraintBottom_toTopOf="@+id/eT_B"
         app:layout_constraintEnd_toEndOf="@+id/eT_B"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/eT_B" />
 
     <EditText
