@@ -1,7 +1,6 @@
 package com.example.wissensapp_01.ui.box
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.wissensapp_01.R
 import com.example.wissensapp_01.adapter.BoxAdapter
-import com.example.wissensapp_01.data.model.Card
+import com.example.wissensapp_01.data.model.Box
 import com.example.wissensapp_01.databinding.FragmentBoxHomeBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -25,11 +24,11 @@ import kotlinx.coroutines.withContext
 class BoxFragment : Fragment() {
 
     private var _binding: FragmentBoxHomeBinding? = null
-    private val dbref = Firebase.firestore.collection("cards")
+    private val dbref = Firebase.firestore.collection("boxes")
     private val binding get() = _binding!!
 
     // private lateinit var boxRecyclerview: RecyclerView
-    private lateinit var cardArrayList: ArrayList<Card>
+    private lateinit var boxArrayList: ArrayList<Box>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,29 +52,29 @@ class BoxFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        cardArrayList = arrayListOf<Card>()
-        getAllCards()
+        boxArrayList = arrayListOf<Box>()
+        getAllBoxes()
 
         binding.btnBoxAdd.setOnClickListener {
             findNavController().navigate(R.id.addBoxFragment)
         }
     }
 
-    private fun getAllCards() = CoroutineScope(Dispatchers.IO).launch {
+    private fun getAllBoxes() = CoroutineScope(Dispatchers.IO).launch {
         try {
-            val allCards = mutableListOf<Card>()
+            val allBoxes = mutableListOf<Box>()
             val results = dbref
                 .get()
                 .await()
             for (document in results.documents) {
-                val card = document.toObject<Card>()
-                if (card != null) {
-                    allCards.add(card)
+                val box = document.toObject<Box>()
+                if (box != null) {
+                    allBoxes.add(box)
                 }
             }
-            Log.e("result", allCards.toString())
+
             withContext(Dispatchers.Main) {
-                binding.rwBoxHome.adapter = BoxAdapter(allCards as ArrayList<Card>)
+                binding.rwBoxHome.adapter = BoxAdapter(allBoxes as ArrayList<Box>)
             }
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
@@ -106,7 +105,7 @@ class BoxFragment : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+
             }
         })
     }*/

@@ -1,7 +1,6 @@
 package com.example.wissensapp_01.ui.card
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.wissensapp_01.data.model.Card
 import com.example.wissensapp_01.databinding.FragmentCardAddBinding
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -51,26 +49,22 @@ class AddCardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnSave.setOnClickListener {
-            val card = getOldCard()
+            val card = createCard()
             saveCard(card)
         }
     }
 
-    private fun getOldCard(): Card {
+    private fun createCard(): Card {
         val cardId = UUID.randomUUID().toString()
         val a = binding.eTA.text.toString()
         val b = binding.eTB.text.toString()
-        val boxName = binding.eTBoxName.text.toString()
-        val boxContent = "English"
-        val boxColor = "purple"
         val cardLearned = false
+        val boxId = ""
         return Card(
             cardId = cardId,
             a = a,
             b = b,
-            boxName = boxName,
-            boxContent = boxContent,
-            boxColor = boxColor,
+            boxId = boxId,
             cardLearned = cardLearned
         )
     }
@@ -120,26 +114,6 @@ class AddCardFragment : Fragment() {
                     requireContext(), "No card matched the query",
                     Toast.LENGTH_LONG
                 ).show()
-            }
-        }
-    }
-
-    private fun getAllCards() = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            val allCards = mutableListOf<Card>()
-            val results = cardCollectionRef
-                .get()
-                .await()
-            for (document in results.documents) {
-                val card = document.toObject<Card>()
-                if (card != null) {
-                    allCards.add(card)
-                }
-            }
-            Log.e("result", allCards.toString())
-        } catch (e: Exception) {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
             }
         }
     }

@@ -6,8 +6,6 @@ data class Card(
     var cardId: String = "",
     var a: String = "",
     var b: String = "",
-    var boxName: String = "",
-    var boxContent: String = "",
-    var boxColor: String = "",
+    var boxId: String = "",
     var cardLearned: Boolean = false
 )
