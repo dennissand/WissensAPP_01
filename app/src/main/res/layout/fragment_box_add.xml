@@ -10,10 +10,10 @@
 
     <Button
         android:id="@+id/btn_save_box"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="300dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginTop="500dp"
         android:background="@drawable/ic_baseline_circle_75_green"
         android:text="Save"
         app:backgroundTint="@null"
@@ -24,7 +24,7 @@
         android:id="@+id/eT_box_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="300dp"
         android:ems="10"
         android:hint="Box Name"
         android:inputType="textPersonName"

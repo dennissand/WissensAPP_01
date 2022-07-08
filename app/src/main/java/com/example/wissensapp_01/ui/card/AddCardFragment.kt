@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.wissensapp_01.R
 import com.example.wissensapp_01.data.model.Card
 import com.example.wissensapp_01.databinding.FragmentCardAddBinding
 import com.google.firebase.firestore.ktx.firestore
@@ -51,6 +53,10 @@ class AddCardFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             val card = createCard()
             saveCard(card)
+        }
+
+        binding.btnEdit.setOnClickListener {
+            findNavController().navigate(R.id.editCardFragment)
         }
     }
 
@@ -103,7 +109,8 @@ class AddCardFragment : Fragment() {
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
-                        requireContext(), e.message,
+                        requireContext(),
+                        e.message,
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -111,7 +118,8 @@ class AddCardFragment : Fragment() {
         } else {
             withContext(Dispatchers.Main) {
                 Toast.makeText(
-                    requireContext(), "No card matched the query",
+                    requireContext(),
+                    "No card matched the query",
                     Toast.LENGTH_LONG
                 ).show()
             }

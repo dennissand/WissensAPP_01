@@ -7,27 +7,26 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wissensapp_01.R
-import com.example.wissensapp_01.data.model.Box
+import com.example.wissensapp_01.data.model.Card
 
-class BoxAdapter(
-    private var boxNameList: ArrayList<Box>,
-) : RecyclerView.Adapter<BoxAdapter.MyViewHolder>() {
+class CardAdapter(
+    private val cardIdList: ArrayList<Card>,
+) : RecyclerView.Adapter<CardAdapter.MyViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
-    fun submitList(List: List<Box>) {
-        val item = boxNameList
+    fun submitList(List: List<Card>) {
+        val item = cardIdList
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        val boxName: TextView = itemView.findViewById(R.id.tV_box_name)
-        val boxContent: TextView = itemView.findViewById(R.id.tV_box_content)
+        val a: TextView = itemView.findViewById(R.id.tV_card_a)
+        val b: TextView = itemView.findViewById(R.id.tV_card_b)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.box_item,
+            R.layout.card_item,
             parent, false
         )
         return MyViewHolder(itemView)
@@ -35,13 +34,12 @@ class BoxAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        val item = boxNameList[position]
-        holder.boxName.text = item.boxName
-        holder.boxContent.text = item.boxContent
+        val item = cardIdList[position]
+        holder.a.text = item.a
+        holder.b.text = item.b
     }
 
     override fun getItemCount(): Int {
-
-        return boxNameList.size
+        return cardIdList.size
     }
 }

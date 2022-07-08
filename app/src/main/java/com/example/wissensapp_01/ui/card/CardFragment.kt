@@ -1,6 +1,7 @@
 package com.example.wissensapp_01.ui.card
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.wissensapp_01.R
+import com.example.wissensapp_01.adapter.CardAdapter
 import com.example.wissensapp_01.data.model.Card
 import com.example.wissensapp_01.databinding.FragmentCardHomeBinding
 import com.example.wissensapp_01.ui.box.BoxViewModel
@@ -24,7 +26,7 @@ import kotlinx.coroutines.withContext
 class CardFragment : Fragment() {
 
     private var _binding: FragmentCardHomeBinding? = null
-    private val dbref = Firebase.firestore.collection("boxes")
+    private val dbref = Firebase.firestore.collection("cards")
     private val binding get() = _binding!!
 
     // private lateinit var boxRecyclerview: RecyclerView
@@ -66,15 +68,17 @@ class CardFragment : Fragment() {
             val results = dbref
                 .get()
                 .await()
+
             for (document in results.documents) {
                 val card = document.toObject<Card>()
                 if (card != null) {
                     allCards.add(card)
                 }
             }
+            Log.d("tag", allCards.toString())
 
             withContext(Dispatchers.Main) {
-                // binding.rwBoxHome.adapter = BoxAdapter(allCards as ArrayList<Card>)
+                binding.rwCardEdit.adapter = CardAdapter(allCards as ArrayList<Card>)
             }
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {

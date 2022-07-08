@@ -49,8 +49,8 @@
 
     <Button
         android:id="@+id/btn_save"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="430dp"
         android:background="@drawable/round_button_pink"
         app:backgroundTint="@null"
@@ -72,8 +72,8 @@
 
     <Button
         android:id="@+id/btn_edit"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/round_button_pink"
         android:text="Edit"

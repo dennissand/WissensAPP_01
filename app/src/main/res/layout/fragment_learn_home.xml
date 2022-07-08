@@ -9,4 +9,82 @@
     tools:context=".ui.learn.LearnFragment">
 
 
+    <ImageButton
+        android:id="@+id/ibtn_learn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="155dp"
+        android:background="@color/white"
+        android:backgroundTint="@null"
+        android:src="@drawable/round_button_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ibtn_ok"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/white"
+        android:backgroundTint="@null"
+        android:src="@drawable/round_button_blue"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_learn"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_learn"
+        app:layout_constraintTop_toBottomOf="@+id/ibtn_learn" />
+
+    <ImageButton
+        android:id="@+id/ibtn_again"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/white"
+        android:backgroundTint="@null"
+        android:src="@drawable/round_button_blue"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_ok"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_ok"
+        app:layout_constraintTop_toBottomOf="@+id/ibtn_ok" />
+
+    <TextView
+        android:id="@+id/tV_learn_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Learn"
+        android:textColor="@color/white"
+        android:textStyle="normal"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_learn"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_learn"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_learn"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_learn" />
+
+    <TextView
+        android:id="@+id/tV_btn_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:textColor="@color/white"
+        android:textStyle="normal"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_ok"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_ok"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_ok"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_ok"
+        />
+
+    <TextView
+        android:id="@+id/tV_btn_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Again"
+        android:textColor="@color/white"
+        android:textStyle="normal"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_again"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_again"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_again"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_again" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

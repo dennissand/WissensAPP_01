@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="violet">#6A4C93</color>
+    <color name="pink_light">#77FF315F</color>
 </resources>

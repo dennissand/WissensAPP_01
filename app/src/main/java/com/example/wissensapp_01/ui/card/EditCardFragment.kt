@@ -29,6 +29,4 @@ class EditCardFragment : Fragment() {
     }
 }
 
-// binding.btnEdit.setOnClickListener {
-//    getAllCards()
-// }
+
