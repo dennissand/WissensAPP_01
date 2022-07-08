@@ -6,12 +6,6 @@
     app:startDestination="@id/navigation_home_home">
 
     <fragment
-        android:id="@+id/navigation_learn_home"
-        android:name="com.example.wissensapp_01.ui.learn.LearnFragment"
-        android:label="@string/title_learn"
-        tools:layout="@layout/fragment_learn_home" />
-
-    <fragment
         android:id="@+id/navigation_home_home"
         android:name="com.example.wissensapp_01.ui.home.HomeFragment"
         android:label="@string/title_home"
@@ -94,5 +88,25 @@
                 app:destination="@id/addBoxFragment" />
         </fragment>
 
+    </navigation>
+    <navigation android:id="@+id/nested_learn"
+        app:startDestination="@id/navigation_learn_home">
+        <fragment
+            android:id="@+id/learnCardFragment"
+            android:name="com.example.wissensapp_01.ui.learn.LearnCardFragment"
+            android:label="LearnCardFragment" >
+            <action
+                android:id="@+id/action_learnCardFragment_to_navigation_learn_home"
+                app:destination="@id/navigation_learn_home" />
+        </fragment>
+        <fragment
+            android:id="@+id/navigation_learn_home"
+            android:name="com.example.wissensapp_01.ui.learn.LearnFragment"
+            android:label="@string/title_learn"
+            tools:layout="@layout/fragment_learn_home" >
+            <action
+                android:id="@+id/action_navigation_learn_home_to_learnCardFragment"
+                app:destination="@id/learnCardFragment" />
+        </fragment>
     </navigation>
 </navigation>

@@ -18,7 +18,7 @@
         android:title="@string/title_card" />
 
     <item
-        android:id="@+id/navigation_learn_home"
+        android:id="@+id/nested_learn"
         android:icon="@drawable/learn_01"
         android:title="@string/title_learn" />
 
