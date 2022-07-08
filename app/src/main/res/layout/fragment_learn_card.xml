@@ -13,6 +13,77 @@
         android:background="@drawable/_learn_"
         tools:context=".ui.learn.LearnFragment">
 
+        <ImageButton
+            android:id="@+id/ibtn_again"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="548dp"
+            android:layout_marginEnd="155dp"
+            android:background="@color/white"
+            android:backgroundTint="@null"
+            android:src="@drawable/round_button_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iV_card_again"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/ibtn_again"
+            app:layout_constraintEnd_toEndOf="@+id/ibtn_again"
+            app:layout_constraintStart_toStartOf="@+id/ibtn_again"
+            app:layout_constraintTop_toTopOf="@+id/ibtn_again"
+            app:srcCompat="@drawable/replay_60" />
+
+        <ImageButton
+            android:id="@+id/ibtn_ok"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="155dp"
+            android:layout_marginTop="548dp"
+            android:layout_marginEnd="55dp"
+            android:background="@color/white"
+            android:backgroundTint="@null"
+            android:src="@drawable/round_button_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iV_card_ok"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/ibtn_ok"
+            app:layout_constraintEnd_toEndOf="@+id/ibtn_ok"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/ibtn_ok"
+            app:layout_constraintTop_toTopOf="@+id/ibtn_ok"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/check_60" />
+
+        <Button
+            android:id="@+id/btn_next_card"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/blue"
+            android:text="Next Card"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/mcv_card_back"
             android:layout_width="300dp"
@@ -20,7 +91,7 @@
             app:cardBackgroundColor="@color/purple_500"
             app:cardCornerRadius="20dp"
             android:backgroundTint="@null"
-            app:cardElevation="3dp"
+            app:cardElevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -58,7 +129,7 @@
             app:cardBackgroundColor="@color/purple_200"
             android:backgroundTint="@null"
             app:cardCornerRadius="20dp"
-            app:cardElevation="3dp"
+            app:cardElevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -83,6 +154,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

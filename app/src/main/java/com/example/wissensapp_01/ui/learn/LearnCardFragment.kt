@@ -47,8 +47,8 @@ class LearnCardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val scale: Float = requireContext().resources.displayMetrics.density
-        binding.mcvCardFront.cameraDistance = 16000 * scale
-        binding.mcvCardBack.cameraDistance = 16000 * scale
+        binding.mcvCardFront.cameraDistance = 7000 * scale
+        binding.mcvCardBack.cameraDistance = 7000 * scale
 
         front_anim = AnimatorInflater.loadAnimator(
             requireContext(),
@@ -74,6 +74,5 @@ class LearnCardFragment : Fragment() {
                 isFront = true
             }
         }
-
     }
 }
