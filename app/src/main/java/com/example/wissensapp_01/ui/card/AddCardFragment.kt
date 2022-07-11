@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.wissensapp_01.MainViewModel
 import com.example.wissensapp_01.R
 import com.example.wissensapp_01.data.model.Card
 import com.example.wissensapp_01.databinding.FragmentCardAddBinding
@@ -23,7 +24,7 @@ import java.util.*
 class AddCardFragment : Fragment() {
 
     private val cardCollectionRef = Firebase.firestore.collection("cards")
-
+    private val viewModel: MainViewModel by activityViewModels()
     private var _binding: FragmentCardAddBinding? = null
 
     private val binding get() = _binding!!
@@ -33,8 +34,7 @@ class AddCardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val cardViewModel =
-            ViewModelProvider(this).get(CardViewModel::class.java)
+        val viewModel: MainViewModel by activityViewModels()
 
         _binding = FragmentCardAddBinding.inflate(inflater, container, false)
         val root: View = binding.root

@@ -10,7 +10,7 @@ import com.example.wissensapp_01.R
 import com.example.wissensapp_01.data.model.Card
 
 class CardAdapter(
-    private val cardIdList: ArrayList<Card>,
+    private val cardIdList: ArrayList<Card>
 ) : RecyclerView.Adapter<CardAdapter.MyViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
@@ -24,16 +24,15 @@ class CardAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.card_item,
-            parent, false
+            parent,
+            false
         )
         return MyViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
         val item = cardIdList[position]
         holder.a.text = item.a
         holder.b.text = item.b

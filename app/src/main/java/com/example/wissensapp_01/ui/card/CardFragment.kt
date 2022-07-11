@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.wissensapp_01.MainViewModel
 import com.example.wissensapp_01.R
 import com.example.wissensapp_01.adapter.CardAdapter
 import com.example.wissensapp_01.data.model.Card
 import com.example.wissensapp_01.databinding.FragmentCardHomeBinding
-import com.example.wissensapp_01.ui.box.BoxViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -24,7 +24,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
 class CardFragment : Fragment() {
-
+    private val viewModel: MainViewModel by activityViewModels()
     private var _binding: FragmentCardHomeBinding? = null
     private val dbref = Firebase.firestore.collection("cards")
     private val binding get() = _binding!!
@@ -37,8 +37,7 @@ class CardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val boxViewModel =
-            ViewModelProvider(this).get(BoxViewModel::class.java)
+        val viewModel: MainViewModel by activityViewModels()
 
         _binding = FragmentCardHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root

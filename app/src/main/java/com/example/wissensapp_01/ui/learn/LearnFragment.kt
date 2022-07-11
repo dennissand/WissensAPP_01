@@ -5,14 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.wissensapp_01.MainViewModel
 import com.example.wissensapp_01.R
 import com.example.wissensapp_01.databinding.FragmentLearnHomeBinding
 
 class LearnFragment : Fragment() {
 
     private var _binding: FragmentLearnHomeBinding? = null
+    private val viewModel: MainViewModel by activityViewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,8 +25,7 @@ class LearnFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val learnViewModel =
-            ViewModelProvider(this).get(LearnViewModel::class.java)
+        val viewModel: MainViewModel by activityViewModels()
 
         _binding = FragmentLearnHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root

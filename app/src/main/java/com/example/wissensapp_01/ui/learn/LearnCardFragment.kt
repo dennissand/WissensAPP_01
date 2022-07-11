@@ -7,12 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
+import com.example.wissensapp_01.MainViewModel
 import com.example.wissensapp_01.R
 import com.example.wissensapp_01.databinding.FragmentLearnCardBinding
 
 class LearnCardFragment : Fragment() {
-
+    private val viewModel: MainViewModel by activityViewModels()
     private var _binding: FragmentLearnCardBinding? = null
 
     // Flipcard Animation
@@ -29,8 +30,7 @@ class LearnCardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val learnViewModel =
-            ViewModelProvider(this).get(LearnViewModel::class.java)
+        val viewModel: MainViewModel by activityViewModels()
 
         _binding = FragmentLearnCardBinding.inflate(inflater, container, false)
         val root: View = binding.root

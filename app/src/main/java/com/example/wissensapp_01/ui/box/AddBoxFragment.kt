@@ -6,7 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
+import com.example.wissensapp_01.MainViewModel
 import com.example.wissensapp_01.data.model.Box
 import com.example.wissensapp_01.databinding.FragmentBoxAddBinding
 import com.google.firebase.firestore.ktx.firestore
@@ -20,10 +21,9 @@ import java.util.*
 
 class AddBoxFragment : Fragment() {
 
+    private val viewModel: MainViewModel by activityViewModels()
     private val boxCollectionRef = Firebase.firestore.collection("boxes")
-
     private var _binding: FragmentBoxAddBinding? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -31,8 +31,7 @@ class AddBoxFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val boxViewModel =
-            ViewModelProvider(this).get(BoxViewModel::class.java)
+        val viewModel: MainViewModel by activityViewModels()
 
         _binding = FragmentBoxAddBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -98,7 +97,8 @@ class AddBoxFragment : Fragment() {
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
-                        requireContext(), e.message,
+                        requireContext(),
+                        e.message,
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -106,7 +106,8 @@ class AddBoxFragment : Fragment() {
         } else {
             withContext(Dispatchers.Main) {
                 Toast.makeText(
-                    requireContext(), "No card matched the query",
+                    requireContext(),
+                    "No card matched the query",
                     Toast.LENGTH_LONG
                 ).show()
             }
