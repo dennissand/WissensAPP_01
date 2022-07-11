@@ -23,10 +23,9 @@ import java.util.*
 
 class AddCardFragment : Fragment() {
 
-    private val cardCollectionRef = Firebase.firestore.collection("cards")
     private val viewModel: MainViewModel by activityViewModels()
+    private val dbref = Firebase.firestore.collection("cards")
     private var _binding: FragmentCardAddBinding? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -34,8 +33,6 @@ class AddCardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel: MainViewModel by activityViewModels()
-
         _binding = FragmentCardAddBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -77,7 +74,7 @@ class AddCardFragment : Fragment() {
 
     private fun saveCard(card: Card) = CoroutineScope(Dispatchers.IO).launch {
         try {
-            cardCollectionRef.add(card).await()
+            dbref.add(card).await()
             withContext(Dispatchers.Main) {
                 Toast.makeText(
                     requireContext(),
@@ -92,36 +89,6 @@ class AddCardFragment : Fragment() {
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
                 Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
-
-    private fun deleteCard(card: Card) = CoroutineScope(Dispatchers.IO).launch {
-        val cardQuery = cardCollectionRef
-            .whereEqualTo("cardId", card.cardId)
-            .get()
-            .await()
-        if (cardQuery.documents.isNotEmpty()) {
-            try {
-                val result = cardQuery.documents[0]
-                cardCollectionRef.document(result.id).delete()
-                    .await()
-            } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(
-                        requireContext(),
-                        e.message,
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
-        } else {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(
-                    requireContext(),
-                    "No card matched the query",
-                    Toast.LENGTH_LONG
-                ).show()
             }
         }
     }

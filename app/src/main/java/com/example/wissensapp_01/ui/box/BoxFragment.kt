@@ -20,13 +20,9 @@ import com.google.firebase.ktx.Firebase
 class BoxFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
-    private var _binding: FragmentBoxHomeBinding? = null
     private val dbref = Firebase.firestore.collection("boxes")
+    private var _binding: FragmentBoxHomeBinding? = null
     private val binding get() = _binding!!
-
-    // private lateinit var boxRecyclerview: RecyclerView
-    private lateinit var boxArrayList: ArrayList<Box>
-    private lateinit var adapter: BoxAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,11 +42,13 @@ class BoxFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val reBoxView = binding.rwBoxHome
+        val adapter = BoxAdapter(emptyList(), deleteBox)
+        reBoxView.adapter = adapter
         viewModel.boxes.observe(
             viewLifecycleOwner,
             Observer {
-                updateBoxAdapter(it)
+                adapter.submitBoxList(it)
                 Log.e("Observer", it.size.toString())
             }
         )
@@ -60,10 +58,5 @@ class BoxFragment : Fragment() {
         }
     }
 
-    private fun updateBoxAdapter(list: List<Box>) {
-        adapter = BoxAdapter(list, deleteBox)
-        binding.rwBoxHome.adapter = adapter
-    }
-
-    val deleteBox = { box: Box -> viewModel.deleteBox(box) }
+    private val deleteBox = { box: Box -> viewModel.deleteBox(box) }
 }

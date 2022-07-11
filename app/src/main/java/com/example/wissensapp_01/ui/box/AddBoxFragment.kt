@@ -31,17 +31,10 @@ class AddBoxFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel: MainViewModel by activityViewModels()
-
         _binding = FragmentBoxAddBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         return root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -84,33 +77,8 @@ class AddBoxFragment : Fragment() {
         }
     }
 
-    private fun deleteBox(box: Box) = CoroutineScope(Dispatchers.IO).launch {
-        val cardQuery = boxCollectionRef
-            .whereEqualTo("boxId", box.boxId)
-            .get()
-            .await()
-        if (cardQuery.documents.isNotEmpty()) {
-            try {
-                val result = cardQuery.documents[0]
-                boxCollectionRef.document(result.id).delete()
-                    .await()
-            } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(
-                        requireContext(),
-                        e.message,
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
-        } else {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(
-                    requireContext(),
-                    "No card matched the query",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-        }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -28,10 +28,23 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    init {
+        viewModelScope.launch {
+            _cards.value = FirebaseService.getCardData()
+            // _cards.value = FirebaseService.getPosts()
+        }
+    }
+
     fun deleteBox(box: Box) {
         viewModelScope.launch {
-            FirebaseService.deleteBox(box)
-            _boxes.value = FirebaseService.getBoxData()
+            _boxes.value = FirebaseService.deleteBox(box)
+            // _boxes.value = FirebaseService.getBoxData()
+        }
+    }
+
+    fun deleteCard(card: Card) {
+        viewModelScope.launch {
+            _cards.value = FirebaseService.deleteCard(card)
         }
     }
 }

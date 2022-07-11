@@ -20,8 +20,6 @@ class EditBoxFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel: MainViewModel by activityViewModels()
-
         _binding = FragmentBoxEditBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
