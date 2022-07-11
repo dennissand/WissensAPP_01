@@ -1,7 +1,6 @@
 package com.example.wissensapp_01.ui.card
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,11 +34,6 @@ class CardFragment : Fragment() {
         return root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val reCardView = binding.rwCardEdit
@@ -49,13 +43,18 @@ class CardFragment : Fragment() {
             viewLifecycleOwner,
             Observer {
                 adapter.submitCardList(it)
-                Log.e("Observer", it.size.toString())
+                // Log.e("Observer", it.size.toString())
             }
         )
 
         binding.btnCardAdd.setOnClickListener {
             findNavController().navigate(R.id.addCardFragment)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private val deleteCard = { card: Card ->

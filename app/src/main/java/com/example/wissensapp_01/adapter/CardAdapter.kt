@@ -16,8 +16,10 @@ class CardAdapter(
 ) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
-    fun submitCardList(list: List<Card>) {
-        cardIdList = list
+    fun submitCardList(list: List<Card>?) {
+        if (list != null) {
+            cardIdList = list
+        }
         notifyDataSetChanged()
     }
 

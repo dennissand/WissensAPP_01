@@ -1,7 +1,6 @@
 package com.example.wissensapp_01.ui.box
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,11 +34,6 @@ class BoxFragment : Fragment() {
         return root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val reBoxView = binding.rwBoxHome
@@ -49,13 +43,18 @@ class BoxFragment : Fragment() {
             viewLifecycleOwner,
             Observer {
                 adapter.submitBoxList(it)
-                Log.e("Observer", it.size.toString())
+                // Log.e("Observer", it.size.toString())
             }
         )
 
         binding.btnBoxAdd.setOnClickListener {
             findNavController().navigate(R.id.addBoxFragment)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private val deleteBox = { box: Box -> viewModel.deleteBox(box) }

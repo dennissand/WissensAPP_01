@@ -8,7 +8,7 @@ import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.tasks.await
 
 object FirebaseService {
-    private const val TAG = "FirebaseService"
+    private const val TAG = "FirebaseServiceBox"
 
     suspend fun getBoxData(): List<Box>? {
         try {
@@ -65,7 +65,7 @@ object FirebaseService {
             return allCards
         } catch
         (e: Exception) {
-            Log.e(TAG, "Error getting Cards:$e")
+            Log.e(FirebaseService.TAG, "Error getting Cards:$e")
             return null
         }
     }
@@ -83,7 +83,7 @@ object FirebaseService {
                     .await()
                 getCardData()
             } catch (e: Exception) {
-                Log.e(TAG, "No Card deleted,$e")
+                Log.e(FirebaseService.TAG, "No Card deleted,$e")
                 null
             }
         }

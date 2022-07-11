@@ -16,8 +16,10 @@ class BoxAdapter(
 ) : RecyclerView.Adapter<BoxAdapter.BoxViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
-    fun submitBoxList(list: List<Box>) {
-        boxNameList = list
+    fun submitBoxList(list: List<Box>?) {
+        if (list != null) {
+            boxNameList = list
+        }
         notifyDataSetChanged()
     }
 
