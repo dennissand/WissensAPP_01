@@ -6,6 +6,7 @@ import com.example.wissensapp_01.data.model.Card
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.tasks.await
+import java.util.*
 
 object FirebaseService {
     private const val TAG = "FirebaseServiceBox"
@@ -88,5 +89,31 @@ object FirebaseService {
             }
         }
         return null
+    }
+
+    private fun createCard(a: String, b: String): Card {
+        val cardId = UUID.randomUUID().toString()
+        val cardLearned = false
+        val boxId = ""
+        return Card(
+            cardId = cardId,
+            a = a,
+            b = b,
+            boxId = boxId,
+            cardLearned = cardLearned
+        )
+    }
+
+    suspend fun saveCard(a: String, b: String): List<Card>? {
+        val dbref = FirebaseFirestore.getInstance().collection("cards")
+        val card = createCard(a, b)
+        return try {
+            dbref.add(card)
+                .await()
+            getCardData()
+        } catch (e: Exception) {
+            Log.e(TAG, "Error saving Card:$e")
+            null
+        }
     }
 }

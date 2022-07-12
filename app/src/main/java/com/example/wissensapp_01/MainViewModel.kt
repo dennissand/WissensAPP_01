@@ -47,4 +47,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             _cards.value = FirebaseService.deleteCard(card)
         }
     }
+
+    fun saveCard(a: String, b: String) {
+        viewModelScope.launch {
+            _cards.value = FirebaseService.saveCard(a, b)
+        }
+    }
 }
