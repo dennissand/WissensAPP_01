@@ -14,7 +14,7 @@ buildscript {
         gson_version = "2.9.0"
     }
     dependencies {
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$view_model"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_graph"
         classpath 'com.google.gms:google-services:4.3.13'
 
     }

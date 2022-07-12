@@ -79,7 +79,8 @@
             android:scaleType="centerCrop"
             android:padding="10dp"
             app:srcCompat="@drawable/box_01"
-            android:background="@color/green" />
+            android:background="@color/green"
+            android:clickable="true"/>
 
     </androidx.cardview.widget.CardView>
 </layout>

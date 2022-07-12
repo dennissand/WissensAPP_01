@@ -116,4 +116,26 @@ object FirebaseService {
             null
         }
     }
+
+    private fun createBox(boxName: String, boxContent: String): Box {
+        val boxId = UUID.randomUUID().toString()
+        return Box(
+            boxId = boxId,
+            boxName = boxName,
+            boxContent = boxContent
+        )
+    }
+
+    suspend fun saveBox(boxName: String, boxContent: String): List<Box>? {
+        val dbref = FirebaseFirestore.getInstance().collection("boxes")
+        val box = createBox(boxName, boxContent)
+        return try {
+            dbref.add(box)
+                .await()
+            getBoxData()
+        } catch (e: Exception) {
+            Log.e(TAG, "Error saving Box:$e")
+            null
+        }
+    }
 }

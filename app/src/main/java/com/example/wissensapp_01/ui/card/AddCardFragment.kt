@@ -10,13 +10,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.wissensapp_01.MainViewModel
 import com.example.wissensapp_01.R
 import com.example.wissensapp_01.databinding.FragmentCardAddBinding
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 class AddCardFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
-    private val dbref = Firebase.firestore.collection("cards")
     private var _binding: FragmentCardAddBinding? = null
     private val binding get() = _binding!!
 

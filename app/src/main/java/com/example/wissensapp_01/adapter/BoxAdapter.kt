@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wissensapp_01.R
@@ -29,6 +30,7 @@ class BoxAdapter(
         val boxContent: TextView = itemView.findViewById(R.id.tV_box_content)
         val boxDelet: ImageButton = itemView.findViewById(R.id.ibtn_delete_box)
         val boxEdit: ImageButton = itemView.findViewById(R.id.ibtn_edit_box)
+        val boxItem: ImageView = itemView.findViewById(R.id.iV_item_box)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoxViewHolder {

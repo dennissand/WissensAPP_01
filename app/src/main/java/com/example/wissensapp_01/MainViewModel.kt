@@ -20,6 +20,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val boxes: LiveData<List<Box>> = _boxes
     private val _cards = MutableLiveData<List<Card>>()
     val cards: LiveData<List<Card>> = _cards
+    private val _boxcards = MutableLiveData<List<Card>>()
+    val boxcards: LiveData<List<Card>> = _boxcards
 
     init {
         viewModelScope.launch {
@@ -31,14 +33,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     init {
         viewModelScope.launch {
             _cards.value = FirebaseService.getCardData()
-            // _cards.value = FirebaseServiceBox.getPosts()
         }
     }
 
     fun deleteBox(box: Box) {
         viewModelScope.launch {
             _boxes.value = FirebaseService.deleteBox(box)
-            // _boxes.value = FirebaseServiceBox.getBoxData()
         }
     }
 
@@ -52,5 +52,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             _cards.value = FirebaseService.saveCard(a, b)
         }
+    }
+
+    fun saveBox(boxName: String, boxContent: String) {
+        viewModelScope.launch {
+            _boxes.value = FirebaseService.saveBox(boxName, boxContent)
+        }
+    }
+
+    fun getBoxCards(id: String) {
+        _boxcards.value = _cards.value?.filter { it.boxId == id }
     }
 }
