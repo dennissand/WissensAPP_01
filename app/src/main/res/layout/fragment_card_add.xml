@@ -21,68 +21,45 @@
         app:layout_constraintEnd_toEndOf="@+id/eT_B"
         app:layout_constraintStart_toStartOf="@+id/eT_B" />
 
+
     <EditText
         android:id="@+id/eT_B"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:ems="10"
+        android:hint="B"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:hint="B"
-        app:layout_constraintBottom_toTopOf="@+id/eT_boxName"
-        app:layout_constraintEnd_toEndOf="@+id/eT_boxName"
-        app:layout_constraintStart_toStartOf="@+id/eT_boxName" />
-
-    <EditText
-        android:id="@+id/eT_boxName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:minHeight="48dp"
-        android:ems="10"
-        android:hint="Box Name"
-        app:layout_constraintBottom_toTopOf="@+id/btn_save"
+        app:layout_constraintBottom_toTopOf="@+id/drop_down_card"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_save"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="408dp"
         android:background="@drawable/round_button_pink"
-        app:backgroundTint="@null"
         android:text="Add"
-        app:layout_constraintEnd_toEndOf="@+id/eT_boxName"
-        app:layout_constraintStart_toStartOf="@+id/eT_boxName"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginBottom="140dp"
-        android:src="@drawable/card_01"
-        android:visibility="invisible"
+
+
+
+
+    <Spinner
+        android:id="@+id/drop_down_card"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btn_edit"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/round_button_pink"
-        android:text="Edit"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="@+id/btn_save"
-        app:layout_constraintStart_toStartOf="@+id/btn_save"
-        app:layout_constraintTop_toBottomOf="@+id/btn_save" />
-
-
+        app:layout_constraintEnd_toEndOf="@+id/eT_B"
+        app:layout_constraintStart_toStartOf="@+id/eT_B"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

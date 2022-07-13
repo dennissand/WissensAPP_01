@@ -36,7 +36,7 @@ class BoxFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val reBoxView = binding.rwBoxHome
-        val adapter = BoxAdapter(emptyList(), deleteBox)
+        val adapter = BoxAdapter(emptyList(), deleteBox, navtoDetail)
         reBoxView.adapter = adapter
         viewModel.boxes.observe(
             viewLifecycleOwner,
@@ -47,7 +47,7 @@ class BoxFragment : Fragment() {
         )
 
         binding.btnBoxAdd.setOnClickListener {
-            findNavController().navigate(BoxFragmentDirections.actionNavigationBoxHomeToAddBoxFragment())
+            findNavController().navigate(BoxFragmentDirections.actionBoxFragmentToAddBoxFragment())
         }
     }
 
@@ -60,5 +60,9 @@ class BoxFragment : Fragment() {
         viewModel.deleteBox(box)
     }
 
-    // private val navtoDetail = { id: String -> findNavController().navigate(R.id.detailboxFragment) }
+    private val navtoDetail = { id: String ->
+        findNavController().navigate(
+            BoxFragmentDirections.actionBoxFragmentToDetailBoxFragment(id)
+        )
+    }
 }

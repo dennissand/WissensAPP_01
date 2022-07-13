@@ -55,49 +55,6 @@
                 app:destination="@id/editCardFragment" />
         </fragment>
     </navigation>
-    <navigation android:id="@+id/nested_box"
-        app:startDestination="@id/navigation_box_home">
-        <fragment
-            android:id="@+id/editBoxFragment"
-            android:name="com.example.wissensapp_01.ui.box.EditBoxFragment"
-            android:label="EditBoxFragment"
-            tools:layout="@layout/fragment_box_edit">
-            <action
-                android:id="@+id/action_editBoxFragment_to_navigation_box_home"
-                app:destination="@id/navigation_box_home" />
-        </fragment>
-        <fragment
-            android:id="@+id/addBoxFragment"
-            android:name="com.example.wissensapp_01.ui.box.AddBoxFragment"
-            android:label="AddBoxFragment"
-            tools:layout="@layout/fragment_box_add">
-            <action
-                android:id="@+id/action_addBoxFragment_to_navigation_box_home"
-                app:destination="@id/navigation_box_home" />
-        </fragment>
-        <fragment
-            android:id="@+id/navigation_box_home"
-            android:name="com.example.wissensapp_01.ui.box.BoxFragment"
-            android:label="@string/title_box"
-            tools:layout="@layout/fragment_box_home" >
-            <action
-                android:id="@+id/action_navigation_box_home_to_addBoxFragment"
-                app:destination="@id/addBoxFragment" />
-        </fragment>
-        <fragment
-            android:id="@+id/detailboxFragment"
-            android:name="com.example.wissensapp_01.ui.box.BoxFragment"
-            android:label="DetailBoxFragment"
-            tools:layout="@layout/fragment_box_detail">
-            <argument
-                android:name="boxid"
-                app:argType="string" />
-            <action
-                android:id="@+id/action_detailboxFragment_to_navigation_box_home"
-                app:destination="@id/navigation_box_home" />
-        </fragment>
-
-    </navigation>
     <navigation android:id="@+id/nested_learn"
         app:startDestination="@id/navigation_learn_home">
         <fragment
@@ -116,6 +73,54 @@
             <action
                 android:id="@+id/action_navigation_learn_home_to_learnCardFragment"
                 app:destination="@id/learnCardFragment" />
+        </fragment>
+    </navigation>
+    <navigation android:id="@+id/nested_box"
+        app:startDestination="@id/boxFragment">
+        <fragment
+            android:id="@+id/boxFragment"
+            android:name="com.example.wissensapp_01.ui.box.BoxFragment"
+            android:label="fragment_box_home"
+            tools:layout="@layout/fragment_box_home" >
+            <action
+                android:id="@+id/action_boxFragment_to_detailBoxFragment"
+                app:destination="@id/detailBoxFragment" />
+            <action
+                android:id="@+id/action_boxFragment_to_addBoxFragment"
+                app:destination="@id/addBoxFragment" />
+            <action
+                android:id="@+id/action_boxFragment_to_editBoxFragment"
+                app:destination="@id/editBoxFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/detailBoxFragment"
+            android:name="com.example.wissensapp_01.ui.box.DetailBoxFragment"
+            android:label="fragment_box_detail"
+            tools:layout="@layout/fragment_box_detail" >
+            <action
+                android:id="@+id/action_detailBoxFragment_to_boxFragment"
+                app:destination="@id/boxFragment" />
+            <argument
+                android:name="boxid"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/addBoxFragment"
+            android:name="com.example.wissensapp_01.ui.box.AddBoxFragment"
+            android:label="fragment_box_add"
+            tools:layout="@layout/fragment_box_add" >
+            <action
+                android:id="@+id/action_addBoxFragment_to_boxFragment"
+                app:destination="@id/boxFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editBoxFragment"
+            android:name="com.example.wissensapp_01.ui.box.EditBoxFragment"
+            android:label="fragment_box_edit"
+            tools:layout="@layout/fragment_box_edit" >
+            <action
+                android:id="@+id/action_editBoxFragment_to_boxFragment"
+                app:destination="@id/boxFragment" />
         </fragment>
     </navigation>
 </navigation>
