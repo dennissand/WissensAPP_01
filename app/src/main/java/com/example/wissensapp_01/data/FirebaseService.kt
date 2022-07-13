@@ -91,10 +91,9 @@ object FirebaseService {
         return null
     }
 
-    private fun createCard(a: String, b: String): Card {
+    private fun createCard(a: String, b: String, boxId: String): Card {
         val cardId = UUID.randomUUID().toString()
         val cardLearned = false
-        val boxId = ""
         return Card(
             cardId = cardId,
             a = a,
@@ -104,9 +103,9 @@ object FirebaseService {
         )
     }
 
-    suspend fun saveCard(a: String, b: String): List<Card>? {
+    suspend fun saveCard(a: String, b: String, boxID: String): List<Card>? {
         val dbref = FirebaseFirestore.getInstance().collection("cards")
-        val card = createCard(a, b)
+        val card = createCard(a, b, boxID)
         return try {
             dbref.add(card)
                 .await()

@@ -48,9 +48,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun saveCard(a: String, b: String) {
+    fun saveCard(a: String, b: String, boxID: String) {
         viewModelScope.launch {
-            _cards.value = FirebaseService.saveCard(a, b)
+            _cards.value = FirebaseService.saveCard(a, b, boxID)
         }
     }
 

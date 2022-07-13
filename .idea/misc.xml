@@ -27,7 +27,7 @@
         <entry key="app/src/main/res/layout/fragment_box_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_box_edit.xml" value="0.4280155642023346" />
         <entry key="app/src/main/res/layout/fragment_box_home.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_card_add.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_card_add.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_card_edit.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_card_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_home_home.xml" value="0.4901041666666667" />
