@@ -81,20 +81,14 @@
             android:label="@string/title_box"
             tools:layout="@layout/fragment_box_home" >
             <action
-                android:id="@+id/action_navigation_box_home_to_detailboxFragment"
-                app:destination="@id/detailboxFragment" />
-            <action
-                android:id="@+id/action_navigation_box_home_to_editBoxFragment"
-                app:destination="@id/editBoxFragment" />
-            <action
                 android:id="@+id/action_navigation_box_home_to_addBoxFragment"
                 app:destination="@id/addBoxFragment" />
         </fragment>
         <fragment
             android:id="@+id/detailboxFragment"
             android:name="com.example.wissensapp_01.ui.box.BoxFragment"
-            android:label="fragment_box_detail"
-            tools:layout="@layout/fragment_box_detail" >
+            android:label="DetailBoxFragment"
+            tools:layout="@layout/fragment_box_detail">
             <argument
                 android:name="boxid"
                 app:argType="string" />

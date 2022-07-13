@@ -1,10 +1,8 @@
-
 plugins {
-
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-parcelize'
     id 'com.google.gms.google-services'
 }
@@ -87,7 +85,7 @@ dependencies {
     // Moshi
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
 
-    dependencies {
+
         // Import the BoM for the Firebase platform
         implementation platform('com.google.firebase:firebase-bom:30.1.0')
 
@@ -97,7 +95,4 @@ dependencies {
 
         // Also declare the dependency for the Google Play services library and specify its version
         implementation 'com.google.android.gms:play-services-auth:20.2.0'
-
-
-    }
 }

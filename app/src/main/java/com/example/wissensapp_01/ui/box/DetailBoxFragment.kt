@@ -44,6 +44,7 @@ class DetailBoxFragment : Fragment() {
             viewLifecycleOwner,
             Observer {
                 adapter.submitCardList(it)
+
                 // Log.e("Observer", it.size.toString())
             }
         )

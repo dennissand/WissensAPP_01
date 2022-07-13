@@ -9,7 +9,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.wissensapp_01.MainViewModel
-import com.example.wissensapp_01.R
 import com.example.wissensapp_01.adapter.CardAdapter
 import com.example.wissensapp_01.data.model.Card
 import com.example.wissensapp_01.databinding.FragmentCardHomeBinding
@@ -48,7 +47,7 @@ class CardFragment : Fragment() {
         )
 
         binding.btnCardAdd.setOnClickListener {
-            findNavController().navigate(R.id.addCardFragment)
+            findNavController().navigate(CardFragmentDirections.actionNavigationCardHomeToAddCardFragment())
         }
     }
 

@@ -55,7 +55,10 @@ class BoxFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    private val deleteBox = { box: Box -> viewModel.deleteBox(box) }
 
-    private val navtoDetail = { id: String -> findNavController().navigate(BoxFragmentDirections.actionNavigationBoxHomeToDetailboxFragment(id)) }
+    private val deleteBox = { box: Box ->
+        viewModel.deleteBox(box)
+    }
+
+    // private val navtoDetail = { id: String -> findNavController().navigate(R.id.detailboxFragment) }
 }

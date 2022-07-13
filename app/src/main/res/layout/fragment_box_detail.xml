@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/_box_"
-    tools:context=".ui.box.DetailBoxFragment"
-    android:id="@+id/detailboxFragment">
+    tools:context=".ui.box.DetailBoxFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
