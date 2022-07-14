@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wissensapp_01.R
 import com.example.wissensapp_01.data.model.Card
+import com.example.wissensapp_01.ui.card.CardFragmentDirections
 
 class CardAdapter(
     private var cardIdList: List<Card>,
@@ -27,6 +29,7 @@ class CardAdapter(
         val a: TextView = itemView.findViewById(R.id.tV_card_a)
         val b: TextView = itemView.findViewById(R.id.tV_card_b)
         val cardDelet: ImageButton = itemView.findViewById(R.id.ibtn_delete_card)
+        val cardEdit: ImageButton = itemView.findViewById(R.id.ibtn_edit_card)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
@@ -44,6 +47,10 @@ class CardAdapter(
         holder.b.text = item.b
         holder.cardDelet.setOnClickListener {
             deleteCard(item)
+        }
+        holder.cardEdit.setOnClickListener{
+            holder.itemView.findNavController()
+                .navigate(CardFragmentDirections.actionNavigationCardHomeToEditCardFragment(item.cardId))
         }
     }
 

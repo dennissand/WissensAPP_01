@@ -66,7 +66,7 @@ object FirebaseService {
             return allCards
         } catch
         (e: Exception) {
-            Log.e(FirebaseService.TAG, "Error getting Cards:$e")
+            Log.e(TAG, "Error getting Cards:$e")
             return null
         }
     }
@@ -137,4 +137,48 @@ object FirebaseService {
             null
         }
     }
+
+    suspend fun updateCard(card: Card): List<Card>? {
+        val dbref = FirebaseFirestore.getInstance().collection("cards")
+        val cardQuery = dbref
+            .whereEqualTo("cardId", card.cardId)
+            .get()
+            .await()
+        if (cardQuery.documents.isNotEmpty()) {
+            return try {
+                val result = cardQuery.documents[0]
+                dbref.document().update("a", card.a, "b", card.b, "boxId", card.boxId)
+                    .await()
+                getCardData()
+            } catch (e: Exception) {
+                Log.e(TAG, "No Card update,$e")
+                null
+            }
+        }
+        return null
+    }
+
+    suspend fun updateBox(boxName: String, boxContent: String): List<Box>? {
+        val dbref = FirebaseFirestore.getInstance().collection("boxes")
+        val boxQuery = dbref
+            .whereEqualTo("boxId", updateBox(boxName, boxContent))
+            .get()
+            .await()
+        if (boxQuery.documents.isNotEmpty()) {
+            return try {
+                val newBoxName = boxName
+                val newBoxContent = boxContent
+                val result = boxQuery.documents[0]
+                dbref.document(result.id).update(newBoxName, newBoxContent, Any())
+                    .await()
+                getBoxData()
+            } catch (e: Exception) {
+                Log.e(FirebaseService.TAG, "No Box Update ,$e")
+                null
+            }
+        }
+        return null
+    }
 }
+
+

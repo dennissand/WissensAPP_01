@@ -20,7 +20,7 @@
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.48802083333333335" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/box_item.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/card_item.xml" value="0.4343163538873995" />
+        <entry key="app/src/main/res/layout/card_item.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/card_list_item.xml" value="0.4276041666666667" />
         <entry key="app/src/main/res/layout/fragment.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/layout/fragment_box_add.xml" value="0.3236658932714617" />
@@ -28,7 +28,7 @@
         <entry key="app/src/main/res/layout/fragment_box_edit.xml" value="0.4280155642023346" />
         <entry key="app/src/main/res/layout/fragment_box_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_card_add.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_card_edit.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_card_edit.xml" value="0.67" />
         <entry key="app/src/main/res/layout/fragment_card_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_home_home.xml" value="0.4901041666666667" />
         <entry key="app/src/main/res/layout/fragment_learn_card.xml" value="0.5656706045865184" />

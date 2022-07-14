@@ -32,6 +32,9 @@
             <action
                 android:id="@+id/action_editCardFragment_to_navigation_card_home"
                 app:destination="@id/navigation_card_home" />
+            <argument
+                android:name="cardId"
+                app:argType="string" />
         </fragment>
         <fragment
             android:id="@+id/addCardFragment"

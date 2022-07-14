@@ -25,6 +25,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rw_Box_Home"
         android:layout_width="410dp"

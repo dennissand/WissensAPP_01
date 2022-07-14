@@ -26,12 +26,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     init {
         viewModelScope.launch {
             _boxes.value = FirebaseService.getBoxData()
-            // _cards.value = FirebaseServiceBox.getPosts()
-        }
-    }
-
-    init {
-        viewModelScope.launch {
             _cards.value = FirebaseService.getCardData()
         }
     }
@@ -62,5 +56,21 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getBoxCards(id: String) {
         _boxcards.value = _cards.value?.filter { it.boxId == id }
+    }
+
+    fun getCardById(id: String): Card? {
+        return _cards.value?.find { it.cardId == id }
+    }
+
+    fun updateCard(a: String, b: String) {
+        viewModelScope.launch {
+            _cards.value = FirebaseService.updateCard(a, b)
+        }
+    }
+
+    fun updateBox(boxName: String, boxContent: String) {
+        viewModelScope.launch {
+            _boxes.value = FirebaseService.updateBox(boxName, boxContent)
+        }
     }
 }

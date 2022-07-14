@@ -6,7 +6,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/_card_"
-    tools:context=".ui.card.CardFragment">
+    tools:context=".ui.card.EditCardFragment">
+
+    <EditText
+        android:id="@+id/eT_A_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="A"
+        app:layout_constraintBottom_toTopOf="@+id/eT_B_edit"
+        app:layout_constraintEnd_toEndOf="@+id/eT_B_edit"
+        app:layout_constraintStart_toStartOf="@+id/eT_B_edit" />
+
+
+    <EditText
+        android:id="@+id/eT_B_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="B"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/drop_down_card_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_save_edit"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="408dp"
+        android:background="@drawable/round_button_pink"
+        android:text="Update"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Spinner
+        android:id="@+id/drop_down_card_edit"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/eT_B_edit"
+        app:layout_constraintStart_toStartOf="@+id/eT_B_edit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Edit"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
