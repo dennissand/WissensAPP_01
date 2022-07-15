@@ -2,6 +2,7 @@ package com.example.wissensapp_01.ui.card
 
 import android.R
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.wissensapp_01.MainViewModel
+import com.example.wissensapp_01.data.model.Card
 import com.example.wissensapp_01.databinding.FragmentCardEditBinding
 
 class EditCardFragment : Fragment() {
@@ -39,7 +41,7 @@ class EditCardFragment : Fragment() {
 
         var boxID = ""
         val editcard = viewModel.getCardById(cardId)
-        if (editcard != null){
+        if (editcard != null) {
             binding.eTAEdit.setText(editcard.a)
             binding.eTBEdit.setText(editcard.b)
             val boxes = viewModel.boxes
@@ -68,7 +70,14 @@ class EditCardFragment : Fragment() {
                 binding.dropDownCardEdit.setSelection(boxes.value!!.indexOf(selectedBox))
             }
         }
+        val updateCard = { card: Card ->
+            viewModel.updateCard(card)
 
+            binding.btnSaveEdit.setOnClickListener {
+                viewModel.updateCard(card)
 
+                Log.e("---", viewModel.updateCard(card).toString())
+            }
+        }
     }
 }

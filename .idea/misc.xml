@@ -32,6 +32,7 @@
         <entry key="app/src/main/res/layout/fragment_card_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_home_home.xml" value="0.4901041666666667" />
         <entry key="app/src/main/res/layout/fragment_learn_card.xml" value="0.5656706045865184" />
+        <entry key="app/src/main/res/layout/fragment_learn_choise.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_learn_home.xml" value="0.33" />
         <entry key="app/src/main/res/menu-v26/bottom_nav_menu.xml" value="0.440625" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.45625" />

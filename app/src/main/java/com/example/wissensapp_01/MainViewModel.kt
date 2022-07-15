@@ -62,9 +62,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         return _cards.value?.find { it.cardId == id }
     }
 
-    fun updateCard(a: String, b: String) {
+    fun updateCard(card: Card) {
         viewModelScope.launch {
-            _cards.value = FirebaseService.updateCard(a, b)
+            _cards.value = FirebaseService.updateCard(card)
         }
     }
 

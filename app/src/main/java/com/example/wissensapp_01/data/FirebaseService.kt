@@ -147,7 +147,7 @@ object FirebaseService {
         if (cardQuery.documents.isNotEmpty()) {
             return try {
                 val result = cardQuery.documents[0]
-                dbref.document().update("a", card.a, "b", card.b, "boxId", card.boxId)
+                dbref.document(result.id).update("a", card.a, "b", card.b, "boxId", card.boxId)
                     .await()
                 getCardData()
             } catch (e: Exception) {

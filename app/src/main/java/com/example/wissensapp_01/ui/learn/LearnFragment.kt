@@ -42,7 +42,7 @@ class LearnFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.ibtnLearn.setOnClickListener {
-            findNavController().navigate(R.id.learnCardFragment)
+            findNavController().navigate(R.id.choiseLearnFragment)
         }
     }
 }

@@ -2,4 +2,5 @@
 <resources>
     <color name="violet">#6A4C93</color>
     <color name="pink_light">#77FF315F</color>
+    <color name="blue_light">#800A84FF</color>
 </resources>

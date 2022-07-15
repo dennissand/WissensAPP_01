@@ -74,8 +74,23 @@
             android:label="@string/title_learn"
             tools:layout="@layout/fragment_learn_home" >
             <action
+                android:id="@+id/action_navigation_learn_home_to_choiseLearnFragment"
+                app:destination="@id/choiseLearnFragment" />
+            <action
                 android:id="@+id/action_navigation_learn_home_to_learnCardFragment"
                 app:destination="@id/learnCardFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/choiseLearnFragment"
+            android:name="com.example.wissensapp_01.ui.learn.ChoiseLearnFragment"
+            android:label="fragment_learn_choise"
+            tools:layout="@layout/fragment_learn_choise" >
+            <action
+                android:id="@+id/action_choiseLearnFragment_to_learnCardFragment"
+                app:destination="@id/learnCardFragment" />
+            <action
+                android:id="@+id/action_choiseLearnFragment_to_navigation_learn_home"
+                app:destination="@id/navigation_learn_home" />
         </fragment>
     </navigation>
     <navigation android:id="@+id/nested_box"

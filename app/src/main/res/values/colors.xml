@@ -12,9 +12,12 @@
     <color name="purple">#FF37F2</color>
     <color name="pink">#FF375F</color>
     <color name="green">#0AC926</color>
-    <color name="green_light">#390AC926</color>
+    <color name="green_light">#800AC926</color>
     <color name="blue">#0A84FF</color>
     <color name="transparent">#00000000</color>
     <color name="violet">#6A4C93</color>
-    <color name="pink_light">#77FF315F</color>
+    <color name="pink_light">#80FF315F</color>
+    <color name="blue_light">#800A84FF</color>
+    <color name="yellow_light">#80FFD60A</color>
+    <color name="violet_light">#806A4C93</color>
 </resources>
