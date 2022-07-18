@@ -1,7 +1,6 @@
 package com.example.wissensapp_01
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -68,6 +67,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getBoxCards(id: String) {
         _boxcards.value = _cards.value?.filter { it.boxId == id }
+    }
+
+    fun cardLearned(cardLearned: Boolean) {
+        _learncards.value = _cards.value?.filter { it.cardLearned == cardLearned }
     }
 
     fun getLearnCards(id: String) {

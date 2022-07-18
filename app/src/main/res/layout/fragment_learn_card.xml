@@ -13,91 +13,34 @@
         android:background="@drawable/_learn_"
         tools:context=".ui.learn.LearnFragment">
 
-        <ImageButton
-            android:id="@+id/ibtn_again"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="184dp"
-            android:layout_marginEnd="155dp"
-            android:background="@color/transparent"
-            android:backgroundTint="@null"
-            android:src="@drawable/round_button_blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iV_card_again"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="10dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="@+id/ibtn_again"
-            app:layout_constraintEnd_toEndOf="@+id/ibtn_again"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/ibtn_again"
-            app:layout_constraintTop_toTopOf="@+id/ibtn_again"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/replay_60" />
-
-        <ImageButton
-            android:id="@+id/ibtn_ok"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="155dp"
-            android:layout_marginTop="184dp"
-            android:layout_marginEnd="55dp"
-            android:background="@color/transparent"
-            android:backgroundTint="@null"
-            android:src="@drawable/round_button_blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iV_card_ok"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="10dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="@+id/ibtn_ok"
-            app:layout_constraintEnd_toEndOf="@+id/ibtn_ok"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/ibtn_ok"
-            app:layout_constraintTop_toTopOf="@+id/ibtn_ok"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/check_60" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rw_card_learn"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="415dp"
+            android:layout_height="521dp"
+            android:layout_marginTop="220dp"
+            android:layout_marginBottom="2dp"
             android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ibtn_again"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintTop_toTopOf="parent"
             app:spanCount="2"
             tools:listitem="@layout/card_learn_item" />
 
         <ProgressBar
             android:id="@+id/progressBarLearn"
             style="?android:attr/progressBarStyle"
-            android:indeterminate="true"
-            android:indeterminateTintMode="src_atop"
-            android:indeterminateTint="@color/blue"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/blue"
+            android:indeterminateTintMode="src_atop"
             app:layout_constraintBottom_toBottomOf="@+id/rw_card_learn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/rw_card_learn" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

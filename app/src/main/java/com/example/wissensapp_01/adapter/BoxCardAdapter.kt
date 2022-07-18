@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wissensapp_01.R
-import com.example.wissensapp_01.data.model.Box
 import com.example.wissensapp_01.data.model.Card
 
 class BoxCardAdapter(

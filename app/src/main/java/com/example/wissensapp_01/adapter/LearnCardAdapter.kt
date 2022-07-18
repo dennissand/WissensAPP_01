@@ -1,6 +1,5 @@
 import android.animation.AnimatorSet
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +7,11 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wissensapp_01.R
-import com.example.wissensapp_01.TAG
 import com.example.wissensapp_01.data.model.Card
 
 class LearnCardAdapter(
     private var learncardIdList: List<Card>,
+    // private var cardLearned: Boolean,
     private var front_anim: AnimatorSet,
     private var back_anim: AnimatorSet,
     private var scale: Float
@@ -30,7 +29,8 @@ class LearnCardAdapter(
         val b: TextView = itemView.findViewById(R.id.b_text)
         val cvFront: CardView = itemView.findViewById(R.id.learn_card_front)
         val cvBack: CardView = itemView.findViewById(R.id.learn_card_back)
-
+        // var again: ImageButton = itemView.findViewById(R.id.ibtn_again)
+        // var ok: ImageButton = itemView.findViewById(R.id.ibtn_ok)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LearnCardViewHolder {
@@ -45,17 +45,16 @@ class LearnCardAdapter(
     override fun onBindViewHolder(holder: LearnCardViewHolder, position: Int) {
         val item = learncardIdList[position]
         var isFront = true
+        var isBack = true
 
         holder.a.text = item.a
         holder.b.text = item.b
-
         holder.cvFront.cameraDistance = 7000 * scale
         holder.cvBack.cameraDistance = 7000 * scale
 
         holder.cvBack.alpha = 0F
 
         holder.cvFront.setOnClickListener {
-            Log.e(TAG, "test")
             if (isFront) {
                 front_anim.setTarget(holder.cvFront)
                 back_anim.setTarget(holder.cvBack)

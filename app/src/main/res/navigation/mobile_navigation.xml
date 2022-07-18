@@ -63,13 +63,18 @@
         <fragment
             android:id="@+id/learnCardFragment"
             android:name="com.example.wissensapp_01.ui.learn.LearnCardFragment"
-            android:label="LearnCardFragment" >
+            android:label="LearnCardFragment"
+            tools:layout="@layout/fragment_learn_card">
             <action
                 android:id="@+id/action_learnCardFragment_to_navigation_learn_home"
                 app:destination="@id/navigation_learn_home" />
             <argument
                 android:name="boxID"
                 app:argType="string" />
+            <argument
+                android:name="learnedCard"
+                app:argType="boolean"
+                android:defaultValue="false" />
         </fragment>
         <fragment
             android:id="@+id/navigation_learn_home"
