@@ -47,7 +47,7 @@ class AddCardFragment : Fragment() {
         }
 
         val boxes = viewModel.boxes
-        val boxnames = boxes.value?.map { it.boxName }?.toTypedArray()
+        val boxnames = boxes.value?.map { "${it.boxName}  (${it.boxContent})" }?.toTypedArray()
         if (boxnames != null) {
             val spinnerAdapter =
                 ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, boxnames)
@@ -60,7 +60,6 @@ class AddCardFragment : Fragment() {
                     position: Int,
                     id: Long
                 ) {
-                    // Log.e("---", "$position $id")
                     boxID = boxes.value!![position].boxId
                 }
 

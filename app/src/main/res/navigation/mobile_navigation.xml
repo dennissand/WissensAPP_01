@@ -67,6 +67,9 @@
             <action
                 android:id="@+id/action_learnCardFragment_to_navigation_learn_home"
                 app:destination="@id/navigation_learn_home" />
+            <argument
+                android:name="boxID"
+                app:argType="string" />
         </fragment>
         <fragment
             android:id="@+id/navigation_learn_home"
@@ -139,6 +142,9 @@
             <action
                 android:id="@+id/action_editBoxFragment_to_boxFragment"
                 app:destination="@id/boxFragment" />
+            <argument
+                android:name="boxId"
+                app:argType="string" />
         </fragment>
     </navigation>
 </navigation>

@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/bottom_nav_selector.xml" value="0.1875" />
+        <entry key="app/src/main/res/drawable/card_01.xml" value="0.433" />
         <entry key="app/src/main/res/drawable/ic_baseline_circle_75.xml" value="0.3475" />
         <entry key="app/src/main/res/drawable/ic_baseline_circle_75_blue.xml" value="0.5615" />
         <entry key="app/src/main/res/drawable/ic_baseline_circle_75_green.xml" value="0.478" />
@@ -21,21 +23,23 @@
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/box_item.xml" value="0.5" />
         <entry key="app/src/main/res/layout/card_item.xml" value="0.22916666666666666" />
-        <entry key="app/src/main/res/layout/card_list_item.xml" value="0.4276041666666667" />
+        <entry key="app/src/main/res/layout/card_learn_item.xml" value="0.4296875" />
+        <entry key="app/src/main/res/layout/card_list_item.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment.xml" value="0.23645833333333333" />
-        <entry key="app/src/main/res/layout/fragment_box_add.xml" value="0.3236658932714617" />
+        <entry key="app/src/main/res/layout/fragment_box_add.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_box_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_box_edit.xml" value="0.4280155642023346" />
-        <entry key="app/src/main/res/layout/fragment_box_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_box_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_card_add.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_card_edit.xml" value="0.67" />
         <entry key="app/src/main/res/layout/fragment_card_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_home_home.xml" value="0.4901041666666667" />
-        <entry key="app/src/main/res/layout/fragment_learn_card.xml" value="0.5656706045865184" />
-        <entry key="app/src/main/res/layout/fragment_learn_choise.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_learn_card.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_learn_choise.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_learn_home.xml" value="0.33" />
         <entry key="app/src/main/res/menu-v26/bottom_nav_menu.xml" value="0.440625" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.45625" />
+        <entry key="app/src/main/res/menu/bottom_navigation_selector.xml" value="0.5104166666666666" />
       </map>
     </option>
   </component>

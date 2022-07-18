@@ -8,16 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.wissensapp_01.MainViewModel
-import com.example.wissensapp_01.adapter.CardAdapter
-import com.example.wissensapp_01.data.model.Card
+import com.example.wissensapp_01.adapter.BoxCardAdapter
 import com.example.wissensapp_01.databinding.FragmentBoxDetailBinding
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 class DetailBoxFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
-    private val dbref = Firebase.firestore.collection("boxes")
     private var _binding: FragmentBoxDetailBinding? = null
     private val binding get() = _binding!!
     private var boxid: String = ""
@@ -38,24 +34,14 @@ class DetailBoxFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getBoxCards(boxid)
         val reDetailView = binding.rwBoxDetail
-        val adapter = CardAdapter(emptyList(), deleteCard)
+        val adapter = BoxCardAdapter(emptyList())
         reDetailView.adapter = adapter
         viewModel.boxcards.observe(
             viewLifecycleOwner,
             Observer {
-                adapter.submitCardList(it)
-
-                // Log.e("Observer", it.size.toString())
+                adapter.submitBoxCardList(it)
             }
         )
-
-        /*binding.btnBoxAdd.setOnClickListener {
-            findNavController().navigate(R.id.addBoxFragment)
-        }*/
-    }
-
-    private val deleteCard = { card: Card ->
-        viewModel.deleteCard(card)
     }
 
     override fun onDestroyView() {

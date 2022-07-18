@@ -15,12 +15,12 @@
 
         <ImageButton
             android:id="@+id/ibtn_again"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="55dp"
-            android:layout_marginTop="548dp"
+            android:layout_marginTop="184dp"
             android:layout_marginEnd="155dp"
-            android:background="@color/white"
+            android:background="@color/transparent"
             android:backgroundTint="@null"
             android:src="@drawable/round_button_blue"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,24 +30,26 @@
 
         <ImageView
             android:id="@+id/iV_card_again"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:padding="10dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="@+id/ibtn_again"
             app:layout_constraintEnd_toEndOf="@+id/ibtn_again"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/ibtn_again"
             app:layout_constraintTop_toTopOf="@+id/ibtn_again"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/replay_60" />
 
         <ImageButton
             android:id="@+id/ibtn_ok"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="155dp"
-            android:layout_marginTop="548dp"
+            android:layout_marginTop="184dp"
             android:layout_marginEnd="55dp"
-            android:background="@color/white"
+            android:background="@color/transparent"
             android:backgroundTint="@null"
             android:src="@drawable/round_button_blue"
             app:layout_constraintEnd_toEndOf="parent"
@@ -57,8 +59,8 @@
 
         <ImageView
             android:id="@+id/iV_card_ok"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:padding="10dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="@+id/ibtn_ok"
@@ -69,93 +71,33 @@
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/check_60" />
 
-        <Button
-            android:id="@+id/btn_next_card"
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="@color/blue"
-            android:text="Next Card"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rw_card_learn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ibtn_again"
+            app:layout_constraintVertical_bias="0.0"
+            app:spanCount="2"
+            tools:listitem="@layout/card_learn_item" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/mcv_card_back"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            app:cardBackgroundColor="@color/purple_500"
-            app:cardCornerRadius="20dp"
-            android:backgroundTint="@null"
-            app:cardElevation="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/tv_card_back"
-                    android:layout_width="300dp"
-                    android:layout_height="300dp"
-                    android:gravity="center"
-                    android:text="Night"
-                    android:textAlignment="center"
-                    android:textSize="22sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/mcv_card_front"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            app:cardBackgroundColor="@color/purple_200"
-            android:backgroundTint="@null"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/tv_card_front"
-                    android:layout_width="300dp"
-                    android:layout_height="300dp"
-                    android:text="Nacht"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:textSize="22sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-
+        <ProgressBar
+            android:id="@+id/progressBarLearn"
+            style="?android:attr/progressBarStyle"
+            android:indeterminate="true"
+            android:indeterminateTintMode="src_atop"
+            android:indeterminateTint="@color/blue"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rw_card_learn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rw_card_learn" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,7 +48,7 @@ class CardAdapter(
         holder.cardDelet.setOnClickListener {
             deleteCard(item)
         }
-        holder.cardEdit.setOnClickListener{
+        holder.cardEdit.setOnClickListener {
             holder.itemView.findNavController()
                 .navigate(CardFragmentDirections.actionNavigationCardHomeToEditCardFragment(item.cardId))
         }

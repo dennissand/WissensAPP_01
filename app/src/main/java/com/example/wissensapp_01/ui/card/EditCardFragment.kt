@@ -2,7 +2,6 @@ package com.example.wissensapp_01.ui.card
 
 import android.R
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.wissensapp_01.MainViewModel
-import com.example.wissensapp_01.data.model.Card
 import com.example.wissensapp_01.databinding.FragmentCardEditBinding
 
 class EditCardFragment : Fragment() {
@@ -26,8 +24,6 @@ class EditCardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel: MainViewModel by activityViewModels()
-
         _binding = FragmentCardEditBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -39,13 +35,24 @@ class EditCardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var boxID = ""
         val editcard = viewModel.getCardById(cardId)
+        var boxID = editcard?.boxId
+
+        binding.btnSaveEdit.setOnClickListener {
+            if (editcard != null) {
+                editcard.a = binding.eTAEdit.text.toString()
+                editcard.b = binding.eTBEdit.text.toString()
+                viewModel.updateCard(editcard)
+                binding.eTAEdit.setText("")
+                binding.eTBEdit.setText("")
+            }
+        }
+
         if (editcard != null) {
             binding.eTAEdit.setText(editcard.a)
             binding.eTBEdit.setText(editcard.b)
             val boxes = viewModel.boxes
-            val boxnames = boxes.value?.map { it.boxName }?.toTypedArray()
+            val boxnames = boxes.value?.map { "${it.boxName}  (${it.boxContent})" }?.toTypedArray()
 
             if (boxnames != null) {
                 val spinnerAdapter =
@@ -59,7 +66,6 @@ class EditCardFragment : Fragment() {
                         position: Int,
                         id: Long
                     ) {
-                        // Log.e("---", "$position $id")
                         boxID = boxes.value!![position].boxId
                     }
 
@@ -67,16 +73,8 @@ class EditCardFragment : Fragment() {
                     }
                 }
                 val selectedBox = boxes.value!!.find { it.boxId == boxID }
-                binding.dropDownCardEdit.setSelection(boxes.value!!.indexOf(selectedBox))
-            }
-        }
-        val updateCard = { card: Card ->
-            viewModel.updateCard(card)
-
-            binding.btnSaveEdit.setOnClickListener {
-                viewModel.updateCard(card)
-
-                Log.e("---", viewModel.updateCard(card).toString())
+                val index = boxes.value!!.indexOf(selectedBox)
+                binding.dropDownCardEdit.setSelection(index)
             }
         }
     }

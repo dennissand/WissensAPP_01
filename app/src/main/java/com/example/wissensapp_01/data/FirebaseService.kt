@@ -84,7 +84,7 @@ object FirebaseService {
                     .await()
                 getCardData()
             } catch (e: Exception) {
-                Log.e(FirebaseService.TAG, "No Card deleted,$e")
+                Log.e(TAG, "No Card deleted,$e")
                 null
             }
         }
@@ -158,18 +158,16 @@ object FirebaseService {
         return null
     }
 
-    suspend fun updateBox(boxName: String, boxContent: String): List<Box>? {
+    suspend fun updateBox(box: Box): List<Box>? {
         val dbref = FirebaseFirestore.getInstance().collection("boxes")
         val boxQuery = dbref
-            .whereEqualTo("boxId", updateBox(boxName, boxContent))
+            .whereEqualTo("boxId", box.boxId)
             .get()
             .await()
         if (boxQuery.documents.isNotEmpty()) {
             return try {
-                val newBoxName = boxName
-                val newBoxContent = boxContent
                 val result = boxQuery.documents[0]
-                dbref.document(result.id).update(newBoxName, newBoxContent, Any())
+                dbref.document(result.id).update("boxName", box.boxName, "boxContent", box.boxContent)
                     .await()
                 getBoxData()
             } catch (e: Exception) {
@@ -180,5 +178,3 @@ object FirebaseService {
         return null
     }
 }
-
-

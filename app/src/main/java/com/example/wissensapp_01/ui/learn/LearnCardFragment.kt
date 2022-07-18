@@ -1,5 +1,6 @@
 package com.example.wissensapp_01.ui.learn
 
+import LearnCardAdapter
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
 import android.os.Bundle
@@ -8,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import com.example.wissensapp_01.FirestoreStatus
 import com.example.wissensapp_01.MainViewModel
 import com.example.wissensapp_01.R
 import com.example.wissensapp_01.databinding.FragmentLearnCardBinding
@@ -15,22 +18,18 @@ import com.example.wissensapp_01.databinding.FragmentLearnCardBinding
 class LearnCardFragment : Fragment() {
     private val viewModel: MainViewModel by activityViewModels()
     private var _binding: FragmentLearnCardBinding? = null
-
-    // Flipcard Animation
-    lateinit var front_anim: AnimatorSet
-    lateinit var back_anim: AnimatorSet
-    private var isFront = true
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+    private var boxID: String = ""
+
+    lateinit var animFront: AnimatorSet
+    lateinit var animBack: AnimatorSet
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel: MainViewModel by activityViewModels()
+        arguments?.let { boxID = it.getString("boxID").toString() }
 
         _binding = FragmentLearnCardBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -38,41 +37,45 @@ class LearnCardFragment : Fragment() {
         return root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val scale: Float = requireContext().resources.displayMetrics.density
-        binding.mcvCardFront.cameraDistance = 7000 * scale
-        binding.mcvCardBack.cameraDistance = 7000 * scale
-
-        front_anim = AnimatorInflater.loadAnimator(
+        animFront = AnimatorInflater.loadAnimator(
             requireContext(),
             R.animator.front_animator
         ) as AnimatorSet
-        back_anim = AnimatorInflater.loadAnimator(
-            requireContext(),
-            R.animator.back_animator
-        ) as AnimatorSet
+        animBack =
+            AnimatorInflater.loadAnimator(requireContext(), R.animator.back_animator) as AnimatorSet
 
-        binding.mcvCardFront.setOnClickListener {
-            if (isFront) {
-                front_anim.setTarget(binding.mcvCardFront)
-                back_anim.setTarget(binding.mcvCardBack)
-                front_anim.start()
-                back_anim.start()
-                isFront = false
-            } else {
-                front_anim.setTarget(binding.mcvCardBack)
-                back_anim.setTarget(binding.mcvCardFront)
-                back_anim.start()
-                front_anim.start()
-                isFront = true
+        viewModel.getLearnCards(boxID)
+        val reLearnView = binding.rwCardLearn
+        val adapter = LearnCardAdapter(emptyList(), animFront, animBack, scale)
+        reLearnView.adapter = adapter
+        viewModel.learncards.observe(
+            viewLifecycleOwner,
+            Observer {
+                adapter.submitLearnCardList(it)
+            }
+        )
+
+        viewModel.cardloading.observe(
+            viewLifecycleOwner
+        ) {
+            when (it) {
+                FirestoreStatus.LOADING -> binding.progressBarLearn.visibility = View.VISIBLE
+                FirestoreStatus.ERROR -> {
+                    binding.progressBarLearn.visibility = View.GONE
+                }
+                else -> {
+                    binding.progressBarLearn.visibility = View.GONE
+                }
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

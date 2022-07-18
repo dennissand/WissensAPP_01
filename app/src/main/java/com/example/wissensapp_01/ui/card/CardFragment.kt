@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.example.wissensapp_01.FirestoreStatus
 import com.example.wissensapp_01.MainViewModel
 import com.example.wissensapp_01.adapter.CardAdapter
 import com.example.wissensapp_01.data.model.Card
@@ -18,7 +19,6 @@ import com.google.firebase.ktx.Firebase
 class CardFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
-    private val dbref = Firebase.firestore.collection("cards")
     private var _binding: FragmentCardHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -42,12 +42,25 @@ class CardFragment : Fragment() {
             viewLifecycleOwner,
             Observer {
                 adapter.submitCardList(it)
-                // Log.e("Observer", it.size.toString())
             }
         )
 
         binding.btnCardAdd.setOnClickListener {
             findNavController().navigate(CardFragmentDirections.actionNavigationCardHomeToAddCardFragment())
+        }
+
+        viewModel.cardloading.observe(
+            viewLifecycleOwner
+        ) {
+            when (it) {
+                FirestoreStatus.LOADING -> binding.progressBarCard.visibility = View.VISIBLE
+                FirestoreStatus.ERROR -> {
+                    binding.progressBarCard.visibility = View.GONE
+                }
+                else -> {
+                    binding.progressBarCard.visibility = View.GONE
+                }
+            }
         }
     }
 

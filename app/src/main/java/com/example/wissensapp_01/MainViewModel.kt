@@ -1,6 +1,7 @@
 package com.example.wissensapp_01
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -22,11 +23,22 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val cards: LiveData<List<Card>> = _cards
     private val _boxcards = MutableLiveData<List<Card>>()
     val boxcards: LiveData<List<Card>> = _boxcards
+    private val _learncards = MutableLiveData<List<Card>>()
+    val learncards: LiveData<List<Card>> = _learncards
+    private val _boxloading = MutableLiveData<FirestoreStatus>()
+    val boxloading: LiveData<FirestoreStatus> = _boxloading
+    private val _cardloading = MutableLiveData<FirestoreStatus>()
+    val cardloading: LiveData<FirestoreStatus> = _cardloading
 
     init {
         viewModelScope.launch {
+            _boxloading.value = FirestoreStatus.LOADING
             _boxes.value = FirebaseService.getBoxData()
+            _boxloading.value = FirestoreStatus.DONE
+
+            _cardloading.value = FirestoreStatus.LOADING
             _cards.value = FirebaseService.getCardData()
+            _cardloading.value = FirestoreStatus.DONE
         }
     }
 
@@ -58,8 +70,16 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _boxcards.value = _cards.value?.filter { it.boxId == id }
     }
 
+    fun getLearnCards(id: String) {
+        _learncards.value = _cards.value?.filter { it.boxId == id }
+    }
+
     fun getCardById(id: String): Card? {
         return _cards.value?.find { it.cardId == id }
+    }
+
+    fun getBoxByID(id: String): Box? {
+        return _boxes.value?.find { it.boxId == id }
     }
 
     fun updateCard(card: Card) {
@@ -68,9 +88,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun updateBox(boxName: String, boxContent: String) {
+    fun updateBox(box: Box) {
         viewModelScope.launch {
-            _boxes.value = FirebaseService.updateBox(boxName, boxContent)
+            _boxes.value = FirebaseService.updateBox(box)
         }
     }
 }
