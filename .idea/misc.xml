@@ -26,7 +26,7 @@
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/box_item.xml" value="0.5" />
         <entry key="app/src/main/res/layout/card_item.xml" value="0.22916666666666666" />
-        <entry key="app/src/main/res/layout/card_learn_item.xml" value="0.37592592592592594" />
+        <entry key="app/src/main/res/layout/card_learn_item.xml" value="0.22" />
         <entry key="app/src/main/res/layout/card_list_item.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/layout/fragment_box_add.xml" value="0.1" />
@@ -37,8 +37,9 @@
         <entry key="app/src/main/res/layout/fragment_card_edit.xml" value="0.67" />
         <entry key="app/src/main/res/layout/fragment_card_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_home_home.xml" value="0.4901041666666667" />
-        <entry key="app/src/main/res/layout/fragment_learn_card.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_learn_card.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_learn_choise.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_learn_detail.xml" value="0.48802083333333335" />
         <entry key="app/src/main/res/layout/fragment_learn_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/test.xml" value="0.48802083333333335" />
         <entry key="app/src/main/res/menu-v26/bottom_nav_menu.xml" value="0.16740088105726872" />

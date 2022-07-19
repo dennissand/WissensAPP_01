@@ -2,7 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
 
     </data>
@@ -12,11 +11,11 @@
         android:layout_height="match_parent"
         android:background="@drawable/_learn_"
 
-        tools:context=".ui.learn.LearnFragment">
+        tools:context=".ui.learn.LearnDetailFragment">
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rw_card_learn"
+            android:id="@+id/rw_card_learn_detail"
             android:layout_width="match_parent"
             android:layout_height="521dp"
             android:layout_marginTop="220dp"
@@ -30,18 +29,7 @@
             app:spanCount="2"
             tools:listitem="@layout/card_learn_item" />
 
-        <ProgressBar
-            android:id="@+id/progressBarLearn"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:indeterminate="true"
-            android:indeterminateTint="@color/blue"
-            android:indeterminateTintMode="src_atop"
-            app:layout_constraintBottom_toBottomOf="@+id/rw_card_learn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

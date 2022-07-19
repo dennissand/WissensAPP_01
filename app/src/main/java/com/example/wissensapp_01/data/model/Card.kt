@@ -7,5 +7,5 @@ data class Card(
     var a: String = "",
     var b: String = "",
     var boxId: String = "",
-    var cardLearned: Boolean = false
+    var cardLearned: Boolean = true
 )

@@ -47,18 +47,13 @@
                     android:id="@+id/ibtn_again"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="55dp"
-                    android:layout_marginTop="150dp"
-                    android:layout_marginEnd="155dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@color/transparent"
                     android:backgroundTint="@null"
                     android:src="@drawable/round_button_blue"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <ImageView
                     android:id="@+id/iV_card_again"
@@ -78,18 +73,13 @@
                     android:id="@+id/ibtn_ok"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="155dp"
-                    android:layout_marginTop="150dp"
-                    android:layout_marginEnd="55dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@color/transparent"
                     android:backgroundTint="@null"
                     android:src="@drawable/round_button_blue"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <ImageView
                     android:id="@+id/iV_card_ok"
@@ -116,7 +106,7 @@
             android:id="@+id/learn_card_front"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:visibility="visible"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -144,9 +134,24 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="A - Text" />
+
+
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
+       <!-- <Button
+            android:id="@+id/test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="TEST"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" /> -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -71,10 +71,6 @@
             <argument
                 android:name="boxID"
                 app:argType="string" />
-            <argument
-                android:name="learnedCard"
-                app:argType="boolean"
-                android:defaultValue="false" />
         </fragment>
         <fragment
             android:id="@+id/navigation_learn_home"
@@ -87,6 +83,9 @@
             <action
                 android:id="@+id/action_navigation_learn_home_to_learnCardFragment"
                 app:destination="@id/learnCardFragment" />
+            <action
+                android:id="@+id/action_navigation_learn_home_to_learnDetailFragment"
+                app:destination="@id/learnDetailFragment" />
         </fragment>
         <fragment
             android:id="@+id/choiseLearnFragment"
@@ -99,6 +98,17 @@
             <action
                 android:id="@+id/action_choiseLearnFragment_to_navigation_learn_home"
                 app:destination="@id/navigation_learn_home" />
+        </fragment>
+        <fragment
+            android:id="@+id/learnDetailFragment"
+            android:name="com.example.wissensapp_01.ui.learn.LearnDetailFragment"
+            android:label="LearnDetailFragment" >
+            <action
+                android:id="@+id/action_learnDetailFragment_to_navigation_learn_home"
+                app:destination="@id/navigation_learn_home" />
+            <argument
+                android:name="showlearncard"
+                app:argType="boolean" />
         </fragment>
     </navigation>
     <navigation android:id="@+id/nested_box"

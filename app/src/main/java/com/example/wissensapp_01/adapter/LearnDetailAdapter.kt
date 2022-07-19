@@ -1,10 +1,12 @@
+package com.example.wissensapp_01.adapter
+
 import android.animation.AnimatorSet
 import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -12,14 +14,14 @@ import com.example.wissensapp_01.R
 import com.example.wissensapp_01.TAG
 import com.example.wissensapp_01.data.model.Card
 
-class LearnCardAdapter(
+class LearnDetailAdapter(
     private var learncardIdList: List<Card>,
     private var front_anim: AnimatorSet,
     private var back_anim: AnimatorSet,
     private var scale: Float,
     private var cardtoggeld: (card: Card, cardLearned: Boolean) -> Unit
 
-) : RecyclerView.Adapter<LearnCardAdapter.LearnCardViewHolder>() {
+) : RecyclerView.Adapter<LearnDetailAdapter.LearnDetailViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
     fun submitLearnCardList(list: List<Card>) {
@@ -27,26 +29,25 @@ class LearnCardAdapter(
         notifyDataSetChanged()
     }
 
-    class LearnCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class LearnDetailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val a: TextView = itemView.findViewById(R.id.a_text)
         val b: TextView = itemView.findViewById(R.id.b_text)
         val cvFront: CardView = itemView.findViewById(R.id.learn_card_front)
         val cvBack: CardView = itemView.findViewById(R.id.learn_card_back)
-        var again: ImageView = itemView.findViewById(R.id.iV_card_again)
-        var ok: ImageView = itemView.findViewById(R.id.iV_card_ok)
-        // var test: Button = itemView.findViewById(R.id.test)
+        var again: ImageButton = itemView.findViewById(R.id.ibtn_again)
+        var ok: ImageButton = itemView.findViewById(R.id.ibtn_ok)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LearnCardViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LearnDetailViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.card_learn_item,
             parent,
             false
         )
-        return LearnCardViewHolder(itemView)
+        return LearnDetailViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: LearnCardViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: LearnDetailViewHolder, position: Int) {
         val item = learncardIdList[position]
         var isFront = true
 
@@ -57,7 +58,7 @@ class LearnCardAdapter(
 
         holder.cvBack.alpha = 0F
 
-        holder.a.setOnClickListener {
+        holder.cvFront.setOnClickListener {
             if (isFront) {
                 front_anim.setTarget(holder.cvFront)
                 back_anim.setTarget(holder.cvBack)
@@ -73,13 +74,13 @@ class LearnCardAdapter(
             }
         }
 
-        holder.again.setOnClickListener {
-            cardtoggeld(item, false)
-        }
-
         holder.ok.setOnClickListener {
             cardtoggeld(item, true)
-            // Log.e(TAG, item.cardLearned.toString())
+            Log.e(TAG, item.cardLearned.toString())
+        }
+
+        holder.again.setOnClickListener {
+            cardtoggeld(item, false)
         }
     }
 

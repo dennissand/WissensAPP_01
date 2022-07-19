@@ -1,26 +1,25 @@
 package com.example.wissensapp_01.ui.learn
 
-import LearnCardAdapter
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
-import com.example.wissensapp_01.FirestoreStatus
 import com.example.wissensapp_01.MainViewModel
 import com.example.wissensapp_01.R
+import com.example.wissensapp_01.adapter.LearnDetailAdapter
 import com.example.wissensapp_01.data.model.Card
-import com.example.wissensapp_01.databinding.FragmentLearnCardBinding
+import com.example.wissensapp_01.databinding.FragmentLearnDetailBinding
 
-class LearnCardFragment : Fragment() {
+class LearnDetailFragment : Fragment() {
     private val viewModel: MainViewModel by activityViewModels()
-    private var _binding: FragmentLearnCardBinding? = null
+    private var _binding: FragmentLearnDetailBinding? = null
     private val binding get() = _binding!!
-    private var boxID: String = ""
+    private var showlearncard: Boolean = false
 
     lateinit var animFront: AnimatorSet
     lateinit var animBack: AnimatorSet
@@ -30,9 +29,9 @@ class LearnCardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        arguments?.let { boxID = it.getString("boxID").toString() }
+        arguments?.let { showlearncard = it.getBoolean("showlearncard") }
 
-        _binding = FragmentLearnCardBinding.inflate(inflater, container, false)
+        _binding = FragmentLearnDetailBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         return root
@@ -49,30 +48,11 @@ class LearnCardFragment : Fragment() {
         animBack =
             AnimatorInflater.loadAnimator(requireContext(), R.animator.back_animator) as AnimatorSet
 
-        viewModel.getLearnCards(boxID)
-        val reLearnView = binding.rwCardLearn
-        val adapter = LearnCardAdapter(emptyList(), animFront, animBack, scale, cardtoggeld)
-        reLearnView.adapter = adapter
-        viewModel.learncards.observe(
-            viewLifecycleOwner,
-            Observer {
-                adapter.submitLearnCardList(it)
-            }
-        )
-
-        viewModel.cardloading.observe(
-            viewLifecycleOwner
-        ) {
-            when (it) {
-                FirestoreStatus.LOADING -> binding.progressBarLearn.visibility = View.VISIBLE
-                FirestoreStatus.ERROR -> {
-                    binding.progressBarLearn.visibility = View.GONE
-                }
-                else -> {
-                    binding.progressBarLearn.visibility = View.GONE
-                }
-            }
-        }
+        val cardList = viewModel.cards.value?.filter { it.cardLearned == showlearncard }
+        val reDetailView = binding.rwCardLearnDetail
+        val adapter =
+            cardList?.let { LearnDetailAdapter(it, animFront, animBack, scale, cardtoggeld) }
+        reDetailView.adapter = adapter
     }
 
     override fun onDestroyView() {
@@ -82,5 +62,7 @@ class LearnCardFragment : Fragment() {
 
     val cardtoggeld = { card: Card, cardLearned: Boolean ->
         viewModel.cardtoggeld(card, cardLearned)
+
+
     }
 }

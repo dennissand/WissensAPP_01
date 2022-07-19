@@ -41,7 +41,7 @@ class AddCardFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             val a = binding.eTA.text.toString()
             val b = binding.eTB.text.toString()
-            viewModel.saveCard(a, b, boxID)
+            viewModel.saveCard(a, b, boxID, false)
             binding.eTA.setText("")
             binding.eTB.setText("")
         }

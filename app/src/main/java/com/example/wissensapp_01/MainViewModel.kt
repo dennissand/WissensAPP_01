@@ -1,6 +1,7 @@
 package com.example.wissensapp_01
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -53,9 +54,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun saveCard(a: String, b: String, boxID: String) {
+    fun saveCard(a: String, b: String, boxID: String, cardLearned: Boolean) {
         viewModelScope.launch {
-            _cards.value = FirebaseService.saveCard(a, b, boxID)
+            _cards.value = FirebaseService.saveCard(a, b, boxID, cardLearned)
         }
     }
 
@@ -69,8 +70,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _boxcards.value = _cards.value?.filter { it.boxId == id }
     }
 
-    fun cardLearned(cardLearned: Boolean) {
-        _learncards.value = _cards.value?.filter { it.cardLearned == cardLearned }
+    fun cardtoggeld(card: Card, cardLearned: Boolean) {
+        card.cardLearned = cardLearned
+        updateCard(card)
+
+        Log.e("cardLearned", cardLearned.toString())
     }
 
     fun getLearnCards(id: String) {
@@ -86,6 +90,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun updateCard(card: Card) {
+        Log.e("card", card.toString())
         viewModelScope.launch {
             _cards.value = FirebaseService.updateCard(card)
         }

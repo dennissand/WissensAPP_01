@@ -91,9 +91,8 @@ object FirebaseService {
         return null
     }
 
-    private fun createCard(a: String, b: String, boxId: String): Card {
+    private fun createCard(a: String, b: String, boxId: String, cardLearned: Boolean): Card {
         val cardId = UUID.randomUUID().toString()
-        val cardLearned = false
         return Card(
             cardId = cardId,
             a = a,
@@ -103,9 +102,9 @@ object FirebaseService {
         )
     }
 
-    suspend fun saveCard(a: String, b: String, boxID: String): List<Card>? {
+    suspend fun saveCard(a: String, b: String, boxID: String, cardLearned: Boolean): List<Card>? {
         val dbref = FirebaseFirestore.getInstance().collection("cards")
-        val card = createCard(a, b, boxID)
+        val card = createCard(a, b, boxID, cardLearned)
         return try {
             dbref.add(card)
                 .await()
@@ -147,7 +146,17 @@ object FirebaseService {
         if (cardQuery.documents.isNotEmpty()) {
             return try {
                 val result = cardQuery.documents[0]
-                dbref.document(result.id).update("a", card.a, "b", card.b, "boxId", card.boxId)
+                dbref.document(result.id)
+                    .update(
+                        "a",
+                        card.a,
+                        "b",
+                        card.b,
+                        "boxId",
+                        card.boxId,
+                        "cardLearned",
+                        card.cardLearned
+                    )
                     .await()
                 getCardData()
             } catch (e: Exception) {
@@ -167,7 +176,8 @@ object FirebaseService {
         if (boxQuery.documents.isNotEmpty()) {
             return try {
                 val result = boxQuery.documents[0]
-                dbref.document(result.id).update("boxName", box.boxName, "boxContent", box.boxContent)
+                dbref.document(result.id)
+                    .update("boxName", box.boxName, "boxContent", box.boxContent)
                     .await()
                 getBoxData()
             } catch (e: Exception) {
