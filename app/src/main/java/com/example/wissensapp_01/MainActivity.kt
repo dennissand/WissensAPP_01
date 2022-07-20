@@ -25,11 +25,6 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.startDownload()
 
-        // Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
-
-        /*supportActionBar?.hide()*/
-        // Bildschirm wird dann komplett "übernommen"//
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.setDecorFitsSystemWindows(false)
         } else {
