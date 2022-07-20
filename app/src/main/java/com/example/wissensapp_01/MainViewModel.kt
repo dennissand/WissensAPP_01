@@ -30,7 +30,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _cardloading = MutableLiveData<FirestoreStatus>()
     val cardloading: LiveData<FirestoreStatus> = _cardloading
 
-    init {
+    fun startDownload() {
         viewModelScope.launch {
             _boxloading.value = FirestoreStatus.LOADING
             _boxes.value = FirebaseService.getBoxData()
@@ -39,6 +39,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             _cardloading.value = FirestoreStatus.LOADING
             _cards.value = FirebaseService.getCardData()
             _cardloading.value = FirestoreStatus.DONE
+
+            Log.e("Main", "2")
         }
     }
 
@@ -73,8 +75,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun cardtoggeld(card: Card, cardLearned: Boolean) {
         card.cardLearned = cardLearned
         updateCard(card)
-
-        Log.e("cardLearned", cardLearned.toString())
     }
 
     fun getLearnCards(id: String) {
@@ -90,7 +90,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun updateCard(card: Card) {
-        Log.e("card", card.toString())
         viewModelScope.launch {
             _cards.value = FirebaseService.updateCard(card)
         }

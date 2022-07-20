@@ -30,15 +30,35 @@
             app:spanCount="2"
             tools:listitem="@layout/card_learn_item" />
 
-        <ProgressBar
-            android:id="@+id/progressBarLearn"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:indeterminate="true"
-            android:indeterminateTint="@color/blue"
-            android:indeterminateTintMode="src_atop"
-            app:layout_constraintBottom_toBottomOf="@+id/rw_card_learn"
+        <TextView
+            android:id="@+id/textViewOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:text="OK"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:text="Again"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewOK" />
+
+        <TextView
+            android:id="@+id/textViewLearn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:text="Learn"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

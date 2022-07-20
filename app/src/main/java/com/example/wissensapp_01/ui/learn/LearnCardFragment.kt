@@ -4,13 +4,13 @@ import LearnCardAdapter
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import com.example.wissensapp_01.FirestoreStatus
 import com.example.wissensapp_01.MainViewModel
 import com.example.wissensapp_01.R
 import com.example.wissensapp_01.data.model.Card
@@ -49,29 +49,24 @@ class LearnCardFragment : Fragment() {
         animBack =
             AnimatorInflater.loadAnimator(requireContext(), R.animator.back_animator) as AnimatorSet
 
+        while (viewModel.cards.value?.isEmpty() == true) {
+        }
+
         viewModel.getLearnCards(boxID)
         val reLearnView = binding.rwCardLearn
         val adapter = LearnCardAdapter(emptyList(), animFront, animBack, scale, cardtoggeld)
         reLearnView.adapter = adapter
-        viewModel.learncards.observe(
-            viewLifecycleOwner,
-            Observer {
-                adapter.submitLearnCardList(it)
-            }
-        )
-
-        viewModel.cardloading.observe(
-            viewLifecycleOwner
-        ) {
-            when (it) {
-                FirestoreStatus.LOADING -> binding.progressBarLearn.visibility = View.VISIBLE
-                FirestoreStatus.ERROR -> {
-                    binding.progressBarLearn.visibility = View.GONE
+        try {
+            viewModel.learncards.observe(
+                viewLifecycleOwner,
+                Observer {
+                    if (it != null) {
+                        adapter.submitLearnCardList(it)
+                    }
                 }
-                else -> {
-                    binding.progressBarLearn.visibility = View.GONE
-                }
-            }
+            )
+        } catch (e: Exception) {
+            Log.e("LearnCardFragment", e.toString())
         }
     }
 

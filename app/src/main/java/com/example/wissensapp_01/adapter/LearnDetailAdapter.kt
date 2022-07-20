@@ -2,7 +2,6 @@ package com.example.wissensapp_01.adapter
 
 import android.animation.AnimatorSet
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wissensapp_01.R
-import com.example.wissensapp_01.TAG
 import com.example.wissensapp_01.data.model.Card
 
 class LearnDetailAdapter(
@@ -76,7 +74,6 @@ class LearnDetailAdapter(
 
         holder.ok.setOnClickListener {
             cardtoggeld(item, true)
-            Log.e(TAG, item.cardLearned.toString())
         }
 
         holder.again.setOnClickListener {

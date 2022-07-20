@@ -14,7 +14,6 @@ class LearnFragment : Fragment() {
 
     private var _binding: FragmentLearnHomeBinding? = null
     private val viewModel: MainViewModel by activityViewModels()
-
     private val binding get() = _binding!!
 
     override fun onCreateView(

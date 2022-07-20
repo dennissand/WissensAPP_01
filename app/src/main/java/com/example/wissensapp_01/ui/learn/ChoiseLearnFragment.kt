@@ -1,5 +1,6 @@
 package com.example.wissensapp_01.ui.learn
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -61,7 +62,15 @@ class ChoiseLearnFragment : Fragment() {
                 }
             }
         }
+
         binding.ibtnStartLearn.setOnClickListener {
+            val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+            if (sharedPref != null) {
+                with(sharedPref.edit()) {
+                    putString("lastBox", boxID)
+                    apply()
+                }
+            }
             findNavController().navigate(
                 ChoiseLearnFragmentDirections.actionChoiseLearnFragmentToLearnCardFragment(
                     boxID
