@@ -21,17 +21,10 @@ class LearnFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel: MainViewModel by activityViewModels()
-
         _binding = FragmentLearnHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         return root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,7 +37,8 @@ class LearnFragment : Fragment() {
         binding.ibtnOk.setOnClickListener {
             findNavController().navigate(
                 LearnFragmentDirections.actionNavigationLearnHomeToLearnDetailFragment(
-                    true
+                    true,
+                    ""
                 )
             )
         }
@@ -52,9 +46,15 @@ class LearnFragment : Fragment() {
         binding.ibtnAgain.setOnClickListener {
             findNavController().navigate(
                 LearnFragmentDirections.actionNavigationLearnHomeToLearnDetailFragment(
-                    false
+                    false,
+                    ""
                 )
             )
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

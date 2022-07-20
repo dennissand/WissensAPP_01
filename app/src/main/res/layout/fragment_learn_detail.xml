@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/_learn_"
-
         tools:context=".ui.learn.LearnDetailFragment">
 
 
@@ -29,8 +28,33 @@
             app:spanCount="2"
             tools:listitem="@layout/card_learn_item" />
 
+        <TextView
+            android:id="@+id/textViewOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="Gekonnt"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-
+        <TextView
+            android:id="@+id/textViewAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="Nochmal"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewOK" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

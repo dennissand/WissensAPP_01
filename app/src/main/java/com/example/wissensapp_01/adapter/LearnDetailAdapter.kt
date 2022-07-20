@@ -56,7 +56,7 @@ class LearnDetailAdapter(
 
         holder.cvBack.alpha = 0F
 
-        holder.cvFront.setOnClickListener {
+        holder.a.setOnClickListener {
             if (isFront) {
                 front_anim.setTarget(holder.cvFront)
                 back_anim.setTarget(holder.cvBack)

@@ -20,6 +20,7 @@ class LearnDetailFragment : Fragment() {
     private var _binding: FragmentLearnDetailBinding? = null
     private val binding get() = _binding!!
     private var showlearncard: Boolean = false
+    private var boxID: String = ""
 
     lateinit var animFront: AnimatorSet
     lateinit var animBack: AnimatorSet
@@ -30,6 +31,7 @@ class LearnDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         arguments?.let { showlearncard = it.getBoolean("showlearncard") }
+        arguments?.let { boxID = it.getString("boxID").toString() }
 
         _binding = FragmentLearnDetailBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -53,16 +55,34 @@ class LearnDetailFragment : Fragment() {
         val adapter =
             cardList?.let { LearnDetailAdapter(it, animFront, animBack, scale, cardtoggeld) }
         reDetailView.adapter = adapter
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        try {
+            viewModel.learncards.observe(
+                viewLifecycleOwner
+            ) {
+                if (it != null) {
+                    adapter?.submitLearnCardList(it)
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("LearnDetailFragment", e.toString())
+        }
+
+        if (showlearncard) {
+            binding.textViewOK.visibility = View.VISIBLE
+            binding.textViewAgain.visibility = View.GONE
+        } else {
+            binding.textViewOK.visibility = View.GONE
+            binding.textViewAgain.visibility = View.VISIBLE
+        }
+
+        fun onDestroyView() {
+            super.onDestroyView()
+            _binding = null
+        }
     }
 
     val cardtoggeld = { card: Card, cardLearned: Boolean ->
         viewModel.cardtoggeld(card, cardLearned)
-
-
     }
 }

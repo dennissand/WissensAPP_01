@@ -109,6 +109,9 @@
             <argument
                 android:name="showlearncard"
                 app:argType="boolean" />
+            <argument
+                android:name="boxID"
+                app:argType="string" />
         </fragment>
     </navigation>
     <navigation android:id="@+id/nested_box"

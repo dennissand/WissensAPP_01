@@ -31,6 +31,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val cardloading: LiveData<FirestoreStatus> = _cardloading
 
     fun startDownload() {
+        Log.e("Main", "1")
         viewModelScope.launch {
             _boxloading.value = FirestoreStatus.LOADING
             _boxes.value = FirebaseService.getBoxData()
@@ -39,8 +40,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             _cardloading.value = FirestoreStatus.LOADING
             _cards.value = FirebaseService.getCardData()
             _cardloading.value = FirestoreStatus.DONE
-
-            Log.e("Main", "2")
         }
     }
 
