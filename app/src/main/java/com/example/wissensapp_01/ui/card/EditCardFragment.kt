@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.wissensapp_01.MainViewModel
@@ -45,6 +46,7 @@ class EditCardFragment : Fragment() {
                 viewModel.updateCard(editcard)
                 binding.eTAEdit.setText("")
                 binding.eTBEdit.setText("")
+                Toast.makeText(context, "Karte geändert und gespeichert !", Toast.LENGTH_LONG).show()
             }
         }
 

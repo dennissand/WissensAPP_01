@@ -2,11 +2,13 @@ package com.example.wissensapp_01.adapter
 
 import android.animation.AnimatorSet
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wissensapp_01.R
@@ -17,7 +19,8 @@ class LearnDetailAdapter(
     private var front_anim: AnimatorSet,
     private var back_anim: AnimatorSet,
     private var scale: Float,
-    private var cardtoggeld: (card: Card, cardLearned: Boolean) -> Unit
+    private var cardtoggeld: (card: Card, cardLearned: Boolean) -> Unit,
+    private var context: Context
 
 ) : RecyclerView.Adapter<LearnDetailAdapter.LearnDetailViewHolder>() {
 
@@ -78,6 +81,16 @@ class LearnDetailAdapter(
 
         holder.again.setOnClickListener {
             cardtoggeld(item, false)
+        }
+
+        holder.again.setOnClickListener {
+            cardtoggeld(item, false)
+            Toast.makeText(context, "Karte nicht gekonnt!", Toast.LENGTH_SHORT).show()
+        }
+
+        holder.ok.setOnClickListener {
+            cardtoggeld(item, true)
+            Toast.makeText(context, "Karte gekonnt!", Toast.LENGTH_SHORT).show()
         }
     }
 

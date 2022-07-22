@@ -181,7 +181,7 @@ object FirebaseService {
                     .await()
                 getBoxData()
             } catch (e: Exception) {
-                Log.e(FirebaseService.TAG, "No Box Update ,$e")
+                Log.e(TAG, "No Box Update ,$e")
                 null
             }
         }

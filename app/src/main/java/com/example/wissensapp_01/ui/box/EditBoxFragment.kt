@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.wissensapp_01.MainViewModel
@@ -41,6 +42,7 @@ class EditBoxFragment : Fragment() {
                 viewModel.updateBox(editbox)
                 binding.eTBoxNameEdit.setText("")
                 binding.eTBoxContentEdit.setText("")
+                Toast.makeText(context, "Box geändert und gespeichert !", Toast.LENGTH_LONG).show()
             }
         }
         if (editbox != null) {

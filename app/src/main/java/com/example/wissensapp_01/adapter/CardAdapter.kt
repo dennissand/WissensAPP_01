@@ -1,11 +1,13 @@
 package com.example.wissensapp_01.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wissensapp_01.R
@@ -14,7 +16,8 @@ import com.example.wissensapp_01.ui.card.CardFragmentDirections
 
 class CardAdapter(
     private var cardIdList: List<Card>,
-    private var deleteCard: (card: Card) -> Unit
+    private var deleteCard: (card: Card) -> Unit,
+    private var context: Context
 ) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
@@ -47,6 +50,7 @@ class CardAdapter(
         holder.b.text = item.b
         holder.cardDelet.setOnClickListener {
             deleteCard(item)
+            Toast.makeText(context, "Karte gelöscht !", Toast.LENGTH_LONG).show()
         }
         holder.cardEdit.setOnClickListener {
             holder.itemView.findNavController()

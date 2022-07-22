@@ -53,7 +53,7 @@ class LearnDetailFragment : Fragment() {
         val cardList = viewModel.cards.value?.filter { it.cardLearned == showlearncard }
         val reDetailView = binding.rwCardLearnDetail
         val adapter =
-            cardList?.let { LearnDetailAdapter(it, animFront, animBack, scale, cardtoggeld) }
+            cardList?.let { LearnDetailAdapter(it, animFront, animBack, scale, cardtoggeld, requireContext()) }
         reDetailView.adapter = adapter
 
         try {
@@ -75,14 +75,14 @@ class LearnDetailFragment : Fragment() {
             binding.textViewOK.visibility = View.GONE
             binding.textViewAgain.visibility = View.VISIBLE
         }
-
-        fun onDestroyView() {
-            super.onDestroyView()
-            _binding = null
-        }
     }
 
-    val cardtoggeld = { card: Card, cardLearned: Boolean ->
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private val cardtoggeld = { card: Card, cardLearned: Boolean ->
         viewModel.cardtoggeld(card, cardLearned)
     }
 }

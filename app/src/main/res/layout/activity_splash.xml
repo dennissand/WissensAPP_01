@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashActivity">
+
+    <ImageView
+        android:id="@+id/iv_splash_regenbogen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rainbow_1" />
+
+    <ImageView
+        android:id="@+id/iv_splash_einstein"
+        android:layout_width="264dp"
+        android:layout_height="347dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginBottom="270dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_splash_regenbogen"
+        app:layout_constraintEnd_toEndOf="@+id/iv_splash_regenbogen"
+        app:layout_constraintStart_toStartOf="@+id/iv_splash_regenbogen"
+        app:layout_constraintTop_toTopOf="@+id/iv_splash_regenbogen"
+        app:layout_constraintVertical_bias="0.161"
+        app:srcCompat="@drawable/einstein" />
+
+    <TextView
+        android:id="@+id/tv_splash_titel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Wissen App 01"
+        android:textColor="@color/white"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/iv_splash_einstein"
+        app:layout_constraintStart_toStartOf="@+id/iv_splash_einstein"
+        app:layout_constraintTop_toBottomOf="@+id/iv_splash_einstein" />
+
+    <TextView
+        android:id="@+id/tv_splash_inspiration"
+        android:layout_width="216dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="32dp"
+        android:text="Inspiriert durch Frieda Schreiber"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_splash_titel"
+        app:layout_constraintStart_toStartOf="@+id/tv_splash_titel"
+        app:layout_constraintTop_toBottomOf="@+id/tv_splash_titel" />
+
+    <TextView
+        android:id="@+id/tv_splash_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="by Dennis Sand"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/tv_splash_inspiration"
+        app:layout_constraintStart_toStartOf="@+id/tv_splash_inspiration"
+        app:layout_constraintTop_toBottomOf="@+id/tv_splash_inspiration" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

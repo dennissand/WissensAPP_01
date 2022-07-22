@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wissens App 01</string>
+    <string name="title_home">Home</string>
+    <string name="title_box">Boxen</string>
+    <string name="title_card">Karte</string>
+    <string name="title_learn">Lernen</string>
+    <string name="log_out">Abmelden</string>
+    <string name="type_your_email">Deine Email-Adresse</string>
+    <string name="type_your_password">Dein Passwort</string>
+    <string name="sign_in">Anmelden</string>
+    <string name="not_registered_yet_sign_up">Kein Account, bitte Account erstellen!</string>
+    <string name="type_your_email_1">Deine Email-Adresse</string>
+    <string name="type_your_password_1">Dein Passwort</string>
+    <string name="retype_your_password_2">Wiederhole dein Passwort</string>
+    <string name="sign_up">Account erstellen</string>
+    <string name="already_registered_sign_in">Bereits registriert , melden Sie sich an!</string>
+</resources>

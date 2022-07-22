@@ -54,7 +54,8 @@ class LearnCardFragment : Fragment() {
 
         viewModel.getLearnCards(boxID)
         val reLearnView = binding.rwCardLearn
-        val adapter = LearnCardAdapter(emptyList(), animFront, animBack, scale, cardtoggeld)
+        val adapter =
+            LearnCardAdapter(emptyList(), animFront, animBack, scale, cardtoggeld, requireContext())
         reLearnView.adapter = adapter
         try {
             viewModel.learncards.observe(
@@ -75,7 +76,7 @@ class LearnCardFragment : Fragment() {
         _binding = null
     }
 
-    val cardtoggeld = { card: Card, cardLearned: Boolean ->
+    private val cardtoggeld = { card: Card, cardLearned: Boolean ->
         viewModel.cardtoggeld(card, cardLearned)
     }
 }

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.wissensapp_01.MainViewModel
@@ -44,6 +45,7 @@ class AddCardFragment : Fragment() {
             viewModel.saveCard(a, b, boxID, false)
             binding.eTA.setText("")
             binding.eTB.setText("")
+            Toast.makeText(context, "Karte gespeichert !", Toast.LENGTH_LONG).show()
         }
 
         val boxes = viewModel.boxes

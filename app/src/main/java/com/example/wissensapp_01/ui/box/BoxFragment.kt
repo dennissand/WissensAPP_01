@@ -34,12 +34,12 @@ class BoxFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val reBoxView = binding.rwBoxHome
-        val adapter = BoxAdapter(emptyList(), deleteBox, navtoDetail)
+        val adapter = context?.let { BoxAdapter(emptyList(), deleteBox, navtoDetail, requireContext()) }
         reBoxView.adapter = adapter
         viewModel.boxes.observe(
             viewLifecycleOwner,
             Observer {
-                adapter.submitBoxList(it)
+                adapter?.submitBoxList(it)
             }
         )
 
