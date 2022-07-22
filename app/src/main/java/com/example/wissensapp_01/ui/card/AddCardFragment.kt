@@ -42,10 +42,9 @@ class AddCardFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             val a = binding.eTA.text.toString()
             val b = binding.eTB.text.toString()
-            viewModel.saveCard(a, b, boxID, false)
+            viewModel.saveCard(a, b, boxID, false, requireContext())
             binding.eTA.setText("")
             binding.eTB.setText("")
-            Toast.makeText(context, "Karte gespeichert !", Toast.LENGTH_LONG).show()
         }
 
         val boxes = viewModel.boxes

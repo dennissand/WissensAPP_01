@@ -8,6 +8,17 @@
     android:background="@drawable/_learn_"
     tools:context=".ui.learn.LearnFragment">
 
+    <Spinner
+        android:id="@+id/spinner_learn_home_box"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:backgroundTint="@color/blue_light"
+        android:backgroundTintMode="add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageButton
         android:id="@+id/ibtn_learn"

@@ -34,7 +34,7 @@ class CardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val reCardView = binding.rwCardEdit
-        val adapter = CardAdapter(emptyList(), deleteCard, requireContext())
+        val adapter = CardAdapter(emptyList(), deleteCard)
         reCardView.adapter = adapter
         viewModel.cards.observe(
             viewLifecycleOwner,
@@ -68,6 +68,6 @@ class CardFragment : Fragment() {
     }
 
     private val deleteCard = { card: Card ->
-        viewModel.deleteCard(card)
+        viewModel.deleteCard(card, requireContext())
     }
 }

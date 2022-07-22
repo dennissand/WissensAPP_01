@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import com.example.wissensapp_01.MainViewModel
 import com.example.wissensapp_01.R
 import com.example.wissensapp_01.data.model.Card
@@ -49,9 +48,6 @@ class LearnCardFragment : Fragment() {
         animBack =
             AnimatorInflater.loadAnimator(requireContext(), R.animator.back_animator) as AnimatorSet
 
-        while (viewModel.cards.value?.isEmpty() == true) {
-        }
-
         viewModel.getLearnCards(boxID)
         val reLearnView = binding.rwCardLearn
         val adapter =
@@ -59,13 +55,12 @@ class LearnCardFragment : Fragment() {
         reLearnView.adapter = adapter
         try {
             viewModel.learncards.observe(
-                viewLifecycleOwner,
-                Observer {
-                    if (it != null) {
-                        adapter.submitLearnCardList(it)
-                    }
+                viewLifecycleOwner
+            ) {
+                if (it != null) {
+                    adapter.submitLearnCardList(it)
                 }
-            )
+            }
         } catch (e: Exception) {
             Log.e("LearnCardFragment", e.toString())
         }
@@ -77,6 +72,6 @@ class LearnCardFragment : Fragment() {
     }
 
     private val cardtoggeld = { card: Card, cardLearned: Boolean ->
-        viewModel.cardtoggeld(card, cardLearned)
+        viewModel.cardtoggeld(card, cardLearned, requireContext())
     }
 }

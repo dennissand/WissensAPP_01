@@ -1,6 +1,8 @@
 package com.example.wissensapp_01.data
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import com.example.wissensapp_01.data.model.Box
 import com.example.wissensapp_01.data.model.Card
 import com.google.firebase.firestore.FirebaseFirestore
@@ -31,7 +33,7 @@ object FirebaseService {
         }
     }
 
-    suspend fun deleteBox(box: Box): List<Box>? {
+    suspend fun deleteBox(box: Box, context: Context): List<Box>? {
         val dbref = FirebaseFirestore.getInstance().collection("boxes")
         val boxQuery = dbref
             .whereEqualTo("boxId", box.boxId)
@@ -42,9 +44,11 @@ object FirebaseService {
                 val result = boxQuery.documents[0]
                 dbref.document(result.id).delete()
                     .await()
+                Toast.makeText(context, "Box gelöscht !", Toast.LENGTH_LONG).show()
                 getBoxData()
             } catch (e: Exception) {
                 Log.e(TAG, "No Box delet,$e")
+                Toast.makeText(context, "Box nicht gelöscht !", Toast.LENGTH_LONG).show()
                 null
             }
         }
@@ -71,7 +75,7 @@ object FirebaseService {
         }
     }
 
-    suspend fun deleteCard(card: Card): List<Card>? {
+    suspend fun deleteCard(card: Card, context: Context): List<Card>? {
         val dbref = FirebaseFirestore.getInstance().collection("cards")
         val cardQuery = dbref
             .whereEqualTo("cardId", card.cardId)
@@ -82,9 +86,11 @@ object FirebaseService {
                 val result = cardQuery.documents[0]
                 dbref.document(result.id).delete()
                     .await()
+                Toast.makeText(context, "Karte gelöscht !", Toast.LENGTH_LONG).show()
                 getCardData()
             } catch (e: Exception) {
                 Log.e(TAG, "No Card deleted,$e")
+                Toast.makeText(context, "Karte nicht gelöscht !", Toast.LENGTH_LONG).show()
                 null
             }
         }
@@ -102,15 +108,17 @@ object FirebaseService {
         )
     }
 
-    suspend fun saveCard(a: String, b: String, boxID: String, cardLearned: Boolean): List<Card>? {
+    suspend fun saveCard(a: String, b: String, boxID: String, cardLearned: Boolean, context: Context): List<Card>? {
         val dbref = FirebaseFirestore.getInstance().collection("cards")
         val card = createCard(a, b, boxID, cardLearned)
         return try {
             dbref.add(card)
                 .await()
+            Toast.makeText(context, "Karte gespeichert !", Toast.LENGTH_LONG).show()
             getCardData()
         } catch (e: Exception) {
             Log.e(TAG, "Error saving Card:$e")
+            Toast.makeText(context, "Karte nicht gespeichert !", Toast.LENGTH_LONG).show()
             null
         }
     }
@@ -124,20 +132,22 @@ object FirebaseService {
         )
     }
 
-    suspend fun saveBox(boxName: String, boxContent: String): List<Box>? {
+    suspend fun saveBox(boxName: String, boxContent: String, context: Context): List<Box>? {
         val dbref = FirebaseFirestore.getInstance().collection("boxes")
         val box = createBox(boxName, boxContent)
         return try {
             dbref.add(box)
                 .await()
+            Toast.makeText(context, "Box gespeichert !", Toast.LENGTH_LONG).show()
             getBoxData()
         } catch (e: Exception) {
             Log.e(TAG, "Error saving Box:$e")
+            Toast.makeText(context, "Box nicht gespeichert !", Toast.LENGTH_LONG).show()
             null
         }
     }
 
-    suspend fun updateCard(card: Card): List<Card>? {
+    suspend fun updateCard(card: Card, context: Context): List<Card>? {
         val dbref = FirebaseFirestore.getInstance().collection("cards")
         val cardQuery = dbref
             .whereEqualTo("cardId", card.cardId)
@@ -158,16 +168,18 @@ object FirebaseService {
                         card.cardLearned
                     )
                     .await()
+                Toast.makeText(context, "Karte geändert & gespeichert !", Toast.LENGTH_LONG).show()
                 getCardData()
             } catch (e: Exception) {
                 Log.e(TAG, "No Card update,$e")
+                Toast.makeText(context, "Karte nicht geändert & gespeichert !", Toast.LENGTH_LONG).show()
                 null
             }
         }
         return null
     }
 
-    suspend fun updateBox(box: Box): List<Box>? {
+    suspend fun updateBox(box: Box, context: Context): List<Box>? {
         val dbref = FirebaseFirestore.getInstance().collection("boxes")
         val boxQuery = dbref
             .whereEqualTo("boxId", box.boxId)
@@ -179,9 +191,11 @@ object FirebaseService {
                 dbref.document(result.id)
                     .update("boxName", box.boxName, "boxContent", box.boxContent)
                     .await()
+                Toast.makeText(context, "Box nicht geändert & gespeichert !", Toast.LENGTH_LONG).show()
                 getBoxData()
             } catch (e: Exception) {
                 Log.e(TAG, "No Box Update ,$e")
+                Toast.makeText(context, "Box nicht geändert & gespeichert !", Toast.LENGTH_LONG).show()
                 null
             }
         }

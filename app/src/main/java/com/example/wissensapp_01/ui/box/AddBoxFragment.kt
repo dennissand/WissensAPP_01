@@ -33,10 +33,9 @@ class AddBoxFragment : Fragment() {
         binding.btnSaveBox.setOnClickListener {
             val boxName = binding.eTBoxName.text.toString()
             val boxContent = binding.eTBoxContent.text.toString()
-            viewModel.saveBox(boxName, boxContent)
+            viewModel.saveBox(boxName, boxContent, requireContext())
             binding.eTBoxName.setText("")
             binding.eTBoxContent.setText("")
-            Toast.makeText(context, "Box gespeichert !", Toast.LENGTH_LONG).show()
         }
     }
 

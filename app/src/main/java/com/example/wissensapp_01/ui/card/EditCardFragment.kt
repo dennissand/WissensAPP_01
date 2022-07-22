@@ -43,10 +43,9 @@ class EditCardFragment : Fragment() {
             if (editcard != null) {
                 editcard.a = binding.eTAEdit.text.toString()
                 editcard.b = binding.eTBEdit.text.toString()
-                viewModel.updateCard(editcard)
+                viewModel.updateCard(editcard, requireContext())
                 binding.eTAEdit.setText("")
                 binding.eTBEdit.setText("")
-                Toast.makeText(context, "Karte geändert und gespeichert !", Toast.LENGTH_LONG).show()
             }
         }
 

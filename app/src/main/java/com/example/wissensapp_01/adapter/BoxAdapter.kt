@@ -1,25 +1,24 @@
 package com.example.wissensapp_01.adapter
 
 import android.annotation.SuppressLint
-import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wissensapp_01.R
+import com.example.wissensapp_01.TAG
 import com.example.wissensapp_01.data.model.Box
 import com.example.wissensapp_01.ui.box.BoxFragmentDirections
 
 class BoxAdapter(
     private var boxNameList: List<Box>,
     private var deleteBox: (box: Box) -> Unit,
-    private var navtoDetail: (id: String) -> Unit,
-    private var context: Context
+    private var navtoDetail: (id: String) -> Unit
 ) : RecyclerView.Adapter<BoxAdapter.BoxViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
@@ -54,8 +53,8 @@ class BoxAdapter(
         holder.boxName.text = item.boxName
         holder.boxContent.text = item.boxContent
         holder.boxDelet.setOnClickListener {
+            Log.e(TAG, item.toString())
             deleteBox(item)
-            Toast.makeText(context, "Box gelöscht!", Toast.LENGTH_SHORT).show()
         }
         holder.boxItem.setOnClickListener {
             navtoDetail(boxid)

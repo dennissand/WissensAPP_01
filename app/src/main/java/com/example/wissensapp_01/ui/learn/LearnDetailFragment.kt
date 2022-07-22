@@ -3,7 +3,6 @@ package com.example.wissensapp_01.ui.learn
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,23 +49,21 @@ class LearnDetailFragment : Fragment() {
         animBack =
             AnimatorInflater.loadAnimator(requireContext(), R.animator.back_animator) as AnimatorSet
 
-        val cardList = viewModel.cards.value?.filter { it.cardLearned == showlearncard }
+        val cardList =
+            viewModel.cards.value?.filter { it.cardLearned == showlearncard && it.boxId == boxID }
         val reDetailView = binding.rwCardLearnDetail
         val adapter =
-            cardList?.let { LearnDetailAdapter(it, animFront, animBack, scale, cardtoggeld, requireContext()) }
-        reDetailView.adapter = adapter
-
-        try {
-            viewModel.learncards.observe(
-                viewLifecycleOwner
-            ) {
-                if (it != null) {
-                    adapter?.submitLearnCardList(it)
-                }
+            cardList?.let {
+                LearnDetailAdapter(
+                    it,
+                    animFront,
+                    animBack,
+                    scale,
+                    cardtoggeld,
+                    requireContext()
+                )
             }
-        } catch (e: Exception) {
-            Log.e("LearnDetailFragment", e.toString())
-        }
+        reDetailView.adapter = adapter
 
         if (showlearncard) {
             binding.textViewOK.visibility = View.VISIBLE
@@ -83,6 +80,6 @@ class LearnDetailFragment : Fragment() {
     }
 
     private val cardtoggeld = { card: Card, cardLearned: Boolean ->
-        viewModel.cardtoggeld(card, cardLearned)
+        viewModel.cardtoggeld(card, cardLearned, requireContext())
     }
 }

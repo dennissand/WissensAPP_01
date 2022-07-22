@@ -65,21 +65,18 @@
             android:name="com.example.wissensapp_01.ui.learn.LearnCardFragment"
             android:label="LearnCardFragment"
             tools:layout="@layout/fragment_learn_card">
-            <action
-                android:id="@+id/action_learnCardFragment_to_navigation_learn_home"
-                app:destination="@id/navigation_learn_home" />
             <argument
                 android:name="boxID"
                 app:argType="string" />
+            <action
+                android:id="@+id/action_learnCardFragment_to_navigation_learn_home"
+                app:destination="@id/navigation_learn_home" />
         </fragment>
         <fragment
             android:id="@+id/navigation_learn_home"
             android:name="com.example.wissensapp_01.ui.learn.LearnFragment"
             android:label="@string/title_learn"
             tools:layout="@layout/fragment_learn_home" >
-            <action
-                android:id="@+id/action_navigation_learn_home_to_choiseLearnFragment"
-                app:destination="@id/choiseLearnFragment" />
             <action
                 android:id="@+id/action_navigation_learn_home_to_learnCardFragment"
                 app:destination="@id/learnCardFragment" />
@@ -88,30 +85,18 @@
                 app:destination="@id/learnDetailFragment" />
         </fragment>
         <fragment
-            android:id="@+id/choiseLearnFragment"
-            android:name="com.example.wissensapp_01.ui.learn.ChoiseLearnFragment"
-            android:label="fragment_learn_choise"
-            tools:layout="@layout/fragment_learn_choise" >
-            <action
-                android:id="@+id/action_choiseLearnFragment_to_learnCardFragment"
-                app:destination="@id/learnCardFragment" />
-            <action
-                android:id="@+id/action_choiseLearnFragment_to_navigation_learn_home"
-                app:destination="@id/navigation_learn_home" />
-        </fragment>
-        <fragment
             android:id="@+id/learnDetailFragment"
             android:name="com.example.wissensapp_01.ui.learn.LearnDetailFragment"
             android:label="LearnDetailFragment" >
-            <action
-                android:id="@+id/action_learnDetailFragment_to_navigation_learn_home"
-                app:destination="@id/navigation_learn_home" />
             <argument
                 android:name="showlearncard"
                 app:argType="boolean" />
             <argument
                 android:name="boxID"
                 app:argType="string" />
+            <action
+                android:id="@+id/action_learnDetailFragment_to_navigation_learn_home"
+                app:destination="@id/navigation_learn_home" />
         </fragment>
     </navigation>
     <navigation android:id="@+id/nested_box"

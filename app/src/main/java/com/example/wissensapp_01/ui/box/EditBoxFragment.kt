@@ -39,10 +39,9 @@ class EditBoxFragment : Fragment() {
             if (editbox != null) {
                 editbox.boxName = binding.eTBoxNameEdit.text.toString()
                 editbox.boxContent = binding.eTBoxContentEdit.text.toString()
-                viewModel.updateBox(editbox)
+                viewModel.updateBox(editbox, requireContext())
                 binding.eTBoxNameEdit.setText("")
                 binding.eTBoxContentEdit.setText("")
-                Toast.makeText(context, "Box geändert und gespeichert !", Toast.LENGTH_LONG).show()
             }
         }
         if (editbox != null) {

@@ -1,7 +1,7 @@
 package com.example.wissensapp_01
 
 import android.app.Application
-import android.util.Log
+import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -19,7 +19,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _boxes = MutableLiveData<List<Box>>()
     val boxes: LiveData<List<Box>> = _boxes
-    private val _cards = MutableLiveData<List<Card>>()
+    val _cards = MutableLiveData<List<Card>>()
     val cards: LiveData<List<Card>> = _cards
     private val _boxcards = MutableLiveData<List<Card>>()
     val boxcards: LiveData<List<Card>> = _boxcards
@@ -31,7 +31,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val cardloading: LiveData<FirestoreStatus> = _cardloading
 
     fun startDownload() {
-        Log.e("Main", "1")
         viewModelScope.launch {
             _boxloading.value = FirestoreStatus.LOADING
             _boxes.value = FirebaseService.getBoxData()
@@ -43,27 +42,27 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun deleteBox(box: Box) {
+    fun deleteBox(box: Box, context: Context) {
         viewModelScope.launch {
-            _boxes.value = FirebaseService.deleteBox(box)
+            _boxes.value = FirebaseService.deleteBox(box, context)
         }
     }
 
-    fun deleteCard(card: Card) {
+    fun deleteCard(card: Card, context: Context) {
         viewModelScope.launch {
-            _cards.value = FirebaseService.deleteCard(card)
+            _cards.value = FirebaseService.deleteCard(card, context)
         }
     }
 
-    fun saveCard(a: String, b: String, boxID: String, cardLearned: Boolean) {
+    fun saveCard(a: String, b: String, boxID: String, cardLearned: Boolean, context: Context) {
         viewModelScope.launch {
-            _cards.value = FirebaseService.saveCard(a, b, boxID, cardLearned)
+            _cards.value = FirebaseService.saveCard(a, b, boxID, cardLearned, context)
         }
     }
 
-    fun saveBox(boxName: String, boxContent: String) {
+    fun saveBox(boxName: String, boxContent: String, context: Context) {
         viewModelScope.launch {
-            _boxes.value = FirebaseService.saveBox(boxName, boxContent)
+            _boxes.value = FirebaseService.saveBox(boxName, boxContent, context)
         }
     }
 
@@ -71,9 +70,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _boxcards.value = _cards.value?.filter { it.boxId == id }
     }
 
-    fun cardtoggeld(card: Card, cardLearned: Boolean) {
+    fun cardtoggeld(card: Card, cardLearned: Boolean, context: Context) {
         card.cardLearned = cardLearned
-        updateCard(card)
+        updateCard(card, context)
     }
 
     fun getLearnCards(id: String) {
@@ -88,15 +87,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         return _boxes.value?.find { it.boxId == id }
     }
 
-    fun updateCard(card: Card) {
+    fun updateCard(card: Card, context: Context) {
         viewModelScope.launch {
-            _cards.value = FirebaseService.updateCard(card)
+            _cards.value = FirebaseService.updateCard(card, context)
         }
     }
 
-    fun updateBox(box: Box) {
+    fun updateBox(box: Box, context: Context) {
         viewModelScope.launch {
-            _boxes.value = FirebaseService.updateBox(box)
+            _boxes.value = FirebaseService.updateBox(box, context)
         }
     }
 }
