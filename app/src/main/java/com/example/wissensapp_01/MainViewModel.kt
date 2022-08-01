@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.wissensapp_01.data.FirebaseService
 import com.example.wissensapp_01.data.model.Box
 import com.example.wissensapp_01.data.model.Card
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 const val TAG = "MainViewModel"
@@ -16,6 +17,8 @@ const val TAG = "MainViewModel"
 enum class FirestoreStatus { LOADING, ERROR, DONE }
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
     private val _boxes = MutableLiveData<List<Box>>()
     val boxes: LiveData<List<Box>> = _boxes
@@ -30,14 +33,16 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _cardloading = MutableLiveData<FirestoreStatus>()
     val cardloading: LiveData<FirestoreStatus> = _cardloading
 
+    private var uid = firebaseAuth.uid
+
     fun startDownload() {
         viewModelScope.launch {
             _boxloading.value = FirestoreStatus.LOADING
-            _boxes.value = FirebaseService.getBoxData()
+            _boxes.value = uid?.let { FirebaseService.getBoxData(it) }
             _boxloading.value = FirestoreStatus.DONE
 
             _cardloading.value = FirestoreStatus.LOADING
-            _cards.value = FirebaseService.getCardData()
+            _cards.value = uid?.let { FirebaseService.getCardData(it) }
             _cardloading.value = FirestoreStatus.DONE
         }
     }
@@ -54,15 +59,30 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun saveCard(a: String, b: String, boxID: String, cardLearned: Boolean, context: Context) {
+    fun saveCard(
+        a: String,
+        b: String,
+        boxID: String,
+        cardLearned: Boolean,
+        context: Context
+    ) {
         viewModelScope.launch {
-            _cards.value = FirebaseService.saveCard(a, b, boxID, cardLearned, context)
+            _cards.value = uid?.let {
+                FirebaseService.saveCard(
+                    a,
+                    b,
+                    boxID,
+                    cardLearned,
+                    context,
+                    it
+                )
+            }
         }
     }
 
     fun saveBox(boxName: String, boxContent: String, context: Context) {
         viewModelScope.launch {
-            _boxes.value = FirebaseService.saveBox(boxName, boxContent, context)
+            _boxes.value = uid?.let { FirebaseService.saveBox(boxName, boxContent, context, it) }
         }
     }
 

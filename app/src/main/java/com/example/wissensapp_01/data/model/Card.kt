@@ -7,5 +7,6 @@ data class Card(
     var a: String = "",
     var b: String = "",
     var boxId: String = "",
-    var cardLearned: Boolean = true
+    var cardLearned: Boolean = true,
+    var uid: String = ""
 )

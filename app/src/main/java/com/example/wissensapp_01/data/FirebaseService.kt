@@ -13,7 +13,7 @@ import java.util.*
 object FirebaseService {
     private const val TAG = "FirebaseServiceBox"
 
-    suspend fun getBoxData(): List<Box>? {
+    suspend fun getBoxData(uid: String): List<Box>? {
         try {
             val allBoxes = mutableListOf<Box>()
             val boxresults = FirebaseFirestore.getInstance().collection("boxes")
@@ -22,7 +22,9 @@ object FirebaseService {
             for (document in boxresults.documents) {
                 val box = document.toObject<Box>()
                 if (box != null) {
-                    allBoxes.add(box)
+                    if (box.uid == uid) {
+                        allBoxes.add(box)
+                    }
                 }
             }
             return allBoxes
@@ -45,7 +47,7 @@ object FirebaseService {
                 dbref.document(result.id).delete()
                     .await()
                 Toast.makeText(context, "Box gelöscht !", Toast.LENGTH_LONG).show()
-                getBoxData()
+                getBoxData(box.uid)
             } catch (e: Exception) {
                 Log.e(TAG, "No Box delet,$e")
                 Toast.makeText(context, "Box nicht gelöscht !", Toast.LENGTH_LONG).show()
@@ -55,7 +57,7 @@ object FirebaseService {
         return null
     }
 
-    suspend fun getCardData(): List<Card>? {
+    suspend fun getCardData(uid: String): List<Card>? {
         try {
             val allCards = mutableListOf<Card>()
             val cardresults = FirebaseFirestore.getInstance().collection("cards")
@@ -64,7 +66,9 @@ object FirebaseService {
             for (document in cardresults.documents) {
                 val card = document.toObject<Card>()
                 if (card != null) {
-                    allCards.add(card)
+                    if (card.uid == uid) {
+                        allCards.add(card)
+                    }
                 }
             }
             return allCards
@@ -87,7 +91,7 @@ object FirebaseService {
                 dbref.document(result.id).delete()
                     .await()
                 Toast.makeText(context, "Karte gelöscht !", Toast.LENGTH_LONG).show()
-                getCardData()
+                getCardData(card.uid)
             } catch (e: Exception) {
                 Log.e(TAG, "No Card deleted,$e")
                 Toast.makeText(context, "Karte nicht gelöscht !", Toast.LENGTH_LONG).show()
@@ -97,25 +101,39 @@ object FirebaseService {
         return null
     }
 
-    private fun createCard(a: String, b: String, boxId: String, cardLearned: Boolean): Card {
+    private fun createCard(
+        a: String,
+        b: String,
+        boxId: String,
+        cardLearned: Boolean,
+        uid: String
+    ): Card {
         val cardId = UUID.randomUUID().toString()
         return Card(
             cardId = cardId,
             a = a,
             b = b,
             boxId = boxId,
-            cardLearned = cardLearned
+            cardLearned = cardLearned,
+            uid = uid
         )
     }
 
-    suspend fun saveCard(a: String, b: String, boxID: String, cardLearned: Boolean, context: Context): List<Card>? {
+    suspend fun saveCard(
+        a: String,
+        b: String,
+        boxID: String,
+        cardLearned: Boolean,
+        context: Context,
+        uid: String
+    ): List<Card>? {
         val dbref = FirebaseFirestore.getInstance().collection("cards")
-        val card = createCard(a, b, boxID, cardLearned)
+        val card = createCard(a, b, boxID, cardLearned, uid)
         return try {
             dbref.add(card)
                 .await()
             Toast.makeText(context, "Karte gespeichert !", Toast.LENGTH_LONG).show()
-            getCardData()
+            getCardData(uid)
         } catch (e: Exception) {
             Log.e(TAG, "Error saving Card:$e")
             Toast.makeText(context, "Karte nicht gespeichert !", Toast.LENGTH_LONG).show()
@@ -123,23 +141,29 @@ object FirebaseService {
         }
     }
 
-    private fun createBox(boxName: String, boxContent: String): Box {
+    private fun createBox(boxName: String, boxContent: String, uid: String): Box {
         val boxId = UUID.randomUUID().toString()
         return Box(
             boxId = boxId,
             boxName = boxName,
-            boxContent = boxContent
+            boxContent = boxContent,
+            uid = uid
         )
     }
 
-    suspend fun saveBox(boxName: String, boxContent: String, context: Context): List<Box>? {
+    suspend fun saveBox(
+        boxName: String,
+        boxContent: String,
+        context: Context,
+        uid: String
+    ): List<Box>? {
         val dbref = FirebaseFirestore.getInstance().collection("boxes")
-        val box = createBox(boxName, boxContent)
+        val box = createBox(boxName, boxContent, uid)
         return try {
             dbref.add(box)
                 .await()
             Toast.makeText(context, "Box gespeichert !", Toast.LENGTH_LONG).show()
-            getBoxData()
+            getBoxData(uid)
         } catch (e: Exception) {
             Log.e(TAG, "Error saving Box:$e")
             Toast.makeText(context, "Box nicht gespeichert !", Toast.LENGTH_LONG).show()
@@ -166,13 +190,20 @@ object FirebaseService {
                         card.boxId,
                         "cardLearned",
                         card.cardLearned
+
                     )
                     .await()
-                Toast.makeText(context, "Karte geändert & gespeichert !", Toast.LENGTH_LONG).show()
-                getCardData()
+                Toast.makeText(context, "Karte geändert & gespeichert !", Toast.LENGTH_LONG)
+                    .show()
+                getCardData(card.uid)
             } catch (e: Exception) {
                 Log.e(TAG, "No Card update,$e")
-                Toast.makeText(context, "Karte nicht geändert & gespeichert !", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    "Karte nicht geändert & gespeichert !",
+                    Toast.LENGTH_LONG
+                )
+                    .show()
                 null
             }
         }
@@ -191,11 +222,13 @@ object FirebaseService {
                 dbref.document(result.id)
                     .update("boxName", box.boxName, "boxContent", box.boxContent)
                     .await()
-                Toast.makeText(context, "Box nicht geändert & gespeichert !", Toast.LENGTH_LONG).show()
-                getBoxData()
+                Toast.makeText(context, "Box nicht geändert & gespeichert !", Toast.LENGTH_LONG)
+                    .show()
+                getBoxData(box.uid)
             } catch (e: Exception) {
                 Log.e(TAG, "No Box Update ,$e")
-                Toast.makeText(context, "Box nicht geändert & gespeichert !", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Box nicht geändert & gespeichert !", Toast.LENGTH_LONG)
+                    .show()
                 null
             }
         }
