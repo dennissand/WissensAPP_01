@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +31,7 @@ class CardAdapter(
         val b: TextView = itemView.findViewById(R.id.tV_card_b)
         val cardDelet: ImageButton = itemView.findViewById(R.id.ibtn_delete_card)
         val cardEdit: ImageButton = itemView.findViewById(R.id.ibtn_edit_card)
+        val greenCheck: ImageView = itemView.findViewById(R.id.iV_green_check)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
@@ -51,6 +53,13 @@ class CardAdapter(
         holder.cardEdit.setOnClickListener {
             holder.itemView.findNavController()
                 .navigate(CardFragmentDirections.actionNavigationCardHomeToEditCardFragment(item.cardId))
+        }
+
+        if (item.cardLearned) {
+            holder.greenCheck.visibility = View.VISIBLE
+        } else {
+            holder.greenCheck.visibility = View.GONE
+
         }
     }
 

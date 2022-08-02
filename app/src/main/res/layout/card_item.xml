@@ -67,15 +67,31 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/delet_60" />
 
+        <ImageView
+            android:id="@+id/iV_item_card"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@color/pink"
+            android:padding="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/card_01" />
+
+
+        <ImageView
+            android:id="@+id/iV_green_check"
+            android:layout_width="39dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/check_green" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/iV_item_card"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:scaleType="centerCrop"
-        android:padding="10dp"
-        app:srcCompat="@drawable/card_01"
-        android:background="@color/pink"/>
 
 </androidx.cardview.widget.CardView>
