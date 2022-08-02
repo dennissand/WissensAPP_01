@@ -53,7 +53,8 @@
                     android:backgroundTint="@null"
                     android:src="@drawable/round_button_blue"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:contentDescription="Karte ist nicht gekonnt" />
 
                 <ImageView
                     android:id="@+id/iV_card_again"

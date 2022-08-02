@@ -1,7 +1,6 @@
 package com.example.wissensapp_01.adapter
 
 import android.animation.AnimatorSet
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -23,12 +22,6 @@ class LearnDetailAdapter(
     private var context: Context
 
 ) : RecyclerView.Adapter<LearnDetailAdapter.LearnDetailViewHolder>() {
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun submitLearnCardList(list: List<Card>) {
-        learncardIdList = list
-        notifyDataSetChanged()
-    }
 
     class LearnDetailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val a: TextView = itemView.findViewById(R.id.a_text)
@@ -75,14 +68,6 @@ class LearnDetailAdapter(
             }
         }
 
-        holder.ok.setOnClickListener {
-            cardtoggeld(item, true)
-        }
-
-        holder.again.setOnClickListener {
-            cardtoggeld(item, false)
-        }
-
         holder.again.setOnClickListener {
             cardtoggeld(item, false)
             Toast.makeText(context, "Karte nicht gekonnt!", Toast.LENGTH_SHORT).show()
@@ -91,6 +76,14 @@ class LearnDetailAdapter(
         holder.ok.setOnClickListener {
             cardtoggeld(item, true)
             Toast.makeText(context, "Karte gekonnt!", Toast.LENGTH_SHORT).show()
+        }
+
+        if (item.cardLearned) {
+            holder.ok.visibility = View.GONE
+            holder.again.visibility = View.VISIBLE
+        } else {
+            holder.again.visibility = View.GONE
+            holder.ok.visibility = View.VISIBLE
         }
     }
 

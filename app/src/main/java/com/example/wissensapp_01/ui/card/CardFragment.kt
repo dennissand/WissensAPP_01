@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.wissensapp_01.FirestoreStatus
 import com.example.wissensapp_01.MainViewModel
@@ -37,11 +36,10 @@ class CardFragment : Fragment() {
         val adapter = CardAdapter(emptyList(), deleteCard)
         reCardView.adapter = adapter
         viewModel.cards.observe(
-            viewLifecycleOwner,
-            Observer {
-                adapter.submitCardList(it)
-            }
-        )
+            viewLifecycleOwner
+        ) {
+            adapter.submitCardList(it)
+        }
 
         binding.btnCardAdd.setOnClickListener {
             findNavController().navigate(CardFragmentDirections.actionNavigationCardHomeToAddCardFragment())

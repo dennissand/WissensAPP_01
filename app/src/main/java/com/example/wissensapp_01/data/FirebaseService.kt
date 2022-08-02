@@ -30,7 +30,7 @@ object FirebaseService {
             return allBoxes
         } catch
         (e: Exception) {
-            Log.e(TAG, "Error getting Boxs:$e")
+            Log.e(TAG, "Fehler beim laden der Boxen:$e")
             return null
         }
     }
@@ -49,7 +49,7 @@ object FirebaseService {
                 Toast.makeText(context, "Box gelöscht !", Toast.LENGTH_LONG).show()
                 getBoxData(box.uid)
             } catch (e: Exception) {
-                Log.e(TAG, "No Box delet,$e")
+                Log.e(TAG, "keine Box gelöscht,$e")
                 Toast.makeText(context, "Box nicht gelöscht !", Toast.LENGTH_LONG).show()
                 null
             }
@@ -74,7 +74,7 @@ object FirebaseService {
             return allCards
         } catch
         (e: Exception) {
-            Log.e(TAG, "Error getting Cards:$e")
+            Log.e(TAG, "Fehler beim Laden der Karten:$e")
             return null
         }
     }
@@ -93,7 +93,7 @@ object FirebaseService {
                 Toast.makeText(context, "Karte gelöscht !", Toast.LENGTH_LONG).show()
                 getCardData(card.uid)
             } catch (e: Exception) {
-                Log.e(TAG, "No Card deleted,$e")
+                Log.e(TAG, "Keine Karte gelöscht,$e")
                 Toast.makeText(context, "Karte nicht gelöscht !", Toast.LENGTH_LONG).show()
                 null
             }
@@ -135,7 +135,7 @@ object FirebaseService {
             Toast.makeText(context, "Karte gespeichert !", Toast.LENGTH_LONG).show()
             getCardData(uid)
         } catch (e: Exception) {
-            Log.e(TAG, "Error saving Card:$e")
+            Log.e(TAG, "Fehler beim speichern der Karte:$e")
             Toast.makeText(context, "Karte nicht gespeichert !", Toast.LENGTH_LONG).show()
             null
         }
@@ -165,7 +165,7 @@ object FirebaseService {
             Toast.makeText(context, "Box gespeichert !", Toast.LENGTH_LONG).show()
             getBoxData(uid)
         } catch (e: Exception) {
-            Log.e(TAG, "Error saving Box:$e")
+            Log.e(TAG, "Fehler beim speichern der Box:$e")
             Toast.makeText(context, "Box nicht gespeichert !", Toast.LENGTH_LONG).show()
             null
         }
@@ -197,7 +197,7 @@ object FirebaseService {
                     .show()
                 getCardData(card.uid)
             } catch (e: Exception) {
-                Log.e(TAG, "No Card update,$e")
+                Log.e(TAG, "Fehler beim ändern der Karte,$e")
                 Toast.makeText(
                     context,
                     "Karte nicht geändert & gespeichert !",
@@ -226,7 +226,7 @@ object FirebaseService {
                     .show()
                 getBoxData(box.uid)
             } catch (e: Exception) {
-                Log.e(TAG, "No Box Update ,$e")
+                Log.e(TAG, "Fehler beim ändern der Box ,$e")
                 Toast.makeText(context, "Box nicht geändert & gespeichert !", Toast.LENGTH_LONG)
                     .show()
                 null

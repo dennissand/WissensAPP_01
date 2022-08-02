@@ -33,9 +33,8 @@ class LearnDetailFragment : Fragment() {
         arguments?.let { boxID = it.getString("boxID").toString() }
 
         _binding = FragmentLearnDetailBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

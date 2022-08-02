@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.wissensapp_01.FirestoreStatus
 import com.example.wissensapp_01.MainViewModel
@@ -26,9 +25,8 @@ class BoxFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentBoxHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,11 +35,10 @@ class BoxFragment : Fragment() {
         val adapter = BoxAdapter(emptyList(), deleteBox, navtoDetail)
         reBoxView.adapter = adapter
         viewModel.boxes.observe(
-            viewLifecycleOwner,
-            Observer {
-                adapter.submitBoxList(it)
-            }
-        )
+            viewLifecycleOwner
+        ) {
+            adapter.submitBoxList(it)
+        }
 
         binding.btnBoxAdd.setOnClickListener {
             findNavController().navigate(BoxFragmentDirections.actionBoxFragmentToAddBoxFragment())

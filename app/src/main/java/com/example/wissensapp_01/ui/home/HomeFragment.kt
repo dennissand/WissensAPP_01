@@ -22,15 +22,14 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Firebase wird abgerufen //
+        // Firebase Auth wird abgerufen //
         firebaseAuth = FirebaseAuth.getInstance()
 
         // LogOut Funktion wenn man den Log verlassen möchte //
