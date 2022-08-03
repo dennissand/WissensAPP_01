@@ -33,7 +33,7 @@ class CardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val reCardView = binding.rwCardEdit
-        val adapter = CardAdapter(emptyList(), deleteCard)
+        val adapter = CardAdapter(emptyList(), deleteCard, requireContext())
         reCardView.adapter = adapter
         viewModel.cards.observe(
             viewLifecycleOwner

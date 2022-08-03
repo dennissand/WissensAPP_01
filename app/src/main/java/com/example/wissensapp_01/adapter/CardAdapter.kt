@@ -1,6 +1,9 @@
 package com.example.wissensapp_01.adapter
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.Context
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +18,8 @@ import com.example.wissensapp_01.ui.card.CardFragmentDirections
 
 class CardAdapter(
     private var cardIdList: List<Card>,
-    private var deleteCard: (card: Card) -> Unit
+    private var deleteCard: (card: Card) -> Unit,
+    private val context: Context
 ) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
@@ -47,8 +51,21 @@ class CardAdapter(
         val item = cardIdList[position]
         holder.a.text = item.a
         holder.b.text = item.b
+
         holder.cardDelet.setOnClickListener {
-            deleteCard(item)
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Löschen ?")
+                .setMessage("Möchtest Du die Karte wirklich Löschen ?")
+                .setPositiveButton(
+                    "Ja",
+                    DialogInterface.OnClickListener { dialogInterface, i -> deleteCard(item) }
+                )
+                .setNegativeButton(
+                    "Nein",
+                    DialogInterface.OnClickListener { dialogInterface, i -> }
+                )
+                .create()
+                .show()
         }
         holder.cardEdit.setOnClickListener {
             holder.itemView.findNavController()
@@ -59,7 +76,6 @@ class CardAdapter(
             holder.greenCheck.visibility = View.VISIBLE
         } else {
             holder.greenCheck.visibility = View.GONE
-
         }
     }
 

@@ -1,7 +1,9 @@
 package com.example.wissensapp_01.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
+import android.app.AlertDialog
+import android.content.Context
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,14 +13,14 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wissensapp_01.R
-import com.example.wissensapp_01.TAG
 import com.example.wissensapp_01.data.model.Box
 import com.example.wissensapp_01.ui.box.BoxFragmentDirections
 
 class BoxAdapter(
     private var boxNameList: List<Box>,
     private var deleteBox: (box: Box) -> Unit,
-    private var navtoDetail: (id: String) -> Unit
+    private var navtoDetail: (id: String) -> Unit,
+    private val context: Context
 ) : RecyclerView.Adapter<BoxAdapter.BoxViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
@@ -52,10 +54,23 @@ class BoxAdapter(
         val boxid: String = item.boxId
         holder.boxName.text = item.boxName
         holder.boxContent.text = item.boxContent
+
         holder.boxDelet.setOnClickListener {
-            Log.e(TAG, item.toString())
-            deleteBox(item)
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Löschen ?")
+                .setMessage("Möchtest Du die Box wirklich löschen ?")
+                .setPositiveButton(
+                    "Ja",
+                    DialogInterface.OnClickListener { dialogInterface, i -> deleteBox(item) }
+                )
+                .setNegativeButton(
+                    "Nein",
+                    DialogInterface.OnClickListener { dialogInterface: DialogInterface, i: Int -> }
+                )
+                .create()
+                .show()
         }
+
         holder.boxItem.setOnClickListener {
             navtoDetail(boxid)
         }
