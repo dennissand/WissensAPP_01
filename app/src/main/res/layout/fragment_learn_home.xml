@@ -62,7 +62,7 @@
         android:id="@+id/tV_learn_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Learn"
+        android:text="@string/learn"
         android:textColor="@color/white"
         android:textStyle="normal"
         android:textSize="24sp"
@@ -71,31 +71,44 @@
         app:layout_constraintStart_toStartOf="@+id/ibtn_learn"
         app:layout_constraintTop_toTopOf="@+id/ibtn_learn" />
 
-    <TextView
-        android:id="@+id/tV_btn_ok"
+    <ImageView
+        android:id="@+id/ibtn_ok_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OK"
-        android:textColor="@color/white"
-        android:textStyle="normal"
-        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/ibtn_ok"
         app:layout_constraintEnd_toEndOf="@+id/ibtn_ok"
         app:layout_constraintStart_toStartOf="@+id/ibtn_ok"
         app:layout_constraintTop_toTopOf="@+id/ibtn_ok"
-        />
+        app:srcCompat="@drawable/check_60"
+        android:clickable="true"/>
 
-    <TextView
-        android:id="@+id/tV_btn_again"
+    <ImageView
+        android:id="@+id/ibtn_again_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Again"
-        android:textColor="@color/white"
-        android:textStyle="normal"
-        android:textSize="24sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="18dp"
         app:layout_constraintBottom_toBottomOf="@+id/ibtn_again"
         app:layout_constraintEnd_toEndOf="@+id/ibtn_again"
         app:layout_constraintStart_toStartOf="@+id/ibtn_again"
-        app:layout_constraintTop_toTopOf="@+id/ibtn_again" />
+        app:layout_constraintTop_toTopOf="@+id/ibtn_again"
+        app:srcCompat="@drawable/replay_60"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/tV_learn_titel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:text="@string/learn_cards_from_box"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

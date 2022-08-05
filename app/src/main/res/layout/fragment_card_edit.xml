@@ -16,7 +16,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:hint="A"
+        android:hint="@string/a_card_edit"
         app:layout_constraintBottom_toTopOf="@+id/eT_B_edit"
         app:layout_constraintEnd_toEndOf="@+id/eT_B_edit"
         app:layout_constraintStart_toStartOf="@+id/eT_B_edit" />
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:ems="10"
-        android:hint="B"
+        android:hint="@string/b_card_edit"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/drop_down_card_edit"
@@ -41,7 +41,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="408dp"
         android:background="@drawable/round_button_pink"
-        android:text="Update"
+        android:text="@string/update_card"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,11 +59,11 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tV_card_edit_titel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="Edit"
+        android:text="@string/edit_card"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textAlignment="center"

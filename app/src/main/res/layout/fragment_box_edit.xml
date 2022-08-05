@@ -8,31 +8,33 @@ android:layout_height="match_parent"
 android:background="@drawable/_box_"
 tools:context=".ui.box.DetailBoxFragment">
 
-<Button
-    android:id="@+id/btn_save_box_edit"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:layout_marginStart="300dp"
-    android:layout_marginTop="500dp"
-    android:background="@drawable/ic_baseline_circle_75_green"
-    android:text="Update"
-    app:backgroundTint="@null"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/btn_save_box_edit"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="416dp"
+        android:background="@drawable/ic_baseline_circle_75_green"
+        android:text="@string/update"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<EditText
-    android:id="@+id/eT_box_name_edit"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="300dp"
-    android:ems="10"
-    android:hint="Box Name"
-    android:inputType="textPersonName"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/eT_box_name_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="256dp"
+        android:ems="10"
+        android:hint="Box Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<EditText
+    <EditText
     android:id="@+id/eT_box_content_edit"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -49,7 +51,7 @@ tools:context=".ui.box.DetailBoxFragment">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="60dp"
-    android:text="Edit"
+    android:text="@string/edit"
     android:textSize="24sp"
     android:textStyle="bold"
     android:textColor="@color/white"

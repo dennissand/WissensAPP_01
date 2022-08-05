@@ -65,7 +65,7 @@ class LearnFragment : Fragment() {
             )
         }
 
-        binding.ibtnOk.setOnClickListener {
+        binding.ibtnOkImage.setOnClickListener {
             findNavController().navigate(
                 LearnFragmentDirections.actionNavigationLearnHomeToLearnDetailFragment(
                     true,
@@ -74,7 +74,7 @@ class LearnFragment : Fragment() {
             )
         }
 
-        binding.ibtnAgain.setOnClickListener {
+        binding.ibtnAgainImage.setOnClickListener {
             findNavController().navigate(
                 LearnFragmentDirections.actionNavigationLearnHomeToLearnDetailFragment(
                     false,

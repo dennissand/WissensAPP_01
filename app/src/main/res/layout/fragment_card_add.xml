@@ -16,7 +16,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:hint="A"
+        android:hint="@string/a_card"
         app:layout_constraintBottom_toTopOf="@+id/eT_B"
         app:layout_constraintEnd_toEndOf="@+id/eT_B"
         app:layout_constraintStart_toStartOf="@+id/eT_B" />
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:ems="10"
-        android:hint="B"
+        android:hint="@string/b_card"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/drop_down_card"
@@ -63,6 +63,19 @@
         app:layout_constraintStart_toStartOf="@+id/eT_B"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
+
+    <TextView
+        android:id="@+id/tV_card_add_titel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/card_add"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

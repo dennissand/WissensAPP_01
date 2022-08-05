@@ -1,5 +1,7 @@
 package com.example.wissensapp_01.ui.home
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -35,8 +37,22 @@ class HomeFragment : Fragment() {
         // LogOut Funktion wenn man den Log verlassen möchte //
         binding.logOut.setOnClickListener {
             val intent = Intent(requireContext(), SignUpActivity::class.java)
-            firebaseAuth.signOut()
-            startActivity(intent)
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("App verlassen ?")
+                .setMessage("Bist Du sicher das Du die App verlassen willst ?")
+                .setPositiveButton(
+                    "Verlassen !",
+                    DialogInterface.OnClickListener { dialogInterface, i ->
+                        firebaseAuth.signOut()
+                        startActivity(intent)
+                    }
+                )
+                .setNegativeButton(
+                    "Bleiben !",
+                    DialogInterface.OnClickListener { dialogInterface, i -> }
+                )
+                .create()
+                .show()
         }
     }
 

@@ -25,34 +25,37 @@
         <entry key="app/src/main/res/drawable/round_button_violet.xml" value="0.313" />
         <entry key="app/src/main/res/drawable/round_button_yellow.xml" value="0.477" />
         <entry key="app/src/main/res/layout-v28/fragment_card_add.xml" value="0.45" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3767123287671233" />
-        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.75" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.48802083333333335" />
-        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.44583333333333336" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/box_item.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/card_item.xml" value="0.67" />
-        <entry key="app/src/main/res/layout/card_learn_item.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/card_list_item.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/card_item.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/card_learn_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/card_list_item.xml" value="0.75" />
         <entry key="app/src/main/res/layout/fragment.xml" value="0.23645833333333333" />
-        <entry key="app/src/main/res/layout/fragment_box_add.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_box_detail.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_box_add.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_box_detail.xml" value="0.67" />
         <entry key="app/src/main/res/layout/fragment_box_edit.xml" value="0.4280155642023346" />
-        <entry key="app/src/main/res/layout/fragment_box_home.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_box_home.xml" value="0.67" />
         <entry key="app/src/main/res/layout/fragment_card_add.xml" value="0.67" />
         <entry key="app/src/main/res/layout/fragment_card_edit.xml" value="0.67" />
-        <entry key="app/src/main/res/layout/fragment_card_home.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_card_home.xml" value="0.67" />
         <entry key="app/src/main/res/layout/fragment_home_home.xml" value="0.4901041666666667" />
         <entry key="app/src/main/res/layout/fragment_learn_again.xml" value="0.4708333333333333" />
-        <entry key="app/src/main/res/layout/fragment_learn_card.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_learn_card.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_learn_choise.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_learn_detail.xml" value="0.48802083333333335" />
-        <entry key="app/src/main/res/layout/fragment_learn_home.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_learn_home.xml" value="0.67" />
         <entry key="app/src/main/res/layout/fragment_learn_ok.xml" value="0.4708333333333333" />
         <entry key="app/src/main/res/layout/test.xml" value="0.48802083333333335" />
         <entry key="app/src/main/res/menu-v26/bottom_nav_menu.xml" value="0.16740088105726872" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.45625" />
         <entry key="app/src/main/res/menu/bottom_navigation_selector.xml" value="0.5104166666666666" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_channel.xml" value="0.4405" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3385" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22" />
       </map>
     </option>
   </component>

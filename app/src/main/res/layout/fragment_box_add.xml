@@ -12,8 +12,8 @@
         android:id="@+id/btn_save_box"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="380dp"
         android:background="@drawable/ic_baseline_circle_75_green"
         android:text="Save"
         app:backgroundTint="@null"
@@ -24,12 +24,12 @@
         android:id="@+id/eT_box_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="212dp"
         android:ems="10"
-        android:hint="Box Name"
+        android:hint="@string/box_name_input"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.412"
+        app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,11 +39,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:ems="10"
-        android:hint="Box Inhalt"
+        android:hint="@string/box_content_input"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/eT_box_name"
         app:layout_constraintStart_toStartOf="@+id/eT_box_name"
         app:layout_constraintTop_toBottomOf="@+id/eT_box_name" />
+
+    <TextView
+        android:id="@+id/tV_box_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="@string/build_box"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
