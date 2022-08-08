@@ -43,4 +43,6 @@
     <string name="again_learn">Nochmal Wiederholen</string>
     <string name="learn_cards_from_box">Lerne Karten aus der Box</string>
     <string name="learn">Lernen</string>
+    <string name="delet_Card">Karte gelöscht</string>
+    <string name="save_Card">Karte gespeichert</string>
 </resources>

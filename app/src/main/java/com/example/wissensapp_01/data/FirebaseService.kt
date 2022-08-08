@@ -3,6 +3,7 @@ package com.example.wissensapp_01.data
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
+import com.example.wissensapp_01.R
 import com.example.wissensapp_01.data.model.Box
 import com.example.wissensapp_01.data.model.Card
 import com.google.firebase.firestore.FirebaseFirestore
@@ -132,7 +133,11 @@ object FirebaseService {
         return try {
             dbref.add(card)
                 .await()
-            Toast.makeText(context, "Karte gespeichert !", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                context,
+                context.resources.getString(R.string.save_Card),
+                Toast.LENGTH_LONG
+            ).show()
             getCardData(uid)
         } catch (e: Exception) {
             Log.e(TAG, "Fehler beim speichern der Karte:$e")

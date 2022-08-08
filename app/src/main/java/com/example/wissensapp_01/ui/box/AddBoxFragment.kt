@@ -28,7 +28,7 @@ class AddBoxFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnSaveBox.setOnClickListener {
+        binding.ibtnSaveBox.setOnClickListener {
             val boxName = binding.eTBoxName.text.toString()
             val boxContent = binding.eTBoxContent.text.toString()
             viewModel.saveBox(boxName, boxContent, requireContext())

@@ -38,7 +38,7 @@ class AddCardFragment : Fragment() {
 
         var boxID = ""
 
-        binding.btnSave.setOnClickListener {
+        binding.iVSaveCard.setOnClickListener {
             val a = binding.eTA.text.toString()
             val b = binding.eTB.text.toString()
             viewModel.saveCard(a, b, boxID, false, requireContext())

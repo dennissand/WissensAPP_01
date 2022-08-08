@@ -8,18 +8,6 @@
     android:background="@drawable/_box_"
     tools:context=".ui.box.AddBoxFragment">
 
-    <Button
-        android:id="@+id/btn_save_box"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="380dp"
-        android:background="@drawable/ic_baseline_circle_75_green"
-        android:text="Save"
-        app:backgroundTint="@null"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/eT_box_name"
         android:layout_width="wrap_content"
@@ -51,13 +39,39 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="@string/build_box"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ibtn_save_box"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/round_button_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eT_box_content" />
+
+    <ImageView
+        android:id="@+id/iV_save_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="21dp"
+        android:src="@drawable/save_24"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_save_box"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_save_box"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_save_box"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_save_box" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
