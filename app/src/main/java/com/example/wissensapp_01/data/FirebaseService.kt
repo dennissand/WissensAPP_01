@@ -47,11 +47,19 @@ object FirebaseService {
                 val result = boxQuery.documents[0]
                 dbref.document(result.id).delete()
                     .await()
-                Toast.makeText(context, "Box gelöscht !", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    context.resources.getString(R.string.delet_Box),
+                    Toast.LENGTH_LONG
+                ).show()
                 getBoxData(box.uid)
             } catch (e: Exception) {
                 Log.e(TAG, "keine Box gelöscht,$e")
-                Toast.makeText(context, "Box nicht gelöscht !", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    context.resources.getString(R.string.no_delet_Box),
+                    Toast.LENGTH_LONG
+                ).show()
                 null
             }
         }
@@ -91,11 +99,20 @@ object FirebaseService {
                 val result = cardQuery.documents[0]
                 dbref.document(result.id).delete()
                     .await()
-                Toast.makeText(context, "Karte gelöscht !", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    context.resources.getString(R.string.delet_Card),
+                    Toast.LENGTH_LONG
+                ).show()
                 getCardData(card.uid)
             } catch (e: Exception) {
                 Log.e(TAG, "Keine Karte gelöscht,$e")
-                Toast.makeText(context, "Karte nicht gelöscht !", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    context.resources.getString(R.string.no_delet_Card),
+                    Toast.LENGTH_LONG
+                )
+                    .show()
                 null
             }
         }
@@ -141,7 +158,11 @@ object FirebaseService {
             getCardData(uid)
         } catch (e: Exception) {
             Log.e(TAG, "Fehler beim speichern der Karte:$e")
-            Toast.makeText(context, "Karte nicht gespeichert !", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                context,
+                context.resources.getString(R.string.no_save_Card),
+                Toast.LENGTH_LONG
+            ).show()
             null
         }
     }
@@ -167,11 +188,19 @@ object FirebaseService {
         return try {
             dbref.add(box)
                 .await()
-            Toast.makeText(context, "Box gespeichert !", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                context,
+                context.resources.getString(R.string.save_Box),
+                Toast.LENGTH_LONG
+            ).show()
             getBoxData(uid)
         } catch (e: Exception) {
             Log.e(TAG, "Fehler beim speichern der Box:$e")
-            Toast.makeText(context, "Box nicht gespeichert !", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                context,
+                context.resources.getString(R.string.no_save_Box),
+                Toast.LENGTH_LONG
+            ).show()
             null
         }
     }
@@ -198,14 +227,18 @@ object FirebaseService {
 
                     )
                     .await()
-                Toast.makeText(context, "Karte geändert & gespeichert !", Toast.LENGTH_LONG)
+                Toast.makeText(
+                    context,
+                    context.resources.getString(R.string.update_card),
+                    Toast.LENGTH_LONG
+                )
                     .show()
                 getCardData(card.uid)
             } catch (e: Exception) {
                 Log.e(TAG, "Fehler beim ändern der Karte,$e")
                 Toast.makeText(
                     context,
-                    "Karte nicht geändert & gespeichert !",
+                    context.resources.getString(R.string.no_update_card),
                     Toast.LENGTH_LONG
                 )
                     .show()
@@ -227,12 +260,20 @@ object FirebaseService {
                 dbref.document(result.id)
                     .update("boxName", box.boxName, "boxContent", box.boxContent)
                     .await()
-                Toast.makeText(context, "Box nicht geändert & gespeichert !", Toast.LENGTH_LONG)
+                Toast.makeText(
+                    context,
+                    context.resources.getString(R.string.update_box),
+                    Toast.LENGTH_LONG
+                )
                     .show()
                 getBoxData(box.uid)
             } catch (e: Exception) {
                 Log.e(TAG, "Fehler beim ändern der Box ,$e")
-                Toast.makeText(context, "Box nicht geändert & gespeichert !", Toast.LENGTH_LONG)
+                Toast.makeText(
+                    context,
+                    context.resources.getString(R.string.no_update_box),
+                    Toast.LENGTH_LONG
+                )
                     .show()
                 null
             }

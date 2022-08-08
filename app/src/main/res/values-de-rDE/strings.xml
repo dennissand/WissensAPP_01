@@ -34,7 +34,7 @@
     <string name="a_card">A-Seite</string>
     <string name="b_card">B-Seite</string>
     <string name="edit_card">Karte Ändern</string>
-    <string name="update_card">Update</string>
+    <string name="update_card">Karte geändert</string>
     <string name="b_card_edit">B-Seite</string>
     <string name="a_card_edit">A-Seite</string>
     <string name="card_add_titel">Karte Hinzufügen</string>
@@ -45,4 +45,13 @@
     <string name="learn">Lernen</string>
     <string name="delet_Card">Karte gelöscht</string>
     <string name="save_Card">Karte gespeichert</string>
+    <string name="no_delet_Card">keine Karte gelöscht !</string>
+    <string name="delet_Box">Box gelöscht</string>
+    <string name="no_delet_Box">keine Box gelöscht !</string>
+    <string name="no_save_Card">keine Karte gespeichert !</string>
+    <string name="save_Box">Box gespeichert</string>
+    <string name="no_save_Box">keine Box gespeichert !</string>
+    <string name="no_update_card">Keine Karte geändert !</string>
+    <string name="update_box">"Box geändert "</string>
+    <string name="no_update_box">keine Box geändert !</string>
 </resources>

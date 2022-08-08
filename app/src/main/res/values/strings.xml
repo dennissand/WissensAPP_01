@@ -44,4 +44,13 @@
     <string name="learn">Learn</string>
     <string name="delet_Card">Card deleted</string>
     <string name="save_Card">Card saved</string>
+    <string name="no_delet_Card">no Card deleted</string>
+    <string name="delet_Box">Box deleted</string>
+    <string name="no_delet_Box">no Box deleted</string>
+    <string name="no_save_Card">no Card saved</string>
+    <string name="save_Box">Box saved</string>
+    <string name="no_save_Box" >no Box saved</string>
+    <string name="no_update_card">no Card update</string>
+    <string name="update_box">Box update</string>
+    <string name="no_update_box">no Box updated</string>
 </resources>
