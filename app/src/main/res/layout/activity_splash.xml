@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/iv_splash_regenbogen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:cropToPadding="true"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,18 +31,20 @@
         app:layout_constraintStart_toStartOf="@+id/iv_splash_regenbogen"
         app:layout_constraintTop_toTopOf="@+id/iv_splash_regenbogen"
         app:layout_constraintVertical_bias="0.161"
-        app:srcCompat="@drawable/einstein" />
+        app:srcCompat="@drawable/einstein"
+        android:contentDescription="Logo" />
 
     <TextView
         android:id="@+id/tv_splash_titel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Wissen App 01"
+        android:text="@string/wissen_app_01"
         android:textColor="@color/white"
-        android:textSize="42sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/iv_splash_einstein"
+        app:layout_constraintHorizontal_bias="0.656"
         app:layout_constraintStart_toStartOf="@+id/iv_splash_einstein"
         app:layout_constraintTop_toBottomOf="@+id/iv_splash_einstein" />
 
@@ -51,7 +53,7 @@
         android:layout_width="216dp"
         android:layout_height="68dp"
         android:layout_marginTop="32dp"
-        android:text="Inspiriert durch Frieda Schreiber"
+        android:text="@string/inspiriert_durch_frieda_schreiber"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -64,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="by Dennis Sand"
+        android:text="@string/by_dennis_sand"
         android:textSize="18sp"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/tv_splash_inspiration"

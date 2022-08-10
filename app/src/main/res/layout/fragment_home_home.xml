@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Home"
+        android:text="@string/home"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
@@ -26,9 +26,9 @@
     <TextView
         android:id="@+id/tV_spruch_text"
         android:layout_width="351dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="„Gib das, was dir wichtig ist, nicht auf, nur weil es nicht einfach ist.“"
+        android:text="@string/gib_das_was_dir_wichtig_ist_nicht_auf_nur_weil_es_nicht_einfach_ist"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Albert Einstein 1879 - 1955"
+        android:text="@string/albert_einstein_1879_1955"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +73,8 @@
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.578" />
+        app:layout_constraintVertical_bias="0.578"
+        android:contentDescription="@string/logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

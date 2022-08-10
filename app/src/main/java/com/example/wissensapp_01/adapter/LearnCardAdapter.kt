@@ -75,12 +75,12 @@ class LearnCardAdapter(
 
         holder.again.setOnClickListener {
             cardtoggeld(item, false)
-            Toast.makeText(context, "Karte nicht gekonnt!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.resources.getString(R.string.ok_card), Toast.LENGTH_SHORT).show()
         }
 
         holder.ok.setOnClickListener {
             cardtoggeld(item, true)
-            Toast.makeText(context, "Karte gekonnt!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.resources.getString(R.string.again_card), Toast.LENGTH_SHORT).show()
         }
     }
 

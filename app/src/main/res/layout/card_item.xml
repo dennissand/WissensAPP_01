@@ -32,6 +32,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/ibtn_edit_card"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,7 +67,8 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/iV_item_card"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/edit_60" />
+                app:srcCompat="@drawable/edit_60"
+                android:contentDescription="@string/edit_button_content" />
 
             <ImageButton
                 android:id="@+id/ibtn_delete_card"
@@ -81,7 +83,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/iV_item_card"
-                app:srcCompat="@drawable/delet_60" />
+                app:srcCompat="@drawable/delet_60"
+                android:contentDescription="@string/delet_button_content" />
 
 
             <ImageView
@@ -97,7 +100,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/card_01" />
+                app:srcCompat="@drawable/card_01"
+                android:contentDescription="@string/card_symbole_content" />
 
             <ImageView
                 android:id="@+id/iV_green_check"
@@ -108,7 +112,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/check_green" />
+                app:srcCompat="@drawable/check_green"
+                android:contentDescription="@string/green_hook_symbole_content" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

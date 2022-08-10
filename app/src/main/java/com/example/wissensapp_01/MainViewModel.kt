@@ -22,7 +22,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _boxes = MutableLiveData<List<Box>>()
     val boxes: LiveData<List<Box>> = _boxes
-    val _cards = MutableLiveData<List<Card>>()
+    private val _cards = MutableLiveData<List<Card>>()
     val cards: LiveData<List<Card>> = _cards
     private val _boxcards = MutableLiveData<List<Card>>()
     val boxcards: LiveData<List<Card>> = _boxcards

@@ -14,10 +14,10 @@ class SplashActivity : AppCompatActivity() {
 
         handler = Handler()
         handler.postDelayed({
-            // Delay and Start Activity
+            /** verzögern und dann startet die Activity */
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }, 3000) // here we're delaying to startActivity after 3seconds
+        }, 3000) /** hier wird die Zeit für das Anzeigen des Screens festgelegt */
     }
 }

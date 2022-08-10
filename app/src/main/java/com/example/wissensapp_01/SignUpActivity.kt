@@ -52,10 +52,10 @@ class SignUpActivity : AppCompatActivity() {
                         }
                     }
                 } else {
-                    Toast.makeText(this, "Passwort ist leider falsch", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.fail_password), Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Leere Felder sind nicht erlaubt", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.input_mail_password), Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -49,8 +49,29 @@
     <string name="no_delet_Box">no Box deleted</string>
     <string name="no_save_Card">no Card saved</string>
     <string name="save_Box">Box saved</string>
-    <string name="no_save_Box" >no Box saved</string>
+    <string name="no_save_Box">no Box saved</string>
     <string name="no_update_card">no Card update</string>
     <string name="update_box">Box update</string>
     <string name="no_update_box">no Box updated</string>
+    <string name="wissen_app_01">Knowledge App 0.1</string>
+    <string name="inspiriert_durch_frieda_schreiber">inspired by Frieda Schreiber</string>
+    <string name="gib_das_was_dir_wichtig_ist_nicht_auf_nur_weil_es_nicht_einfach_ist">„do not give up what is important to you just because it is not easy“</string>
+    <string name="ok_card">Card is learned</string>
+    <string name="again_card">Card is not learned</string>
+    <string name="input_mai_passwprd">Empty fields are not allowed !</string>
+    <string name="input_mail_password">Empty fields are not allowed !</string>
+    <string name="fail_password">Password is wrong</string>
+    <string name="logout_app_title">Log Out App ?</string>
+    <string name="logout_message">Are you sure to leave the App ?</string>
+    <string name="button_leave_app">End !</string>
+    <string name="button_stay_app">Stay !</string>
+    <string name="by_dennis_sand">by Dennis Sand</string>
+    <string name="home">Home</string>
+    <string name="albert_einstein_1879_1955">Albert Einstein 1879 - 1955</string>
+    <string name="logo">Logo</string>
+    <string name="edit_button_content">Edit Button</string>
+    <string name="delet_button_content">Delet Button</string>
+    <string name="card_symbole_content">Card Symbole</string>
+    <string name="green_hook_symbole_content">Green Hook Symbole</string>
+
 </resources>

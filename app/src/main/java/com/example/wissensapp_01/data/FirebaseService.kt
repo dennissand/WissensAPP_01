@@ -11,6 +11,8 @@ import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.tasks.await
 import java.util.*
 
+/** Das FirebaseService übergibt die Daten an Firebase und wieder zurück für die App */
+
 object FirebaseService {
     private const val TAG = "FirebaseServiceBox"
 

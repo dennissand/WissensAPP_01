@@ -54,4 +54,24 @@
     <string name="no_update_card">Keine Karte geändert !</string>
     <string name="update_box">"Box geändert "</string>
     <string name="no_update_box">keine Box geändert !</string>
+    <string name="wissen_app_01">Wissens App 0.1</string>
+    <string name="inspiriert_durch_frieda_schreiber">inspiriert von Frieda Schreiber</string>
+    <string name="gib_das_was_dir_wichtig_ist_nicht_auf_nur_weil_es_nicht_einfach_ist">\"Gib das was Dir wichtig istnicht auf, nurweil es nicht einfach ist ! \"</string>
+    <string name="ok_card">Karte gekonnt</string>
+    <string name="again_card">Karte nicht gekonnt</string>
+    <string name="input_mai_passwprd">Leere Felder sind nicht erlaubt !</string>
+    <string name="input_mail_password">Leere Felder sind nicht erlaubt !</string>
+    <string name="fail_password">Falsches Passwort !</string>
+    <string name="logout_app_title">App verlassen ?</string>
+    <string name="logout_message">Bist Du Dir sicher das Du die App verlassen möchtest ?</string>
+    <string name="button_leave_app">Verlassen</string>
+    <string name="button_stay_app">Bleiben</string>
+    <string name="by_dennis_sand">by Dennis Sand</string>
+    <string name="home">Home</string>
+    <string name="albert_einstein_1879_1955">Albert Einstein 1879 - 1955</string>
+    <string name="logo">Logo</string>
+    <string name="edit_button_content">Bearbeiten</string>
+    <string name="delet_button_content">Löschen</string>
+    <string name="card_symbole_content">Karten Symbol</string>
+    <string name="green_hook_symbole_content">Grüner Hacken</string>
 </resources>

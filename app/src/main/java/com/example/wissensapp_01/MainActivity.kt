@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.startDownload()
 
+        /** Statusbar wird hier auf transparent gestellt */
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.setDecorFitsSystemWindows(false)
         } else {
@@ -49,6 +51,9 @@ class MainActivity : AppCompatActivity() {
             )
 
         )
+
+        /** Navigation über Navbottemitems - wenn ein Navigationsfad verlassen wird,
+         * daß man wieder auf dem Startfragment startet */
 
         navView.setupWithNavController(navController)
 
