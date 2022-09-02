@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/navigation_home_home"
-        android:name="com.example.wissensapp_01.ui.home.HomeFragment"
+        android:name="com.dennissand.wissensapp_01.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home_home" />
 
     <activity
         android:id="@+id/signInActivity"
-        android:name="com.example.wissensapp_01.SignInActivity"
+        android:name="com.dennissand.wissensapp_01.SignInActivity"
         android:label="activity_sign_in"
         tools:layout="@layout/activity_sign_in" />
     <activity
         android:id="@+id/signUpActivity"
-        android:name="com.example.wissensapp_01.SignUpActivity"
+        android:name="com.dennissand.wissensapp_01.SignUpActivity"
         android:label="activity_sign_up"
         tools:layout="@layout/activity_sign_up" />
 
@@ -26,7 +26,7 @@
         app:startDestination="@id/navigation_card_home">
         <fragment
             android:id="@+id/editCardFragment"
-            android:name="com.example.wissensapp_01.ui.card.EditCardFragment"
+            android:name="com.dennissand.wissensapp_01.ui.card.EditCardFragment"
             android:label="EditCardFragment"
             tools:layout="@layout/fragment_card_edit" >
             <action
@@ -38,7 +38,7 @@
         </fragment>
         <fragment
             android:id="@+id/addCardFragment"
-            android:name="com.example.wissensapp_01.ui.card.AddCardFragment"
+            android:name="com.dennissand.wissensapp_01.ui.card.AddCardFragment"
             android:label="AddCardFragment"
             tools:layout="@layout/fragment_card_add" >
             <action
@@ -47,7 +47,7 @@
         </fragment>
         <fragment
             android:id="@+id/navigation_card_home"
-            android:name="com.example.wissensapp_01.ui.card.CardFragment"
+            android:name="com.dennissand.wissensapp_01.ui.card.CardFragment"
             android:label="@string/title_card"
             tools:layout="@layout/fragment_card_home" >
             <action
@@ -62,7 +62,7 @@
         app:startDestination="@id/navigation_learn_home">
         <fragment
             android:id="@+id/learnCardFragment"
-            android:name="com.example.wissensapp_01.ui.learn.LearnCardFragment"
+            android:name="com.dennissand.wissensapp_01.ui.learn.LearnCardFragment"
             android:label="LearnCardFragment"
             tools:layout="@layout/fragment_learn_card">
             <argument
@@ -74,7 +74,7 @@
         </fragment>
         <fragment
             android:id="@+id/navigation_learn_home"
-            android:name="com.example.wissensapp_01.ui.learn.LearnFragment"
+            android:name="com.dennissand.wissensapp_01.ui.learn.LearnFragment"
             android:label="@string/title_learn"
             tools:layout="@layout/fragment_learn_home" >
             <action
@@ -86,7 +86,7 @@
         </fragment>
         <fragment
             android:id="@+id/learnDetailFragment"
-            android:name="com.example.wissensapp_01.ui.learn.LearnDetailFragment"
+            android:name="com.dennissand.wissensapp_01.ui.learn.LearnDetailFragment"
             android:label="LearnDetailFragment" >
             <argument
                 android:name="showlearncard"
@@ -103,7 +103,7 @@
         app:startDestination="@id/boxFragment">
         <fragment
             android:id="@+id/boxFragment"
-            android:name="com.example.wissensapp_01.ui.box.BoxFragment"
+            android:name="com.dennissand.wissensapp_01.ui.box.BoxFragment"
             android:label="fragment_box_home"
             tools:layout="@layout/fragment_box_home" >
             <action
@@ -118,7 +118,7 @@
         </fragment>
         <fragment
             android:id="@+id/detailBoxFragment"
-            android:name="com.example.wissensapp_01.ui.box.DetailBoxFragment"
+            android:name="com.dennissand.wissensapp_01.ui.box.DetailBoxFragment"
             android:label="fragment_box_detail"
             tools:layout="@layout/fragment_box_detail" >
             <action
@@ -130,7 +130,7 @@
         </fragment>
         <fragment
             android:id="@+id/addBoxFragment"
-            android:name="com.example.wissensapp_01.ui.box.AddBoxFragment"
+            android:name="com.dennissand.wissensapp_01.ui.box.AddBoxFragment"
             android:label="fragment_box_add"
             tools:layout="@layout/fragment_box_add" >
             <action
@@ -139,7 +139,7 @@
         </fragment>
         <fragment
             android:id="@+id/editBoxFragment"
-            android:name="com.example.wissensapp_01.ui.box.EditBoxFragment"
+            android:name="com.dennissand.wissensapp_01.ui.box.EditBoxFragment"
             android:label="fragment_box_edit"
             tools:layout="@layout/fragment_box_edit" >
             <action

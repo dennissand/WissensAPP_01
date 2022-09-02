@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.wissensapp_01">
+    package="com.dennissand.wissensapp_01">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,13 +13,13 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.WissensAPP_01">
-        <activity android:name=".MainActivity"
+        <activity android:name="com.dennissand.wissensapp_01.MainActivity"
             android:exported="true"/>
         <activity
-            android:name=".SignInActivity"
+            android:name="com.dennissand.wissensapp_01.SignInActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashActivity"
+            android:name="com.dennissand.wissensapp_01.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignUpActivity"
+            android:name="com.dennissand.wissensapp_01.SignUpActivity"
             android:exported="false" />
 
     </application>
